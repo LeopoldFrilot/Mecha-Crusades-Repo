@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 94996118}
   - component: {fileID: 94996117}
   - component: {fileID: 94996120}
+  - component: {fileID: 94996121}
   m_Layer: 0
   m_Name: Hero
   m_TagString: Untagged
@@ -155,7 +156,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.22340417}
+  m_Offset: {x: 0, y: 0.22022358}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -166,7 +167,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.19943476, y: 0.40372682}
+  m_Size: {x: 0.19943476, y: 0.410088}
   m_EdgeRadius: 0
 --- !u!50 &94996118
 Rigidbody2D:
@@ -188,7 +189,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!4 &94996119
 Transform:
   m_ObjectHideFlags: 0
@@ -201,6 +202,7 @@ Transform:
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children:
   - {fileID: 977731943}
+  - {fileID: 1326894660}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -223,6 +225,34 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &94996121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 94996116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee8279a2cfc6f6948beb9d2cc660165a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 0
+  speed: 0
+  shortHopHeight: 0
+  fullHopMultiplier: 0
+  fullHopHeight: 0
+  aerialSpeed: 0
+  maxMidairOptions: 0
+  maxDoubleJumps: 0
+  midAirJumpHeight: 0
+  ground: {fileID: 133578415}
+  groundDetector: {fileID: 1326894660}
+--- !u!4 &133578415 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 133578415, guid: 066bb90b2d8b8d74e9e108bfa47dd6d3, type: 3}
+  m_PrefabInstance: {fileID: 491334636379986147}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -454,6 +484,36 @@ Transform:
   m_Father: {fileID: 94996119}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1326894659
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1326894660}
+  m_Layer: 0
+  m_Name: GroundDetector
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1326894660
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1326894659}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.0189, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 94996119}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1330445351
 GameObject:
   m_ObjectHideFlags: 0
@@ -668,6 +728,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 133578415, guid: 066bb90b2d8b8d74e9e108bfa47dd6d3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.64
+      objectReference: {fileID: 0}
     - target: {fileID: 491334637738261265, guid: 066bb90b2d8b8d74e9e108bfa47dd6d3, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8
