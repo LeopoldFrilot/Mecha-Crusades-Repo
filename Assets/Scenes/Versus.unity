@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 94996117}
   - component: {fileID: 94996120}
   - component: {fileID: 94996121}
+  - component: {fileID: 94996122}
   m_Layer: 0
   m_Name: Hero
   m_TagString: Untagged
@@ -248,6 +249,20 @@ MonoBehaviour:
   midAirJumpHeight: 0
   ground: {fileID: 133578415}
   groundDetector: {fileID: 1326894660}
+--- !u!114 &94996122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 94996116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caa428465c632c445b628cd277397511, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  percentageFrameDifAllowed: 50
+  aveHorizSpeed: 0
 --- !u!4 &133578415 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 133578415, guid: 066bb90b2d8b8d74e9e108bfa47dd6d3, type: 3}

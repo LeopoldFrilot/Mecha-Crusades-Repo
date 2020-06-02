@@ -24,11 +24,7 @@ public class GeneralPlayerController : MonoBehaviour
     private int midairOptionsCount;
     private bool isGrounded;
     private Rigidbody2D rb; // Rigidbody of player
-        // Keeping track of location for speed purposes
-        private Vector2 prevLoc;    
-        private Vector2 curLoc;
-        private float horizSpeed;
-        private float vertSpeed;
+    float horizSpeed;
         // Lag related
         private float lag;
         private float lagTrack;
@@ -85,11 +81,9 @@ public class GeneralPlayerController : MonoBehaviour
             FRISpeed = aerialSpeed * Time.deltaTime;
         }
         float movement = Input.GetAxis("Horizontal") * FRISpeed;
-        prevLoc = curLoc;
         gameObject.transform.Translate(movement, 0, 0); // moves the character
-        curLoc = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y);
-        horizSpeed = (curLoc.x - prevLoc.x) / Time.deltaTime;
-        vertSpeed = (curLoc.y - prevLoc.y) / Time.deltaTime;
+        horizSpeed = FindObjectOfType<Spedometer>().GetAveHorizSpeed();
+        //vertSpeed = (curLoc.y - prevLoc.y) / Time.deltaTime;
         CheckJump(horizSpeed);
     }
 
@@ -99,13 +93,13 @@ public class GeneralPlayerController : MonoBehaviour
         if ((rb.velocity.y == 0) && (ground.position.y >= groundDetector.position.y))
         {
             isGrounded = true;
-            Debug.Log("State: Grounded");
+            //Debug.Log("State: Grounded");
             GroundedReset();
         }
         else
         {
             isGrounded = false;
-            Debug.Log("State: Aerial");
+            //Debug.Log("State: Aerial");
         }
     }
 
@@ -124,7 +118,7 @@ public class GeneralPlayerController : MonoBehaviour
             {
                 if(doubleJumpCount < maxDoubleJumps && midairOptionsCount < maxMidairOptions)
                 {
-                    Debug.Log("DJ");
+                    //Debug.Log("DJ");
                     rb.velocity = new Vector2(xMomentum, midAirJumpHeight); // Will midAirJump if airborne and have enough midair jumps left
                     doubleJumpCount++;
                     midairOptionsCount++;
@@ -175,7 +169,7 @@ public class GeneralPlayerController : MonoBehaviour
         if (lagTrack < lag)
         {
             lagTrack += Time.deltaTime;
-            Debug.Log("In lag");
+            //Debug.Log("In lag");
         }
         else
         {
