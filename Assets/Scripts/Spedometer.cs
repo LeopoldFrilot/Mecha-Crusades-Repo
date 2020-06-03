@@ -4,69 +4,81 @@ using UnityEngine;
 
 public class Spedometer : MonoBehaviour
 {
-    [SerializeField] const int framesNeeded = 5;    // In order to find the average apeed we will take the average of speeds over this frame period
-    [SerializeField] float percentageFrameDifAllowed = 50f; // Tries to make sure the frames are consistent when calculating speed
-    private float[] speedList = new float[framesNeeded];    // Tracks the speeds found in an array
+    [SerializeField] int framesNeeded = 3;    // In order to find the average apeed we will take the average of speeds over this frame period
+    [SerializeField] float percentageFrameDifAllowed = 10f; // Tries to make sure the frames are consistent when calculating speed
+    private List<float> speedList = new List<float>();  // Tracks the speeds found in an array
     //private Vector3[] positionList = new Vector3[framesNeeded];
     private Vector3 prevPosition;   // Keeps a record of the object's previous position one frame ago
     private Vector3 curPosition;    // Keeps a record of the objects current position
     private float prevFrameTime;    // Keeps a record of the previous frame's duration in real-time
     private float curFrameTime;     // Keeps a record of the last frame's duration in real-time
+    private const float targetFrameLength = 1f / 60f;
     [SerializeField] private float aveHorizSpeed;
     // Start is called before the first frame update
     void Start()
     {
+        // This sets framerate to 60. This should go into the main game script later
+        Application.targetFrameRate = 60;
         // Initializing
         curPosition = Vector3.zero;
         curFrameTime = 0f;
+        speedList.Clear();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(speedList);
         prevPosition = curPosition;
         prevFrameTime = curFrameTime;
         curPosition = gameObject.transform.position;
         curFrameTime = Time.deltaTime;
         if (prevFrameTime != 0)
         {
-            if (Mathf.Abs(((curFrameTime - prevFrameTime) / ((prevFrameTime + curFrameTime)/2f))) >= (percentageFrameDifAllowed / 100))
+            float percChange = Mathf.Abs((curFrameTime - prevFrameTime) / prevFrameTime) * 100;
+            if (percChange >= (percentageFrameDifAllowed)) // Checks if percent difference of the previous frame is less than
             {
-                Debug.Log("Frame jump");
+                Debug.Log("Frame length changed by " + (int)percChange + "%");
+                float percError = Mathf.Abs((curFrameTime - targetFrameLength) / targetFrameLength) * 100;
+                if(percError >= percentageFrameDifAllowed)
+                {
+                    Debug.Log("Frame dropped from calculation");
+                    curFrameTime = prevFrameTime;
+                }
             }
         }
-        if (prevPosition != Vector3.zero)
+        PopulateHorizSpeedList();
+        aveHorizSpeed = CalculateAveSpeed();
+    }
+
+    private void PopulateHorizSpeedList()
+    {
+        float horizSpeed = (curPosition.x - prevPosition.x) / curFrameTime;
+        if(speedList.Count == framesNeeded)
         {
-            PopulateHorizSpeedArray();
-            aveHorizSpeed = CalculateAveSpeed();
+            speedList.RemoveRange(0, 1);
         }
-        else
-        {
-            Debug.Log(gameObject.name + " was still last frame.");
-        }
+        speedList.Add(horizSpeed);
     }
 
     private float CalculateAveSpeed()
     {
         float sum = 0;
-        for (int i = 0; i < framesNeeded; i++)
+        for (int i = 0; i < speedList.Count; i++)
         {
-            sum += i;
+            sum += speedList[i];
         }
-        return sum / framesNeeded;
+        //ShowList(speedList);
+        return sum / speedList.Count;
     }
 
-    private void PopulateHorizSpeedArray()
+    /* ShowList is for debugging purposes only */
+    private void ShowList(List<float> list)
     {
-        float horizSpeed = (prevPosition.x - curPosition.x) / curFrameTime;
-        for (int i = framesNeeded - 2; i >= 0; i--)
+        for(int i = 0; i < list.Count; i++)
         {
-            speedList[i + 1] = speedList[i];
+            Debug.Log(list[i]);
         }
-        speedList[0] = horizSpeed;
     }
-
     public float GetAveHorizSpeed()
     {
         return aveHorizSpeed;

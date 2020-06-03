@@ -14,7 +14,7 @@ public class GeneralPlayerController : MonoBehaviour
     [SerializeField] float fullHopMultiplier;   // Multiplier to compine with shorthopheight to get fullhopheight, will usually be 2
     [SerializeField] float fullHopHeight;   // velocity multiplier for fullhop
     [Header("Aerial")]
-    [SerializeField] float aerialSpeed;   // Horizontal speed of movement while airborne
+    [SerializeField] float aerialSpeedIncrease;   // Horizontal speed of movement while airborne
     [SerializeField] int maxMidairOptions;  // Denotes the amount of options a player has for midair movement before falling to the ground
     [SerializeField] int maxDoubleJumps;  // max number of midair jumps a character is allowed
     [SerializeField] float midAirJumpHeight;    // velocity multiplier for when a player jumps midair
@@ -78,7 +78,7 @@ public class GeneralPlayerController : MonoBehaviour
         }
         else
         {
-            FRISpeed = aerialSpeed * Time.deltaTime;
+            FRISpeed = aerialSpeedIncrease * Time.deltaTime;
         }
         float movement = Input.GetAxis("Horizontal") * FRISpeed;
         gameObject.transform.Translate(movement, 0, 0); // moves the character
@@ -141,7 +141,7 @@ public class GeneralPlayerController : MonoBehaviour
         fullHopHeight = fullHopMultiplier * shortHopHeight;
 
         // Aerial
-        aerialSpeed = 2f;
+        aerialSpeedIncrease = 0f;
         maxMidairOptions = 2;
         maxDoubleJumps = 1;
         midAirJumpHeight = 3f;

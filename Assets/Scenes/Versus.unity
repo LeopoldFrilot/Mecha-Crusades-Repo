@@ -243,7 +243,7 @@ MonoBehaviour:
   shortHopHeight: 0
   fullHopMultiplier: 0
   fullHopHeight: 0
-  aerialSpeed: 0
+  aerialSpeedIncrease: 0
   maxMidairOptions: 0
   maxDoubleJumps: 0
   midAirJumpHeight: 0
@@ -261,7 +261,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: caa428465c632c445b628cd277397511, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  percentageFrameDifAllowed: 50
+  framesNeeded: 3
+  percentageFrameDifAllowed: 10
   aveHorizSpeed: 0
 --- !u!4 &133578415 stripped
 Transform:
