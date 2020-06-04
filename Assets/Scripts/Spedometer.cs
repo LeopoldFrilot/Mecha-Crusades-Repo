@@ -37,11 +37,11 @@ public class Spedometer : MonoBehaviour
             float percChange = Mathf.Abs((curFrameTime - prevFrameTime) / prevFrameTime) * 100;
             if (percChange >= (percentageFrameDifAllowed)) // Checks if percent difference of the previous frame is less than
             {
-                Debug.Log("Frame length changed by " + (int)percChange + "%");
+                //Debug.Log("Frame length changed by " + (int)percChange + "%");
                 float percError = Mathf.Abs((curFrameTime - targetFrameLength) / targetFrameLength) * 100;
                 if(percError >= percentageFrameDifAllowed)
                 {
-                    Debug.Log("Frame dropped from calculation");
+                    //Debug.Log("Frame dropped from calculation");
                     curFrameTime = prevFrameTime;
                 }
             }

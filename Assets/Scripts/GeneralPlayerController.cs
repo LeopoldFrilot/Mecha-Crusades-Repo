@@ -14,30 +14,31 @@ public class GeneralPlayerController : MonoBehaviour
     [SerializeField] float fullHopMultiplier;   // Multiplier to compine with shorthopheight to get fullhopheight, will usually be 2
     [SerializeField] float fullHopHeight;   // velocity multiplier for fullhop
     [Header("Aerial")]
-    [SerializeField] float aerialSpeedIncrease;   // Horizontal speed of movement while airborne
+    [SerializeField] float aerialSpeed;   // Horizontal speed of movement while airborne
     [SerializeField] int maxMidairOptions;  // Denotes the amount of options a player has for midair movement before falling to the ground
     [SerializeField] int maxDoubleJumps;  // max number of midair jumps a character is allowed
     [SerializeField] float midAirJumpHeight;    // velocity multiplier for when a player jumps midair
+    [SerializeField] float maxAirSpeed; // Max speed the player can go while airborne, barring momentum
 
     // local variables
-    private int doubleJumpCount;
-    private int midairOptionsCount;
-    private bool isGrounded;
+    private int doubleJumpCount;    // stores the current number of midair jumps used since the last time the player left the grounded state
+    private int midairOptionsCount; // stores the current number of midair options used since the last time the player left the grounded state
+    private bool isGrounded;    // stores whether the player is grounded or not
     private Rigidbody2D rb; // Rigidbody of player
-    float horizSpeed;
+    private float horizSpeed;   // stores the average speed of the player
         // Lag related
-        private float lag;
-        private float lagTrack;
-        private bool inLag;
+        private float lag;  // stores the amount of frames the player will beput in lag
+        private float lagTrack; // stores the current amount of frames the player has been in lag since the most recent lag started
+        private bool inLag; // stores whether the player is stuck in lag or not
 
     // External objects; these must be connected
-    [SerializeField] Transform ground;
-    [SerializeField] Transform groundDetector;
+    [SerializeField] Transform ground;  // Stores the location of the ground for calculating when the player is grounded
+    [SerializeField] Transform groundDetector;  // Stores the location of the bottom of the player for calculating when the player is grounded
 
     // Start is called before the first frame update
     void Start()
     {
-        rb = gameObject.GetComponent<Rigidbody2D>();
+        rb = gameObject.GetComponent<Rigidbody2D>();    // Capturing the rigidbody in a variable
         GroundedReset();
         ImportDefaultStats();
         //ImportStats(string characterName);
@@ -47,6 +48,8 @@ public class GeneralPlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //DetectKey();
+        CheckState();
         TempMove();
         /*
          ManageBuffer();
@@ -62,29 +65,47 @@ public class GeneralPlayerController : MonoBehaviour
         }
     }
 
+    private void DetectKey()
+    {
+        foreach (KeyCode vKey in System.Enum.GetValues(typeof(KeyCode)))
+        {
+            if (Input.GetKey(vKey))
+            {
+                Debug.Log(vKey);
+            }
+        }
+    }
+
     /* TempMove is a function which allows primitive movement
      * while I work on animation and logistics */
     private void TempMove()
     {
+        // Player cannot move when in lag
         if (inLag)
         {
+            // DI goes here
             return;
         }
-        float FRISpeed; // Framerate-independednt horizontal movement
-        CheckState();
+        float movement; // stores this frame's movement based on player input
         if (isGrounded) 
         {
-            FRISpeed = speed * Time.deltaTime;
+            movement = Input.GetAxis("Horizontal") * speed * Time.deltaTime;    // Framerate-independednt horizontal movement
         }
         else
         {
-            FRISpeed = aerialSpeedIncrease * Time.deltaTime;
+            if(Mathf.Abs(FindObjectOfType<Spedometer>().GetAveHorizSpeed()) <= maxAirSpeed)
+            {
+                movement = Input.GetAxis("Horizontal") * aerialSpeed * Time.deltaTime;
+            }
+            else
+            {
+                movement = 0;
+            }
         }
-        float movement = Input.GetAxis("Horizontal") * FRISpeed;
         gameObject.transform.Translate(movement, 0, 0); // moves the character
         horizSpeed = FindObjectOfType<Spedometer>().GetAveHorizSpeed();
         //vertSpeed = (curLoc.y - prevLoc.y) / Time.deltaTime;
-        CheckJump(horizSpeed);
+        CheckJump(movement);
     }
 
     /* CheckState is a function which manages the grounded and aerial state */
@@ -105,21 +126,21 @@ public class GeneralPlayerController : MonoBehaviour
 
     /* CheckJump is a function which manages what happens when the player activates teh jump command
      * which will be different depending on the player's controller and controller config */
-    private void CheckJump(float xMomentum)
+    private void CheckJump(float movement)
     {
-        if (Input.GetButton("Jump") && !inLag)
+        if (Input.GetButtonDown("Jump") && !inLag)
         {
             if (isGrounded)
             {
-                rb.velocity = new Vector2(xMomentum, fullHopHeight);    // For now, we will always jump at fullhopheight
-                LagForSeconds(.3f); // jump has .3 seconds of lag
+                rb.velocity = new Vector2(Input.GetAxis("Horizontal") * speed, fullHopHeight);    // For now, we will always jump at fullhopheight
+                //LagForSeconds(.3f); // jump has .3 seconds of lag
             }
             else
             {
                 if(doubleJumpCount < maxDoubleJumps && midairOptionsCount < maxMidairOptions)
                 {
                     //Debug.Log("DJ");
-                    rb.velocity = new Vector2(xMomentum, midAirJumpHeight); // Will midAirJump if airborne and have enough midair jumps left
+                    rb.velocity = new Vector2(Input.GetAxis("Horizontal") * aerialSpeed, midAirJumpHeight); // Will midAirJump if airborne and have enough midair jumps left
                     doubleJumpCount++;
                     midairOptionsCount++;
                 }
@@ -141,10 +162,11 @@ public class GeneralPlayerController : MonoBehaviour
         fullHopHeight = fullHopMultiplier * shortHopHeight;
 
         // Aerial
-        aerialSpeedIncrease = 0f;
+        aerialSpeed = 3f;
         maxMidairOptions = 2;
         maxDoubleJumps = 1;
-        midAirJumpHeight = 3f;
+        midAirJumpHeight = 5f;
+        maxAirSpeed = 4f;
     }
 
     /* GroundedReset sets certain variables to their original values as needed */
