@@ -19,11 +19,13 @@ namespace FightingGame.Player.Character
         [SerializeField] public int maxMidairOptions;  // Denotes the amount of options a player has for midair movement before falling to the ground
         [SerializeField] public int maxDoubleJumps;  // max number of midair jumps a character is allowed
         [SerializeField] public float midAirJumpHeight;    // velocity multiplier for when a player jumps midair
-        [SerializeField] public float maxAirSpeed; // Max speed the player can go while airborne, barring momentum
+        [SerializeField] public float maxAirSpeed;  // Max speed the player can go while airborne, barring momentum
+        [SerializeField] public float airDashDist;  // Distance the player will travel when the air-dash has been triggered
         [Header("Lag")]
         [SerializeField] public int lagJump;
         [SerializeField] public int lagDoubleJump;
         [SerializeField] public int lagNormalLand;
+        [SerializeField] public int lagAirDash;
 
         //[SerializeField] CharConfig configFile; 
         public void Start()
@@ -55,6 +57,7 @@ namespace FightingGame.Player.Character
             maxDoubleJumps = 1;
             midAirJumpHeight = 7f;
             maxAirSpeed = 5f;
+            airDashDist = 2f;
 
             // Lag
             lagJump = 3;
