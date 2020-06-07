@@ -33,12 +33,6 @@ namespace FightingGame.Player.Movement
         * and lag for a few frames */
         private void AirDashCheck()
         {
-            // Should AirDash cancel lag? currently: yes
-            if (lagMan.IsInLag())
-            {
-                lagMan.LagForFrames(0);
-            }
-            
             if (groundCheck.GetGroundedState() == false)
             {
                 if (Input.GetAxis("Horizontal") > 0)
@@ -60,6 +54,11 @@ namespace FightingGame.Player.Movement
         // This needs WORK but it works for now. We don't want the dash to be so instant
         private void Dash(int dir)
         {
+            // Should AirDash cancel lag? currently: yes
+            if (lagMan.IsInLag())
+            {
+                lagMan.LagForFrames(0);
+            }
             if (PC.midairOptionsCount < character.maxMidairOptions)
             {
                 gameObject.transform.position = gameObject.transform.position + dir * new Vector3(character.airDashDist, 0, 0);

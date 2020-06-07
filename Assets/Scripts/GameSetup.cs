@@ -6,7 +6,7 @@ namespace FightingGame
 {
     public class GameSetup : MonoBehaviour
     {
-        public void Start()
+        public void Awake()
         {
             Application.targetFrameRate = 60;
         }

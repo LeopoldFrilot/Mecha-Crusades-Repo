@@ -29,7 +29,7 @@ namespace FightingGame.Player.Movement
          * which will be different depending on the player's controller and controller config */
         private void CheckJump()
         {
-            if (Input.GetButtonDown("Jump") && !lagMan.IsInLag())
+            if (Input.GetButtonDown("Jump") && lagMan.IsInLag() == false)
             {
                 if (groundCheck.GetGroundedState())
                 {

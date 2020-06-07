@@ -28,23 +28,27 @@ namespace FightingGame.Player
         {
             lag = num;
             inLag = true;
+            lagTrack = 0;
         }
 
         /* ManageLag holds the inLag variable at true until the lag timer "lagtrack" 
          * runs out */
         private void ManageLag()
         {
+            //Debug.Log("lag is: " + lag);
             if (lagTrack < lag)
             {
                 lagTrack++;
-                Debug.Log("In lag");
+                //Debug.Log("I've been lagging for " + lagTrack + " frames: " + inLag);
             }
             else
             {
+                //Debug.Log("Lag Over: " + lag);
                 inLag = false;
                 lagTrack = 0;
                 lag = 0;
             }
+
         }
         public bool IsInLag()
         {

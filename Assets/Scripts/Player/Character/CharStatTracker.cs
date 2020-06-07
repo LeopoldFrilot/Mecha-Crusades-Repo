@@ -60,9 +60,10 @@ namespace FightingGame.Player.Character
             airDashDist = 2f;
 
             // Lag
-            lagJump = 3;
-            lagDoubleJump = 1;
-            lagNormalLand = 0;
+            lagJump = 5;
+            lagDoubleJump = 5;
+            lagNormalLand = 3;
+            lagAirDash = 10;
         }
         private void LoadSpecifics()
         {

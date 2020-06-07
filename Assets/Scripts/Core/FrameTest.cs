@@ -4,7 +4,6 @@ using UnityEngine;
 
 namespace FightingGame.Core
 {
-
     public class FrameTest : MonoBehaviour
     {
         [SerializeField] float percentageFrameDifAllowed = 10f; // Tries to make sure the frames are consistent when calculating speed
@@ -28,7 +27,7 @@ namespace FightingGame.Core
                     float percError = Mathf.Abs((curFrameTime - targetFrameLength) / targetFrameLength) * 100;
                     if (percError >= percentageFrameDifAllowed)
                     {
-                        //Debug.Log("Frame dropped from calculation");
+                        Debug.Log("Frame dropped from calculation because it differed from target framerate by " + (int)percError + "%");
                         curFrameTime = prevFrameTime;
                     }
                 }
