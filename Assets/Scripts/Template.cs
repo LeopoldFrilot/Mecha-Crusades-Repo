@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace FightingGame.Player.State
+namespace FightingGame
 {
-    public class GroundedReset : MonoBehaviour
+    public class Template : MonoBehaviour
     {
         public void Start()
         {

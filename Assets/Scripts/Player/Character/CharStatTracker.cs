@@ -49,15 +49,15 @@ namespace FightingGame.Player.Character
 
             // Grounded
             speed = 4f;
-            shortHopHeight = 4f;
+            shortHopHeight = 3.5f;
             fullHopMultiplier = 2f;
             fullHopHeight = fullHopMultiplier * shortHopHeight;
 
             // Aerial
-            aerialSpeed = 20f;
+            aerialSpeed = 25f;
             maxMidairOptions = 2;
             maxDoubleJumps = 1;
-            midAirJumpHeight = 7f;
+            midAirJumpHeight = 6.5f;
             maxAirSpeed = 5f;
             airDashDist = 2f;
             gravityScalar = 2f;
