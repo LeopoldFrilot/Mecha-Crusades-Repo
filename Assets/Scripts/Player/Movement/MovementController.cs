@@ -42,14 +42,14 @@ namespace FightingGame.Player.Movement
             float movement; // stores this frame's movement based on player input
             if (groundCheck.GetGroundedState())
             {
-                movement = Input.GetAxis("Horizontal") * PC.Speed * frameT.GetCurFrameTime();    // Framerate-independednt horizontal movement
+                movement = Input.GetAxis("Horizontal") * PC.Speed * frameT.CurFrameTime;    // Framerate-independednt horizontal movement
                 gameObject.transform.Translate(movement, 0, 0);
             }
             else
             {
                 if (Mathf.Abs(rb.velocity.x) <= PC.MaxAirSpeed)
                 {
-                    rb.velocity = rb.velocity + new Vector2(Input.GetAxis("Horizontal") * PC.AerialSpeed * frameT.GetCurFrameTime(),0);
+                    rb.velocity = rb.velocity + new Vector2(Input.GetAxis("Horizontal") * PC.AerialSpeed * frameT.CurFrameTime,0);
                 }
                 else
                 {

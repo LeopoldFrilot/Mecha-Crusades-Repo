@@ -245,8 +245,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43ff3a9c3de65314c93d76d40f6c9f8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doubleJumpCount: 0
-  midairOptionsCount: 0
+  maxHealth: 0
+  speed: 0
+  shortHopHeight: 0
+  fullHopMultiplier: 0
+  fullHopHeight: 0
+  aerialSpeed: 0
+  maxMidairOptions: 0
+  maxDoubleJumps: 0
+  midAirJumpHeight: 0
+  maxAirSpeed: 0
+  airDashDist: 0
+  gravityScalar: 0
+  fastFallPush: 0
+  lagJump: 0
+  lagDoubleJump: 0
+  lagNormalLand: 0
+  lagHardLand: 0
+  lagAirDash: 0
+  _doubleJumpCount: 0
+  _midairOptionsCount: 0
 --- !u!114 &94996122
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -323,23 +341,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ff5a0549e29a894ea5bed24ac4e8f3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 0
-  speed: 0
-  shortHopHeight: 0
-  fullHopMultiplier: 0
-  fullHopHeight: 0
-  aerialSpeed: 0
-  maxMidairOptions: 0
-  maxDoubleJumps: 0
-  midAirJumpHeight: 0
-  maxAirSpeed: 0
-  airDashDist: 0
-  gravityScalar: 0
-  lagJump: 0
-  lagDoubleJump: 0
-  lagNormalLand: 0
-  lagHardLand: 0
-  lagAirDash: 0
 --- !u!114 &94996125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -426,7 +427,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b50a936a7df93d940a2a049369d1e486, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FFPush: 1
   gravityScalar: 2
 --- !u!1 &132229246
 GameObject:
@@ -512,6 +512,85 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 133578415, guid: 066bb90b2d8b8d74e9e108bfa47dd6d3, type: 3}
   m_PrefabInstance: {fileID: 491334636379986147}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &261301222
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 261301223}
+  - component: {fileID: 261301225}
+  - component: {fileID: 261301224}
+  m_Layer: 5
+  m_Name: FPSTracker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &261301223
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 261301222}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1849784247}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -882, y: 498}
+  m_SizeDelta: {x: 145.61163, y: 64.999985}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &261301224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 261301222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 30
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 3
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'FPS: '
+--- !u!222 &261301225
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 261301222}
+  m_CullTransparentMesh: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1016,6 +1095,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aerialOptionsCounter: {fileID: 1124541883}
+  FPSTracker: {fileID: 261301222}
 --- !u!1001 &1223231598
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1499,6 +1579,7 @@ RectTransform:
   - {fileID: 1614695827}
   - {fileID: 824831103}
   - {fileID: 1689921862}
+  - {fileID: 261301223}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -33,7 +33,7 @@ namespace FightingGame.Player.Movement
 
         private void PopulateHorizSpeedList()
         {
-            float horizSpeed = (curPosition.x - prevPosition.x) / frameT.GetCurFrameTime();
+            float horizSpeed = (curPosition.x - prevPosition.x) / frameT.CurFrameTime;
             if (speedList.Count == framesNeeded)
             {
                 speedList.RemoveRange(0, 1);
