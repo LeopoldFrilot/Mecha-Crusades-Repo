@@ -44,6 +44,7 @@ namespace FightingGame.Player.Movement
                         rb.velocity = new Vector2(0, character.midAirJumpHeight); // Will midAirJump if airborne and have enough midair jumps left
                         PC.doubleJumpCount++;
                         PC.midairOptionsCount++;
+                        lagMan.LagForFrames(character.lagDoubleJump);
                     }
                 }
             }

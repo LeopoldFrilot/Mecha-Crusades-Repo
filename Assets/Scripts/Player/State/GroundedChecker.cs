@@ -29,13 +29,20 @@ namespace FightingGame.Player.State
         {
             //Debug.Log("Player Height: " + gameObject.transform.position.y);
             //Debug.Log("Ground Height: " + ground.position.y);
-            if ((rb.velocity.y == 0) && (ground.position.y >= gameObject.transform.position.y))
+            if (ground.position.y >= gameObject.transform.position.y)
             {
                 if(isGrounded == false)
                 {
-                    rb.velocity = Vector2.zero;
-                    lagMan.LagForFrames(character.lagNormalLand);
                     PC.GroundedReset();
+                    rb.velocity = Vector2.zero;
+                    if (lagMan.IsInLag())
+                    {
+                        lagMan.LagForFrames(character.lagHardLand);
+                    }
+                    else
+                    {
+                        lagMan.LagForFrames(character.lagNormalLand);
+                    }
                 }
                 isGrounded = true;
                 //Debug.Log("State: Grounded");

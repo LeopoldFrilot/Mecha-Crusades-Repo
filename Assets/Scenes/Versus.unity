@@ -145,6 +145,7 @@ GameObject:
   - component: {fileID: 94996129}
   - component: {fileID: 94996128}
   - component: {fileID: 94996130}
+  - component: {fileID: 94996131}
   m_Layer: 0
   m_Name: Hero
   m_TagString: Untagged
@@ -193,7 +194,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 2
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -333,9 +334,11 @@ MonoBehaviour:
   midAirJumpHeight: 0
   maxAirSpeed: 0
   airDashDist: 0
+  gravityScalar: 0
   lagJump: 0
   lagDoubleJump: 0
   lagNormalLand: 0
+  lagHardLand: 0
   lagAirDash: 0
 --- !u!114 &94996125
 MonoBehaviour:
@@ -411,6 +414,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47ce54bad7ac8444a836c238831aa607, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &94996131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 94996116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b50a936a7df93d940a2a049369d1e486, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FFPush: 1
+  gravityScalar: 2
 --- !u!1 &132229246
 GameObject:
   m_ObjectHideFlags: 0

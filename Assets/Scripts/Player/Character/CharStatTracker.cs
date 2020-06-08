@@ -21,10 +21,12 @@ namespace FightingGame.Player.Character
         [SerializeField] public float midAirJumpHeight;    // velocity multiplier for when a player jumps midair
         [SerializeField] public float maxAirSpeed;  // Max speed the player can go while airborne, barring momentum
         [SerializeField] public float airDashDist;  // Distance the player will travel when the air-dash has been triggered
+        [SerializeField] public float gravityScalar;    // How fast characters fall
         [Header("Lag")]
         [SerializeField] public int lagJump;
         [SerializeField] public int lagDoubleJump;
         [SerializeField] public int lagNormalLand;
+        [SerializeField] public int lagHardLand;
         [SerializeField] public int lagAirDash;
 
         //[SerializeField] CharConfig configFile; 
@@ -58,11 +60,13 @@ namespace FightingGame.Player.Character
             midAirJumpHeight = 7f;
             maxAirSpeed = 5f;
             airDashDist = 2f;
+            gravityScalar = 2f;
 
             // Lag
             lagJump = 5;
             lagDoubleJump = 5;
             lagNormalLand = 3;
+            lagHardLand = 12;
             lagAirDash = 10;
         }
         private void LoadSpecifics()
