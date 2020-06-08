@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using FightingGame.Player.Character;
 using FightingGame.Player.State;
 using FightingGame.Core;
 
@@ -9,18 +8,14 @@ namespace FightingGame.Player.Movement
 {
     public class AirDash : MonoBehaviour
     {
-        private CharStatTracker character;
-        private LagManager lagMan;
-        private GroundedChecker groundCheck;
-        private FrameTest frameT;
-        private Rigidbody2D rb;
-        private GeneralPlayerController PC;
+        LagManager lagMan;
+        GroundedChecker groundCheck;
+        Rigidbody2D rb;
+        GeneralPlayerController PC;
         public void Start()
         {
-            character = FindObjectOfType<CharStatTracker>();
             lagMan = FindObjectOfType<LagManager>();
             groundCheck = FindObjectOfType<GroundedChecker>();
-            frameT = FindObjectOfType<FrameTest>();
             rb = gameObject.GetComponent<Rigidbody2D>();
             PC = gameObject.GetComponent<GeneralPlayerController>();
         }
@@ -59,12 +54,12 @@ namespace FightingGame.Player.Movement
             {
                 lagMan.LagForFrames(0);
             }
-            if (PC.midairOptionsCount < character.maxMidairOptions)
+            if (PC.MidairOptionsCount < PC.MaxMidairOptions)
             {
-                gameObject.transform.position = gameObject.transform.position + dir * new Vector3(character.airDashDist, 0, 0);
+                gameObject.transform.position = gameObject.transform.position + dir * new Vector3(PC.AirDashDist, 0, 0);
                 rb.velocity = Vector2.zero;
-                lagMan.LagForFrames(character.lagAirDash);
-                PC.midairOptionsCount++;
+                lagMan.LagForFrames(PC.LagAirDash);
+                PC.MidairOptionsCount++;
             }
         }
     }

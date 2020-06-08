@@ -1,22 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using FightingGame.Player.Character;
 using FightingGame.Player.State;
 
 namespace FightingGame.Player.Movement
 {
     public class FastFall : MonoBehaviour
     {
-        [SerializeField] float FFPush = 1f;
         [SerializeField] float gravityScalar = 2f;
-        private CharStatTracker character;
-        private LagManager lagMan;
-        private GroundedChecker groundCheck;
-        private Rigidbody2D rb;
+        GeneralPlayerController PC;
+        LagManager lagMan;
+        GroundedChecker groundCheck;
+        Rigidbody2D rb;
+        bool isFFState;
         public void Start()
         {
-            character = FindObjectOfType<CharStatTracker>();
+            PC = FindObjectOfType<GeneralPlayerController>();
             lagMan = FindObjectOfType<LagManager>();
             groundCheck = FindObjectOfType<GroundedChecker>();
             rb = gameObject.GetComponent<Rigidbody2D>();
@@ -30,19 +29,24 @@ namespace FightingGame.Player.Movement
         * and lag for a few frames */
         private void FastFallCheck()
         {
-            if (groundCheck.GetGroundedState() == false)
+            if (groundCheck.GetGroundedState() == false && isFFState == false)
             {
                 if (Input.GetAxis("Vertical") < 0 && lagMan.IsInLag() == false)
                 {
                     FFall();
                 }
             }
+            else
+            {
+                isFFState = false;
+            }
         }
         // This needs WORK but it works for now. We don't want the dash to be so instant
         private void FFall()
         {
-            rb.velocity = rb.velocity - new Vector2(0, FFPush);
-            rb.gravityScale = character.gravityScalar * gravityScalar;
+            rb.velocity = rb.velocity - new Vector2(0, PC.FastFallPush);
+            rb.gravityScale = PC.GravityScalar * gravityScalar;
+            isFFState = true;
         }
     }
 }

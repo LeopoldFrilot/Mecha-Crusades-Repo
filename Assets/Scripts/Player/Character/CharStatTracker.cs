@@ -7,27 +7,27 @@ namespace FightingGame.Player.Character
     public class CharStatTracker : MonoBehaviour
     {
         // Serialized just to verify in editor. Should not be actually edited by editor
-        [Header("General")]
-        [SerializeField] public float maxHealth;  // Initializing for later
+        /*[Header("General")]
+        public float maxHealth;  // Initializing for later
         [Header("Grounded")]
-        [SerializeField] public float speed;   // Horizontal speed of movement while grounded
-        [SerializeField] public float shortHopHeight;  // velocity multiplier for shorthop
-        [SerializeField] public float fullHopMultiplier;   // Multiplier to compine with shorthopheight to get fullhopheight, will usually be 2
-        [SerializeField] public float fullHopHeight;   // velocity multiplier for fullhop
+        public float speed;   // Horizontal speed of movement while grounded
+        public float shortHopHeight;  // velocity multiplier for shorthop
+        public float fullHopMultiplier;   // Multiplier to compine with shorthopheight to get fullhopheight, will usually be 2
+        public float fullHopHeight;   // velocity multiplier for fullhop
         [Header("Aerial")]
-        [SerializeField] public float aerialSpeed;   // Horizontal speed of movement while airborne
-        [SerializeField] public int maxMidairOptions;  // Denotes the amount of options a player has for midair movement before falling to the ground
-        [SerializeField] public int maxDoubleJumps;  // max number of midair jumps a character is allowed
-        [SerializeField] public float midAirJumpHeight;    // velocity multiplier for when a player jumps midair
-        [SerializeField] public float maxAirSpeed;  // Max speed the player can go while airborne, barring momentum
-        [SerializeField] public float airDashDist;  // Distance the player will travel when the air-dash has been triggered
-        [SerializeField] public float gravityScalar;    // How fast characters fall
+        public float aerialSpeed;   // Horizontal speed of movement while airborne
+        public int maxMidairOptions;  // Denotes the amount of options a player has for midair movement before falling to the ground
+        public int maxDoubleJumps;  // max number of midair jumps a character is allowed
+        public float midAirJumpHeight;    // velocity multiplier for when a player jumps midair
+        public float maxAirSpeed;  // Max speed the player can go while airborne, barring momentum
+        public float airDashDist;  // Distance the player will travel when the air-dash has been triggered
+        public float gravityScalar;    // How fast characters fall
         [Header("Lag")]
-        [SerializeField] public int lagJump;
-        [SerializeField] public int lagDoubleJump;
-        [SerializeField] public int lagNormalLand;
-        [SerializeField] public int lagHardLand;
-        [SerializeField] public int lagAirDash;
+        public int lagJump;
+        public int lagDoubleJump;
+        public int lagNormalLand;
+        public int lagHardLand;
+        public int lagAirDash;
 
         //[SerializeField] CharConfig configFile; 
         public void Start()
@@ -42,7 +42,7 @@ namespace FightingGame.Player.Character
         }
         /* ImportDefaultStats is a function which sets initial default stats for each character
          * some of which will get overridden by the character's config file */
-        private void LoadDefaultStats()
+        /*private void LoadDefaultStats()
         {
             // General
             maxHealth = 100f;

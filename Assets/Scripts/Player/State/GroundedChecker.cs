@@ -9,7 +9,6 @@ namespace FightingGame.Player.State
     {
         private GeneralPlayerController PC;
         private LagManager lagMan;
-        private CharStatTracker character;
         private Rigidbody2D rb;
         [SerializeField] private Transform ground;
         private bool isGrounded;    // stores whether the player is grounded or not
@@ -17,7 +16,6 @@ namespace FightingGame.Player.State
         {
             PC = FindObjectOfType<GeneralPlayerController>();
             lagMan = FindObjectOfType<LagManager>();
-            character = FindObjectOfType<CharStatTracker>();
             rb = gameObject.GetComponent<Rigidbody2D>();
         }
         public void Update()
@@ -37,11 +35,11 @@ namespace FightingGame.Player.State
                     rb.velocity = Vector2.zero;
                     if (lagMan.IsInLag())
                     {
-                        lagMan.LagForFrames(character.lagHardLand);
+                        lagMan.LagForFrames(PC.LagHardLand);
                     }
                     else
                     {
-                        lagMan.LagForFrames(character.lagNormalLand);
+                        lagMan.LagForFrames(PC.LagNormalLand);
                     }
                 }
                 isGrounded = true;

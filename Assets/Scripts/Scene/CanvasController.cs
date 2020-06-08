@@ -11,15 +11,13 @@ namespace FightingGame.Scene
     {
         [SerializeField] GameObject aerialOptionsCounter;
         private GeneralPlayerController PC;
-        private CharStatTracker character;
         public void Start()
         {
             PC = FindObjectOfType<GeneralPlayerController>();
-            character = FindObjectOfType<CharStatTracker>();
         }
         public void Update()
         {
-            aerialOptionsCounter.GetComponent<Text>().text = (character.maxMidairOptions - PC.midairOptionsCount).ToString();
+            aerialOptionsCounter.GetComponent<Text>().text = (PC.MaxMidairOptions - PC.MidairOptionsCount).ToString();
         }
     }
 }

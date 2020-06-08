@@ -1,21 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using FightingGame.Player.Character;
 using FightingGame.Player.State;
 
 namespace FightingGame.Player.Movement
 {
     public class Jump : MonoBehaviour
     {
-        private CharStatTracker character;
-        private LagManager lagMan;
-        private GeneralPlayerController PC;
-        private GroundedChecker groundCheck;
-        private Rigidbody2D rb;
+        LagManager lagMan;
+        GeneralPlayerController PC;
+        GroundedChecker groundCheck;
+        Rigidbody2D rb;
         public void Start()
         {
-            character = FindObjectOfType<CharStatTracker>();
             lagMan = FindObjectOfType<LagManager>();
             PC = FindObjectOfType<GeneralPlayerController>();
             groundCheck = FindObjectOfType<GroundedChecker>();
@@ -33,18 +30,18 @@ namespace FightingGame.Player.Movement
             {
                 if (groundCheck.GetGroundedState())
                 {
-                    rb.velocity = new Vector2(0, character.fullHopHeight);    // For now, we will always jump at fullhopheight
-                    lagMan.LagForFrames(character.lagJump);
+                    rb.velocity = new Vector2(0, PC.FullHopHeight);    // For now, we will always jump at fullhopheight
+                    lagMan.LagForFrames(PC.LagJump);
                 }
                 else
                 {
-                    if (PC.doubleJumpCount < character.maxDoubleJumps && PC.midairOptionsCount < character.maxMidairOptions)
+                    if (PC.DoubleJumpCount < PC.MaxDoubleJumps && PC.MidairOptionsCount < PC.MaxMidairOptions)
                     {
                         //Debug.Log("DJ");
-                        rb.velocity = new Vector2(0, character.midAirJumpHeight); // Will midAirJump if airborne and have enough midair jumps left
-                        PC.doubleJumpCount++;
-                        PC.midairOptionsCount++;
-                        lagMan.LagForFrames(character.lagDoubleJump);
+                        rb.velocity = new Vector2(0, PC.MidAirJumpHeight); // Will midAirJump if airborne and have enough midair jumps left
+                        PC.DoubleJumpCount++;
+                        PC.MidairOptionsCount++;
+                        lagMan.LagForFrames(PC.LagDoubleJump);
                     }
                 }
             }
