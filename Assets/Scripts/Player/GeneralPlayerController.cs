@@ -51,20 +51,20 @@ namespace FightingGame.Player
             MaxHealth = 100f;
 
             // Grounded
-            Speed = 4f;
-            ShortHopHeight = 3.5f;
+            Speed = 6f;
+            ShortHopHeight = 3.75f;
             FullHopMultiplier = 2f;
             FullHopHeight = FullHopMultiplier * ShortHopHeight;
 
             // Aerial
-            AerialSpeed = 25f;
+            AerialSpeed = 50f;
             MaxMidairOptions = 2;
             MaxDoubleJumps = 1;
-            MidAirJumpHeight = 6.5f;
-            MaxAirSpeed = 5f;
-            AirDashDist = 2f;
+            MidAirJumpHeight = 7f;
+            MaxAirSpeed = 7.5f;
+            AirDashDist = 1.5f;
             GravityScalar = 2f;
-            FastFallPush = 3f;
+            FastFallPush = 1f;
 
             // Lag
             LagJump = 5;

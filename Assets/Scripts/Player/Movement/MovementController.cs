@@ -3,16 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using FightingGame.Player.State;
 using FightingGame.Core;
+using FightingGame.Level;
 
 namespace FightingGame.Player.Movement
 {
     public class MovementController : MonoBehaviour
     {
-        private GeneralPlayerController PC;
-        private LagManager lagMan;
-        private GroundedChecker groundCheck;
-        private FrameTest frameT;
-        private Rigidbody2D rb;
+        GeneralPlayerController PC;
+        LagManager lagMan;
+        GroundedChecker groundCheck;
+        FrameTest frameT;
+        Rigidbody2D rb;
+        PlayerFollow PF;
+
         public void Start()
         {
             PC = FindObjectOfType<GeneralPlayerController>();
@@ -20,10 +23,12 @@ namespace FightingGame.Player.Movement
             groundCheck = FindObjectOfType<GroundedChecker>();
             frameT = FindObjectOfType<FrameTest>();
             rb = gameObject.GetComponent<Rigidbody2D>();
+            PF = FindObjectOfType<PlayerFollow>();
         }
         public void Update()
         {
             MoveCheck();
+            ClampHorizontalMovement();
         }
 
         /* Move is a function which allows primitive movement
@@ -71,6 +76,11 @@ namespace FightingGame.Player.Movement
         private void DI()
         {
 
+        }
+        private void ClampHorizontalMovement()
+        {
+            float xClamped = Mathf.Clamp(transform.position.x, PF.Middle - PF.MaxCameraWidth / 2f, PF.Middle + PF.MaxCameraWidth / 2f);
+            transform.position = new Vector3(xClamped, transform.position.y, transform.position.z);
         }
     }
 }
