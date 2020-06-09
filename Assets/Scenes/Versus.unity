@@ -146,6 +146,8 @@ GameObject:
   - component: {fileID: 94996123}
   - component: {fileID: 94996117}
   - component: {fileID: 94996124}
+  - component: {fileID: 94996132}
+  - component: {fileID: 94996133}
   m_Layer: 8
   m_Name: Hero
   m_TagString: Untagged
@@ -256,7 +258,12 @@ MonoBehaviour:
   lagAirDash: 0
   _doubleJumpCount: 0
   _midairOptionsCount: 0
+  _curHorizDir: 0
   _momentum: 0
+  _aveHorizSpeed: 0
+  _isInLag: 0
+  _isGrounded: 0
+  _isFalling: 0
 --- !u!114 &94996122
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -334,7 +341,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   momentum: 0
-  momentumGrowthSpeed: 0.03
+  momentumGrowthSpeed: 0.01
   maxStrikes: 5
   count: 0
 --- !u!114 &94996125
@@ -424,6 +431,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gravityScalar: 2
+--- !u!114 &94996132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 94996116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92dc59b8e035a7b42b49a01ceac2701b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &94996133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 94996116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f20496e09330e9d41a1bee7cf990eaab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &132229246
 GameObject:
   m_ObjectHideFlags: 0
@@ -1240,7 +1271,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   opponent: {fileID: 0}
-  speed: 1000
+  speed: 0
 --- !u!1 &1124541883
 GameObject:
   m_ObjectHideFlags: 0
@@ -1391,10 +1422,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8989fcd452c20540bf6b6ccc95badcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraMoveSpeed: 1000
+  cameraMoveSpeed: 5
   maxCameraWidth: 15
   ground: {fileID: 1331984452}
-  groundSpeedScalar: 0.062
+  groundSpeedScalar: 0.0625
 --- !u!1001 &1223231598
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2453,7 +2484,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 200, y: 12.8}
+  m_Size: {x: 1624.5577, y: 12.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

@@ -8,14 +8,11 @@ namespace FightingGame.Player.State
     public class GroundedChecker : MonoBehaviour
     {
         private GeneralPlayerController PC;
-        private LagManager lagMan;
         private Rigidbody2D rb;
         [SerializeField] private Transform ground;
-        private bool isGrounded;    // stores whether the player is grounded or not
         public void Start()
         {
             PC = FindObjectOfType<GeneralPlayerController>();
-            lagMan = FindObjectOfType<LagManager>();
             rb = gameObject.GetComponent<Rigidbody2D>();
         }
         public void Update()
@@ -29,31 +26,27 @@ namespace FightingGame.Player.State
             //Debug.Log("Ground Height: " + ground.position.y);
             if (ground.position.y >= gameObject.transform.position.y)
             {
-                if(isGrounded == false)
+                if(PC.IsGrounded == false)
                 {
                     PC.GroundedReset();
                     rb.velocity = Vector2.zero;
-                    if (lagMan.IsInLag())
+                    if (PC.IsInLag)
                     {
-                        lagMan.LagForFrames(PC.LagHardLand);
+                        PC.Lag(PC.LagHardLand);
                     }
                     else
                     {
-                        lagMan.LagForFrames(PC.LagNormalLand);
+                        PC.Lag(PC.LagNormalLand);
                     }
                 }
-                isGrounded = true;
+                PC.IsGrounded = true;
                 //Debug.Log("State: Grounded");
             }
             else
             {
-                isGrounded = false;
+                PC.IsGrounded = false;
                 //Debug.Log("State: Aerial");
             }
-        }
-        public bool GetGroundedState()
-        {
-            return isGrounded;
         }
     }
 }

@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using FightingGame.Player.State;
 
 namespace FightingGame.Player.Movement
 {
@@ -9,15 +8,11 @@ namespace FightingGame.Player.Movement
     {
         [SerializeField] float gravityScalar = 2f;
         GeneralPlayerController PC;
-        LagManager lagMan;
-        GroundedChecker groundCheck;
         Rigidbody2D rb;
         bool isFFState;
         public void Start()
         {
             PC = FindObjectOfType<GeneralPlayerController>();
-            lagMan = FindObjectOfType<LagManager>();
-            groundCheck = FindObjectOfType<GroundedChecker>();
             rb = gameObject.GetComponent<Rigidbody2D>();
         }
         public void Update()
@@ -29,9 +24,9 @@ namespace FightingGame.Player.Movement
         * and lag for a few frames */
         private void FastFallCheck()
         {
-            if (groundCheck.GetGroundedState() == false && isFFState == false)
+            if (PC.IsGrounded == false && isFFState == false)
             {
-                if (Input.GetAxis("Vertical") < 0 && lagMan.IsInLag() == false)
+                if (Input.GetAxis("Vertical") < 0 && PC.IsInLag == false && PC.IsFalling)
                 {
                     FFall();
                 }

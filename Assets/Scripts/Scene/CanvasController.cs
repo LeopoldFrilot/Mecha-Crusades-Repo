@@ -22,7 +22,7 @@ namespace FightingGame.Scene
         public void Update()
         {
             aerialOptionsCounter.GetComponent<Text>().text = (PC.MaxMidairOptions - PC.MidairOptionsCount).ToString();
-            momentumSlider.GetComponent<Slider>().value = (PC.Momentum - 1) / PC.MaxMomentum;
+            momentumSlider.GetComponent<Slider>().value = (PC.Momentum) / PC.MaxMomentum;
         }
         IEnumerator ShowFPS()
         {

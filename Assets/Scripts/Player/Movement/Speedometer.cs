@@ -7,6 +7,7 @@ namespace FightingGame.Player.Movement
 {
     public class Speedometer : MonoBehaviour
     {
+        GeneralPlayerController PC;
         [SerializeField] int framesNeeded = 3;    // In order to find the average apeed we will take the average of speeds over this frame period
         private List<float> speedList = new List<float>();  // Tracks the speeds found in an array
         private Vector3 prevPosition;   // Keeps a record of the object's previous position one frame ago
@@ -17,6 +18,7 @@ namespace FightingGame.Player.Movement
         // Start is called before the first frame update
         void Start()
         {
+            PC = FindObjectOfType<GeneralPlayerController>();
             frameT = FindObjectOfType<FrameTest>();
             // Initializing
             curPosition = Vector3.zero;
@@ -29,7 +31,7 @@ namespace FightingGame.Player.Movement
             prevPosition = curPosition;
             curPosition = gameObject.transform.position;
             PopulateHorizSpeedList();
-            AveHorizSpeed = CalculateAveSpeed();
+            PC.AveHorizSpeed = CalculateAveSpeed();
         }
 
         private void PopulateHorizSpeedList()
@@ -68,8 +70,6 @@ namespace FightingGame.Player.Movement
                 Debug.Log(list[i]);
             }
         }
-
-        public float AveHorizSpeed { get => aveHorizSpeed; private set => aveHorizSpeed = value; }
     }
 }
 

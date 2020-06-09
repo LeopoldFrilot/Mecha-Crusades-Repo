@@ -7,7 +7,6 @@ namespace FightingGame.Player.Movement
     public class MomentumTracker : MonoBehaviour
     {
         GeneralPlayerController PC;
-        Speedometer spd;
         [SerializeField] float momentum;
         [SerializeField] float momentumGrowthSpeed = .1f;
         [SerializeField] int maxStrikes = 5;
@@ -21,7 +20,6 @@ namespace FightingGame.Player.Movement
         public void Start()
         {
             PC = FindObjectOfType<GeneralPlayerController>();
-            spd = FindObjectOfType<Speedometer>();
             ResetMomentum();
         }
         public void Update()
@@ -56,11 +54,11 @@ namespace FightingGame.Player.Movement
 
         private void DetectDirection()
         {
-            if (spd.AveHorizSpeed < 0)
+            if (PC.AveHorizSpeed < 0)
             {
                 direction = State.negative;
             }
-            else if (spd.AveHorizSpeed > 0)
+            else if (PC.AveHorizSpeed > 0)
             {
                 direction = State.positive;
             }

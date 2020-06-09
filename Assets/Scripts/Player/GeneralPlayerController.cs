@@ -1,5 +1,4 @@
-﻿using FightingGame.Player.Character;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
@@ -9,6 +8,7 @@ namespace FightingGame.Player
     public class GeneralPlayerController : MonoBehaviour
     {
         Rigidbody2D rb;
+        LagManager LM;
 
         // private character statistics that won't change
         [Header("General")]
@@ -38,12 +38,18 @@ namespace FightingGame.Player
         // variables that will change
         [SerializeField] int _doubleJumpCount;  // stores the current number of midair jumps used since the last time the player left the grounded state
         [SerializeField] int _midairOptionsCount;   // stores the current number of midair options used since the last time the player left the grounded state
+        [SerializeField] int _curHorizDir;
         [SerializeField] float _momentum;
+        [SerializeField] float _aveHorizSpeed;
+        [SerializeField] bool _isInLag;
+        [SerializeField] bool _isGrounded;
+        [SerializeField] bool _isFalling;
         //[SerializeField] int _health;
 
         // Start is called before the first frame update
         void Start()
         {
+            LM = FindObjectOfType<LagManager>();
             rb = gameObject.GetComponent<Rigidbody2D>();
             LoadDefaultStats();
         }
@@ -51,7 +57,7 @@ namespace FightingGame.Player
         {
             // General
             MaxHealth = 100f;
-            MaxMomentum = 100f;
+            MaxMomentum = 10f;
 
             // Grounded
             Speed = 6f;
@@ -60,7 +66,7 @@ namespace FightingGame.Player
             FullHopHeight = FullHopMultiplier * ShortHopHeight;
 
             // Aerial
-            AerialSpeed = 50f;
+            AerialSpeed = 5f;
             MaxMidairOptions = 2;
             MaxDoubleJumps = 1;
             MidAirJumpHeight = 7f;
@@ -76,6 +82,10 @@ namespace FightingGame.Player
             LagHardLand = 8;
             LagAirDash = 10;
         }
+        public void Lag(int num)
+        {
+            LM.LagForFrames(num);
+        }
         /* GroundedReset sets certain variables to their original values as needed */
         public void GroundedReset()
         {
@@ -85,7 +95,12 @@ namespace FightingGame.Player
         }
         public int DoubleJumpCount { get => _doubleJumpCount; set => _doubleJumpCount = value; }
         public int MidairOptionsCount { get => _midairOptionsCount; set => _midairOptionsCount = value; }
+        public int CurHorizDir { get => _curHorizDir; set => _curHorizDir = value; }
         public float Momentum { get => _momentum; set => _momentum = value; }
+        public float AveHorizSpeed { get => _aveHorizSpeed; set => _aveHorizSpeed = value; }
+        public bool IsInLag { get => _isInLag; set => _isInLag = value; }
+        public bool IsGrounded { get => _isGrounded; set => _isGrounded = value; }
+        public bool IsFalling { get => _isFalling; set => _isFalling = value; }
 
         public float MaxHealth { get => maxHealth; set => maxHealth = value; }
         public float MaxMomentum { get => maxMomentum; set => maxMomentum = value; }

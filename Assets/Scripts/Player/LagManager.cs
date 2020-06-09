@@ -6,18 +6,19 @@ namespace FightingGame.Player
 {
     public class LagManager : MonoBehaviour
     {
+        GeneralPlayerController PC;
         private int lag;  // stores the amount of frames the player will beput in lag
         private int lagTrack; // stores the current amount of frames the player has been in lag since the most recent lag started
-        private bool inLag; // stores whether the player is stuck in lag or not
         private string lagType;
 
         public void Start()
         {
+            PC = FindObjectOfType<GeneralPlayerController>();
             lagTrack = 0;
         }
         public void Update()
         {
-            if (inLag)
+            if (PC.IsInLag)
             {
                 ManageLag();
             }
@@ -27,7 +28,7 @@ namespace FightingGame.Player
         public void LagForFrames(int num)
         {
             lag = num;
-            inLag = true;
+            PC.IsInLag = true;
             lagTrack = 0;
         }
 
@@ -44,15 +45,11 @@ namespace FightingGame.Player
             else
             {
                 //Debug.Log("Lag Over: " + lag);
-                inLag = false;
+                PC.IsInLag = false;
                 lagTrack = 0;
                 lag = 0;
             }
 
-        }
-        public bool IsInLag()
-        {
-            return inLag;
         }
         public void SetLagType(string name)
         {

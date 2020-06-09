@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using FightingGame.Player.State;
 using FightingGame.Core;
 using FightingGame.Level;
 
@@ -10,18 +9,14 @@ namespace FightingGame.Player.Movement
     public class MovementController : MonoBehaviour
     {
         GeneralPlayerController PC;
-        LagManager lagMan;
-        GroundedChecker groundCheck;
-        FrameTest frameT;
+        FrameTest FT;
         Rigidbody2D rb;
         PlayerFollow PF;
 
         public void Start()
         {
             PC = FindObjectOfType<GeneralPlayerController>();
-            lagMan = FindObjectOfType<LagManager>();
-            groundCheck = FindObjectOfType<GroundedChecker>();
-            frameT = FindObjectOfType<FrameTest>();
+            FT = FindObjectOfType<FrameTest>();
             rb = gameObject.GetComponent<Rigidbody2D>();
             PF = FindObjectOfType<PlayerFollow>();
         }
@@ -36,7 +31,7 @@ namespace FightingGame.Player.Movement
         private void MoveCheck()
         {
             // Player cannot move when in lag
-            if (lagMan.IsInLag())
+            if (PC.IsInLag)
             {
                 /*if(lagMan.GetType() = "hit")
                 {
@@ -45,32 +40,37 @@ namespace FightingGame.Player.Movement
                 return;
             }
             float movement; // stores this frame's movement based on player input
-            if (groundCheck.GetGroundedState())
+            if (PC.IsGrounded)
             {
-                movement = Input.GetAxis("Horizontal") * PC.Speed * frameT.CurFrameTime * PC.Momentum;    // Framerate-independednt horizontal movement
+                movement = Input.GetAxis("Horizontal") * PC.Speed * FT.CurFrameTime * PC.Momentum;    // Framerate-independednt horizontal movement
                 gameObject.transform.Translate(movement, 0, 0);
             }
             else
             {
-                if (Mathf.Abs(rb.velocity.x) <= PC.MaxAirSpeed)
+                if(Mathf.Abs(PC.AveHorizSpeed) <= PC.MaxAirSpeed * PC.Momentum)
                 {
-                    rb.velocity = rb.velocity + new Vector2(Input.GetAxis("Horizontal") * PC.AerialSpeed * frameT.CurFrameTime * PC.Momentum,0);
+                    movement = Input.GetAxis("Horizontal") * PC.AerialSpeed * FT.CurFrameTime * PC.Momentum;
+                    gameObject.transform.Translate(movement, 0, 0);
+                }
+                /*if (Mathf.Abs(PC.AveHorizSpeed) <= PC.MaxAirSpeed * PC.Momentum)
+                {
+                    rb.velocity = rb.velocity + new Vector2(Input.GetAxis("Horizontal") * PC.AerialSpeed * FT.CurFrameTime * PC.Momentum,0);
                 }
                 else
                 {
                     if(Input.GetAxis("Horizontal") < 0)
                     {
-                        rb.velocity = new Vector2(-PC.MaxAirSpeed * PC.Momentum, rb.velocity.y);
+                        rb.velocity = new Vector2(-PC.MaxAirSpeed, rb.velocity.y);
                     }
                     else if(Input.GetAxis("Horizontal") > 0)
                     {
-                        rb.velocity = new Vector2(PC.MaxAirSpeed * PC.Momentum, rb.velocity.y);
+                        rb.velocity = new Vector2(PC.MaxAirSpeed, rb.velocity.y);
                     }
                     else
                     {
                         rb.velocity = new Vector2(0, rb.velocity.y);
                     }
-                }
+                }*/
             }
         }
         private void DI()
