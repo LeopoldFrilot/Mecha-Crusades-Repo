@@ -56,7 +56,7 @@ namespace FightingGame.Player.Movement
             }
             if (PC.MidairOptionsCount < PC.MaxMidairOptions)
             {
-                gameObject.transform.position = gameObject.transform.position + dir * new Vector3(PC.AirDashDist, 0, 0);
+                gameObject.transform.position = gameObject.transform.position + dir * new Vector3(PC.AirDashDist * PC.Momentum, 0, 0);
                 rb.velocity = Vector2.zero;
                 lagMan.LagForFrames(PC.LagAirDash);
                 PC.MidairOptionsCount++;

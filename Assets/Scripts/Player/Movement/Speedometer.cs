@@ -11,8 +11,9 @@ namespace FightingGame.Player.Movement
         private List<float> speedList = new List<float>();  // Tracks the speeds found in an array
         private Vector3 prevPosition;   // Keeps a record of the object's previous position one frame ago
         private Vector3 curPosition;    // Keeps a record of the objects current position
-        [SerializeField] private float aveHorizSpeed;   // The average speed. Its the whole purpose of this script. Serialized for viewing purposes.
+        [SerializeField] float aveHorizSpeed;   // The average speed. Its the whole purpose of this script. Serialized for viewing purposes.
         private FrameTest frameT;
+
         // Start is called before the first frame update
         void Start()
         {
@@ -28,21 +29,28 @@ namespace FightingGame.Player.Movement
             prevPosition = curPosition;
             curPosition = gameObject.transform.position;
             PopulateHorizSpeedList();
-            aveHorizSpeed = CalculateAveSpeed();
+            AveHorizSpeed = CalculateAveSpeed();
         }
 
         private void PopulateHorizSpeedList()
         {
-            float horizSpeed = (curPosition.x - prevPosition.x) / frameT.CurFrameTime;
-            if (speedList.Count == framesNeeded)
+            if(frameT.CurFrameTime != 0)
             {
-                speedList.RemoveRange(0, 1);
+                float horizSpeed = (curPosition.x - prevPosition.x) / frameT.CurFrameTime;
+                if (speedList.Count == framesNeeded)
+                {
+                    speedList.RemoveRange(0, 1);
+                }
+                speedList.Add(horizSpeed);
             }
-            speedList.Add(horizSpeed);
         }
 
         private float CalculateAveSpeed()
         {
+            if(speedList.Count < 1)
+            {
+                return 0;
+            }
             float sum = 0;
             for (int i = 0; i < speedList.Count; i++)
             {
@@ -60,10 +68,8 @@ namespace FightingGame.Player.Movement
                 Debug.Log(list[i]);
             }
         }
-        public float GetAveHorizSpeed()
-        {
-            return aveHorizSpeed;
-        }
+
+        public float AveHorizSpeed { get => aveHorizSpeed; private set => aveHorizSpeed = value; }
     }
 }
 

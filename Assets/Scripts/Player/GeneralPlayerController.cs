@@ -13,6 +13,7 @@ namespace FightingGame.Player
         // private character statistics that won't change
         [Header("General")]
         [SerializeField] float maxHealth;  // Initializing for later
+        [SerializeField] float maxMomentum; // Holds the maximum momentum values a character can reach
         [Header("Grounded")]
         [SerializeField] float speed;   // Horizontal speed of movement while grounded
         [SerializeField] float shortHopHeight;  // velocity multiplier for shorthop
@@ -26,7 +27,7 @@ namespace FightingGame.Player
         [SerializeField] float maxAirSpeed;  // Max speed the player can go while airborne, barring momentum
         [SerializeField] float airDashDist;  // Distance the player will travel when the air-dash has been triggered
         [SerializeField] float gravityScalar;    // How fast characters fall
-        [SerializeField] float fastFallPush;
+        [SerializeField] float fastFallPush;    // Holds the initial velocity increase for when you fastfall
         [Header("Lag")]
         [SerializeField] int lagJump;
         [SerializeField] int lagDoubleJump;
@@ -37,6 +38,7 @@ namespace FightingGame.Player
         // variables that will change
         [SerializeField] int _doubleJumpCount;  // stores the current number of midair jumps used since the last time the player left the grounded state
         [SerializeField] int _midairOptionsCount;   // stores the current number of midair options used since the last time the player left the grounded state
+        [SerializeField] float _momentum;
         //[SerializeField] int _health;
 
         // Start is called before the first frame update
@@ -49,6 +51,7 @@ namespace FightingGame.Player
         {
             // General
             MaxHealth = 100f;
+            MaxMomentum = 100f;
 
             // Grounded
             Speed = 6f;
@@ -62,15 +65,15 @@ namespace FightingGame.Player
             MaxDoubleJumps = 1;
             MidAirJumpHeight = 7f;
             MaxAirSpeed = 7.5f;
-            AirDashDist = 1.5f;
+            AirDashDist = 2f;
             GravityScalar = 2f;
-            FastFallPush = 1f;
+            FastFallPush = 3f;
 
             // Lag
-            LagJump = 5;
-            LagDoubleJump = 5;
-            LagNormalLand = 3;
-            LagHardLand = 12;
+            LagJump = 1;
+            LagDoubleJump = 1;
+            LagNormalLand = 0;
+            LagHardLand = 8;
             LagAirDash = 10;
         }
         /* GroundedReset sets certain variables to their original values as needed */
@@ -82,7 +85,10 @@ namespace FightingGame.Player
         }
         public int DoubleJumpCount { get => _doubleJumpCount; set => _doubleJumpCount = value; }
         public int MidairOptionsCount { get => _midairOptionsCount; set => _midairOptionsCount = value; }
+        public float Momentum { get => _momentum; set => _momentum = value; }
+
         public float MaxHealth { get => maxHealth; set => maxHealth = value; }
+        public float MaxMomentum { get => maxMomentum; set => maxMomentum = value; }
         public float Speed { get => speed; set => speed = value; }
         public float ShortHopHeight { get => shortHopHeight; set => shortHopHeight = value; }
         public float FullHopMultiplier { get => fullHopMultiplier; set => fullHopMultiplier = value; }
@@ -100,7 +106,6 @@ namespace FightingGame.Player
         public int LagNormalLand { get => lagNormalLand; set => lagNormalLand = value; }
         public int LagHardLand { get => lagHardLand; set => lagHardLand = value; }
         public int LagAirDash { get => lagAirDash; set => lagAirDash = value; }
-
     }
 }
 
