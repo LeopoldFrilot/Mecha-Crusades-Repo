@@ -1185,6 +1185,20 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5465405783244208775, guid: 3c36ee79bda273143978944daf18d0a9, type: 3}
   m_PrefabInstance: {fileID: 1223231598}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1136162780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1136162779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b0e613acb5f58749b22f214d61fd1ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player1: {fileID: 94996116}
+  player2: {fileID: 955669194}
 --- !u!114 &1136162781
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1224,6 +1238,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aerialOptionsCounter: {fileID: 1124541883}
   FPSTracker: {fileID: 261301222}
+--- !u!114 &1136162784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1136162779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8989fcd452c20540bf6b6ccc95badcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraMoveSpeed: 5
 --- !u!1001 &1223231598
 PrefabInstance:
   m_ObjectHideFlags: 0
