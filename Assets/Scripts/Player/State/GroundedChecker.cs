@@ -7,13 +7,15 @@ namespace FightingGame.Player.State
 {
     public class GroundedChecker : MonoBehaviour
     {
-        private GeneralPlayerController PC;
-        private Rigidbody2D rb;
-        [SerializeField] private Transform ground;
+        GeneralPlayerController PC;
+        Rigidbody2D rb;
+        [SerializeField] Transform ground;
+        Transform bottomOfCharacter;
         public void Start()
         {
             PC = FindObjectOfType<GeneralPlayerController>();
             rb = gameObject.GetComponent<Rigidbody2D>();
+            bottomOfCharacter = gameObject.transform.GetChild(0);
         }
         public void Update()
         {
@@ -24,12 +26,11 @@ namespace FightingGame.Player.State
         {
             //Debug.Log("Player Height: " + gameObject.transform.position.y);
             //Debug.Log("Ground Height: " + ground.position.y);
-            if (ground.position.y >= gameObject.transform.position.y)
+            if (ground.position.y >= bottomOfCharacter.position.y)
             {
                 if(PC.IsGrounded == false)
                 {
                     PC.GroundedReset();
-                    rb.velocity = Vector2.zero;
                     if (PC.IsInLag)
                     {
                         PC.Lag(PC.LagHardLand);
@@ -40,12 +41,12 @@ namespace FightingGame.Player.State
                     }
                 }
                 PC.IsGrounded = true;
-                //Debug.Log("State: Grounded");
+                Debug.Log("State: Grounded");
             }
             else
             {
                 PC.IsGrounded = false;
-                //Debug.Log("State: Aerial");
+                Debug.Log("State: Aerial");
             }
         }
     }

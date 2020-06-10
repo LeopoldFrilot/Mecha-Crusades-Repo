@@ -78,7 +78,7 @@ namespace FightingGame.Player
             // Lag
             LagJump = 1;
             LagDoubleJump = 1;
-            LagNormalLand = 0;
+            LagNormalLand = 3;
             LagHardLand = 8;
             LagAirDash = 10;
         }
@@ -92,6 +92,7 @@ namespace FightingGame.Player
             DoubleJumpCount = 0;
             MidairOptionsCount = 0;
             rb.gravityScale = GravityScalar;
+            rb.velocity = Vector2.zero;
         }
         public int DoubleJumpCount { get => _doubleJumpCount; set => _doubleJumpCount = value; }
         public int MidairOptionsCount { get => _midairOptionsCount; set => _midairOptionsCount = value; }
