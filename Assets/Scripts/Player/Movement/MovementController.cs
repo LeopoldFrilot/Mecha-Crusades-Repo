@@ -10,14 +10,12 @@ namespace FightingGame.Player.Movement
     {
         GeneralPlayerController PC;
         FrameTest FT;
-        Rigidbody2D rb;
         PlayerFollow PF;
 
         public void Start()
         {
             PC = FindObjectOfType<GeneralPlayerController>();
             FT = FindObjectOfType<FrameTest>();
-            rb = gameObject.GetComponent<Rigidbody2D>();
             PF = FindObjectOfType<PlayerFollow>();
         }
         public void Update()
@@ -43,34 +41,15 @@ namespace FightingGame.Player.Movement
             if (PC.IsGrounded)
             {
                 movement = Input.GetAxis("Horizontal") * PC.Speed * FT.CurFrameTime * PC.Momentum;    // Framerate-independednt horizontal movement
-                gameObject.transform.Translate(movement, 0, 0);
+                PC.Player.transform.Translate(movement, 0, 0);
             }
             else
             {
                 if(Mathf.Abs(PC.AveHorizSpeed) <= PC.MaxAirSpeed * PC.Momentum)
                 {
                     movement = Input.GetAxis("Horizontal") * PC.AerialSpeed * FT.CurFrameTime * PC.Momentum;
-                    gameObject.transform.Translate(movement, 0, 0);
+                    PC.Player.transform.Translate(movement, 0, 0);
                 }
-                /*if (Mathf.Abs(PC.AveHorizSpeed) <= PC.MaxAirSpeed * PC.Momentum)
-                {
-                    rb.velocity = rb.velocity + new Vector2(Input.GetAxis("Horizontal") * PC.AerialSpeed * FT.CurFrameTime * PC.Momentum,0);
-                }
-                else
-                {
-                    if(Input.GetAxis("Horizontal") < 0)
-                    {
-                        rb.velocity = new Vector2(-PC.MaxAirSpeed, rb.velocity.y);
-                    }
-                    else if(Input.GetAxis("Horizontal") > 0)
-                    {
-                        rb.velocity = new Vector2(PC.MaxAirSpeed, rb.velocity.y);
-                    }
-                    else
-                    {
-                        rb.velocity = new Vector2(0, rb.velocity.y);
-                    }
-                }*/
             }
         }
         private void DI()
@@ -79,8 +58,8 @@ namespace FightingGame.Player.Movement
         }
         private void ClampHorizontalMovement()
         {
-            float xClamped = Mathf.Clamp(transform.position.x, PF.Middle - PF.MaxCameraWidth / 2f, PF.Middle + PF.MaxCameraWidth / 2f);
-            transform.position = new Vector3(xClamped, transform.position.y, transform.position.z);
+            float xClamped = Mathf.Clamp(PC.Player.transform.position.x, PF.Middle - PF.MaxCameraWidth / 2f, PF.Middle + PF.MaxCameraWidth / 2f);
+            PC.Player.transform.position = new Vector3(xClamped, PC.Player.transform.position.y, PC.Player.transform.position.z);
         }
     }
 }

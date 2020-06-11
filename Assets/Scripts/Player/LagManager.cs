@@ -9,7 +9,6 @@ namespace FightingGame.Player
         GeneralPlayerController PC;
         private int lag;  // stores the amount of frames the player will beput in lag
         private int lagTrack; // stores the current amount of frames the player has been in lag since the most recent lag started
-        private string lagType;
 
         public void Start()
         {
@@ -45,19 +44,22 @@ namespace FightingGame.Player
             else
             {
                 //Debug.Log("Lag Over: " + lag);
-                PC.IsInLag = false;
-                lagTrack = 0;
-                lag = 0;
+                Reset();
             }
 
         }
+
+        private void Reset()
+        {
+            PC.IsInLag = false;
+            lagTrack = 0;
+            lag = 0;
+            PC.LagType = "None";
+        }
+
         public void SetLagType(string name)
         {
-            lagType = name;
-        }
-        public string GetLagType()
-        {
-            return lagType;
+            PC.LagType = name;
         }
     }
 }

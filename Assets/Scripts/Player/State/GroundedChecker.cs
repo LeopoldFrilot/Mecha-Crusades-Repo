@@ -1,5 +1,4 @@
-﻿using FightingGame.Player.Character;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,20 +7,19 @@ namespace FightingGame.Player.State
     public class GroundedChecker : MonoBehaviour
     {
         GeneralPlayerController PC;
-        Rigidbody2D rb;
         [SerializeField] Transform ground;
         Transform bottomOfCharacter;
         public void Start()
         {
             PC = FindObjectOfType<GeneralPlayerController>();
-            rb = gameObject.GetComponent<Rigidbody2D>();
             bottomOfCharacter = gameObject.transform.GetChild(0);
         }
         public void Update()
         {
             CheckState();
         }
-        /* CheckState is a function which manages the grounded and aerial state */
+        /* CheckState is a function which manages the grounded and aerial state 
+         * Probably eventually just set up a ground collision check */
         private void CheckState()
         {
             //Debug.Log("Player Height: " + gameObject.transform.position.y);

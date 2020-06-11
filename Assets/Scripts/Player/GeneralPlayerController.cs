@@ -9,6 +9,7 @@ namespace FightingGame.Player
     {
         Rigidbody2D rb;
         LagManager LM;
+        GameObject player;
 
         // private character statistics that won't change
         [Header("General")]
@@ -36,6 +37,7 @@ namespace FightingGame.Player
         [SerializeField] int lagAirDash;
 
         // variables that will change
+        [Header("Variables")]
         [SerializeField] int _doubleJumpCount;  // stores the current number of midair jumps used since the last time the player left the grounded state
         [SerializeField] int _midairOptionsCount;   // stores the current number of midair options used since the last time the player left the grounded state
         [SerializeField] int _curHorizDir;
@@ -44,13 +46,15 @@ namespace FightingGame.Player
         [SerializeField] bool _isInLag;
         [SerializeField] bool _isGrounded;
         [SerializeField] bool _isFalling;
-        //[SerializeField] int _health;
+        [SerializeField] string _lagType;
+        [SerializeField] int _health;
 
         // Start is called before the first frame update
         void Start()
         {
             LM = FindObjectOfType<LagManager>();
-            rb = gameObject.GetComponent<Rigidbody2D>();
+            Player = gameObject;
+            rb = Player.GetComponent<Rigidbody2D>();
             LoadDefaultStats();
         }
         private void LoadDefaultStats()
@@ -94,15 +98,8 @@ namespace FightingGame.Player
             rb.gravityScale = GravityScalar;
             rb.velocity = Vector2.zero;
         }
-        public int DoubleJumpCount { get => _doubleJumpCount; set => _doubleJumpCount = value; }
-        public int MidairOptionsCount { get => _midairOptionsCount; set => _midairOptionsCount = value; }
-        public int CurHorizDir { get => _curHorizDir; set => _curHorizDir = value; }
-        public float Momentum { get => _momentum; set => _momentum = value; }
-        public float AveHorizSpeed { get => _aveHorizSpeed; set => _aveHorizSpeed = value; }
-        public bool IsInLag { get => _isInLag; set => _isInLag = value; }
-        public bool IsGrounded { get => _isGrounded; set => _isGrounded = value; }
-        public bool IsFalling { get => _isFalling; set => _isFalling = value; }
 
+        public GameObject Player { get => player; set => player = value; }
         public float MaxHealth { get => maxHealth; set => maxHealth = value; }
         public float MaxMomentum { get => maxMomentum; set => maxMomentum = value; }
         public float Speed { get => speed; set => speed = value; }
@@ -122,6 +119,16 @@ namespace FightingGame.Player
         public int LagNormalLand { get => lagNormalLand; set => lagNormalLand = value; }
         public int LagHardLand { get => lagHardLand; set => lagHardLand = value; }
         public int LagAirDash { get => lagAirDash; set => lagAirDash = value; }
+        public int DoubleJumpCount { get => _doubleJumpCount; set => _doubleJumpCount = value; }
+        public int MidairOptionsCount { get => _midairOptionsCount; set => _midairOptionsCount = value; }
+        public int CurHorizDir { get => _curHorizDir; set => _curHorizDir = value; }
+        public float Momentum { get => _momentum; set => _momentum = value; }
+        public float AveHorizSpeed { get => _aveHorizSpeed; set => _aveHorizSpeed = value; }
+        public bool IsInLag { get => _isInLag; set => _isInLag = value; }
+        public bool IsGrounded { get => _isGrounded; set => _isGrounded = value; }
+        public bool IsFalling { get => _isFalling; set => _isFalling = value; }
+        public string LagType { get => _lagType; set => _lagType = value; }
+        public int Health { get => _health; set => _health = value; }
     }
 }
 

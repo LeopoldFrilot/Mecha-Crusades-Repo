@@ -6,14 +6,14 @@ namespace FightingGame.Player.Movement
 {
     public class FastFall : MonoBehaviour
     {
-        [SerializeField] float gravityScalar = 2f;
+        [SerializeField] float gravity = 2f;
         GeneralPlayerController PC;
         Rigidbody2D rb;
         bool isFFState;
         public void Start()
         {
             PC = FindObjectOfType<GeneralPlayerController>();
-            rb = gameObject.GetComponent<Rigidbody2D>();
+            rb = PC.Player.GetComponent<Rigidbody2D>();
         }
         public void Update()
         {
@@ -40,7 +40,7 @@ namespace FightingGame.Player.Movement
         private void FFall()
         {
             rb.velocity = rb.velocity - new Vector2(0, PC.FastFallPush);
-            rb.gravityScale = PC.GravityScalar * gravityScalar;
+            rb.gravityScale = PC.GravityScalar * gravity;
             isFFState = true;
         }
     }

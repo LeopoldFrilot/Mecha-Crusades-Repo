@@ -11,7 +11,7 @@ namespace FightingGame.Player.Movement
         public void Start()
         {
             PC = FindObjectOfType<GeneralPlayerController>();
-            rb = gameObject.GetComponent<Rigidbody2D>();
+            rb = PC.Player.GetComponent<Rigidbody2D>();
         }
         public void Update()
         {

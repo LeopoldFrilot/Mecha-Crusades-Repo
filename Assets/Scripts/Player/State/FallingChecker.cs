@@ -1,5 +1,4 @@
-﻿using FightingGame.Player.Character;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,7 +6,7 @@ namespace FightingGame.Player.State
 {
     public class FallingChecker : MonoBehaviour
     {
-        private GeneralPlayerController PC;
+        GeneralPlayerController PC;
         float prevHeight;
         float curHeight;
         public void Start()
@@ -22,7 +21,7 @@ namespace FightingGame.Player.State
         private void CheckState()
         {
             prevHeight = curHeight;
-            curHeight = transform.position.y;
+            curHeight = PC.Player.transform.position.y;
             if(curHeight < prevHeight)
             {
                 PC.IsFalling = true;

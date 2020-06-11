@@ -29,7 +29,7 @@ namespace FightingGame.Player.Movement
         void Update()
         {
             prevPosition = curPosition;
-            curPosition = gameObject.transform.position;
+            curPosition = PC.Player.transform.position;
             PopulateHorizSpeedList();
             PC.AveHorizSpeed = CalculateAveSpeed();
         }

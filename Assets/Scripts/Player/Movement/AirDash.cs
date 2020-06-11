@@ -10,8 +10,9 @@ namespace FightingGame.Player.Movement
         GeneralPlayerController PC;
         public void Start()
         {
-            rb = gameObject.GetComponent<Rigidbody2D>();
-            PC = gameObject.GetComponent<GeneralPlayerController>();
+
+            PC = GetComponent<GeneralPlayerController>();
+            rb = PC.Player.GetComponent<Rigidbody2D>();
         }
         public void Update()
         {
@@ -33,15 +34,16 @@ namespace FightingGame.Player.Movement
         // This needs WORK but it works for now. We don't want the dash to be so instant
         private void Dash()
         {
-            // Should AirDash cancel lag? currently: yes
+            // Should AirDash cancel lag? currently: no
             if (PC.IsInLag)
             {
-                PC.Lag(0);
+                return;
+                //PC.Lag(0);
             }
             if (PC.MidairOptionsCount < PC.MaxMidairOptions)
             {
                 Vector3 prevVelocity = rb.velocity;
-                gameObject.transform.position = gameObject.transform.position + PC.CurHorizDir * new Vector3(PC.AirDashDist * PC.Momentum, 0, 0);
+                PC.Player.transform.position = PC.Player.transform.position + PC.CurHorizDir * new Vector3(PC.AirDashDist * PC.Momentum, 0, 0);
                 rb.velocity = prevVelocity;
                 PC.Lag(PC.LagAirDash);
                 PC.MidairOptionsCount++;

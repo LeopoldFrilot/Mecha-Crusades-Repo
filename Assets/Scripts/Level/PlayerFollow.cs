@@ -3,7 +3,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 namespace FightingGame.Level
 {
@@ -11,11 +10,21 @@ namespace FightingGame.Level
     {
         PlayerSelect PS;
         FrameTest FT;
+        [Header("Camera")]
         [SerializeField] float cameraMoveSpeed = 5f;
         [SerializeField] float maxCameraWidth = 15f;
+        [Header("Ground")]
         [SerializeField] GameObject ground;
         [SerializeField] float groundSpeedScalar = .062f; // .062 for exact, .07 for some depth perception
-        Renderer groundMaterial;
+        [Header("Background")]
+        [SerializeField] GameObject sky;
+        [SerializeField] GameObject backgroundBack;
+        [SerializeField] GameObject backgroundMid;
+        [SerializeField] GameObject backgroundFront;
+        [SerializeField] float skyScalar = .003f;
+        [SerializeField] float backgroundBackScalar = .007f;
+        [SerializeField] float backgroundMidScalar = .03f;
+        [SerializeField] float backgroundFrontScalar = .05f;
         float middle;
         float step;
 
@@ -23,7 +32,6 @@ namespace FightingGame.Level
         {
             PS = FindObjectOfType<PlayerSelect>();
             FT = FindObjectOfType<FrameTest>();
-            groundMaterial = ground.GetComponent<Renderer>();
         }
         public void Update()
         {
@@ -36,13 +44,9 @@ namespace FightingGame.Level
             {
                 Middle = (PS.Player1.transform.position.x + PS.Player2.transform.position.x) / 2f;
                 step = cameraMoveSpeed * FT.CurFrameTime;
-                /*Camera.main.transform.position = Vector3.MoveTowards(
-                    Camera.main.transform.position,
-                    new Vector3(Middle, Camera.main.transform.position.y, Camera.main.transform.position.z),
-                    step);*/
                 MoveCamera();
                 MoveGround();
-
+                MoveBackground();
             }
         }
 
@@ -50,16 +54,26 @@ namespace FightingGame.Level
         {
             Move(Camera.main.transform);
         }
-
+        private void MoveBackground()
+        {
+            MoveWithOffset(sky.transform, skyScalar);
+            MoveWithOffset(backgroundBack.transform, backgroundBackScalar);
+            MoveWithOffset(backgroundMid.transform, backgroundMidScalar);
+            MoveWithOffset(backgroundFront.transform, backgroundFrontScalar);
+        }
         private void MoveGround()
         {
-            float prevGround = ground.transform.position.x;
-            Move(ground.transform);
-            float curGround = ground.transform.position.x;
-            float distMoved = curGround - prevGround;
-            float offset = groundMaterial.material.mainTextureOffset.x + (distMoved * groundSpeedScalar);
-            groundMaterial.material.mainTextureOffset = new Vector2(offset, groundMaterial.material.mainTextureOffset.y);
-            //Debug.Log(offset);
+            MoveWithOffset(ground.transform, groundSpeedScalar);
+        }
+        private void MoveWithOffset(Transform transform, float scalar)
+        {
+            float prevPos = transform.position.x;
+            Move(transform);
+            float curPos = transform.position.x;
+            float distMoved = curPos - prevPos;
+            Renderer renderer = transform.gameObject.GetComponent<Renderer>();
+            float offset = renderer.material.mainTextureOffset.x + (distMoved * scalar);
+            renderer.material.mainTextureOffset = new Vector2(offset, renderer.material.mainTextureOffset.y);
         }
 
         private void Move(Transform transform)
