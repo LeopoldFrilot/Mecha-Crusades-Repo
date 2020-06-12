@@ -39,8 +39,8 @@ namespace FightingGame.Player.Movement
         // This needs WORK but it works for now. We don't want the dash to be so instant
         private void FFall()
         {
-            rb.velocity = rb.velocity - new Vector2(0, PC.FastFallPush);
-            rb.gravityScale = PC.GravityScalar * gravity;
+            rb.velocity = rb.velocity - new Vector2(0, PC.CD.FastFallPush);
+            rb.gravityScale = PC.CD.GravityScalar * gravity;
             isFFState = true;
         }
     }

@@ -6,13 +6,10 @@ namespace FightingGame.Player.Movement
 {
     public class AirDash : MonoBehaviour
     {
-        Rigidbody2D rb;
         GeneralPlayerController PC;
         public void Start()
         {
-
             PC = GetComponent<GeneralPlayerController>();
-            rb = PC.Player.GetComponent<Rigidbody2D>();
         }
         public void Update()
         {
@@ -40,13 +37,11 @@ namespace FightingGame.Player.Movement
                 return;
                 //PC.Lag(0);
             }
-            if (PC.MidairOptionsCount < PC.MaxMidairOptions)
+            if (PC.MidairOptionsCount < PC.CD.MaxMidairOptions)
             {
-                Vector3 prevVelocity = rb.velocity;
-                PC.Player.transform.position = PC.Player.transform.position + PC.CurHorizDir * new Vector3(PC.AirDashDist * PC.Momentum, 0, 0);
-                rb.velocity = prevVelocity;
-                PC.Lag(PC.LagAirDash);
+                PC.Player.transform.position = PC.Player.transform.position + PC.CurHorizDir * new Vector3(PC.CD.AirDashDist * PC.Momentum, 0, 0);
                 PC.MidairOptionsCount++;
+                PC.Lag(PC.CD.LagAirDash);
             }
         }
     }

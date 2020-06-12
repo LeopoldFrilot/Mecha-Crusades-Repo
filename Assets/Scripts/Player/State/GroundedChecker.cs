@@ -31,20 +31,20 @@ namespace FightingGame.Player.State
                     PC.GroundedReset();
                     if (PC.IsInLag)
                     {
-                        PC.Lag(PC.LagHardLand);
+                        PC.Lag(PC.CD.LagHardLand);
                     }
                     else
                     {
-                        PC.Lag(PC.LagNormalLand);
+                        PC.Lag(PC.CD.LagNormalLand);
                     }
                 }
                 PC.IsGrounded = true;
-                Debug.Log("State: Grounded");
+                //Debug.Log("State: Grounded");
             }
             else
             {
                 PC.IsGrounded = false;
-                Debug.Log("State: Aerial");
+                //Debug.Log("State: Aerial");
             }
         }
     }

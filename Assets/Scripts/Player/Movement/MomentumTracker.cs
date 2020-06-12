@@ -35,7 +35,7 @@ namespace FightingGame.Player.Movement
             // If direction continues... 
             if (direction != State.neutral && direction == state)
             {
-                if (momentum <= PC.MaxMomentum) 
+                if (momentum <= PC.CD.MaxMomentum) 
                 { 
                     IncrementMomentum();    // increment Momentum exponentially as long as it's less than max momentum
                 }    
@@ -79,18 +79,10 @@ namespace FightingGame.Player.Movement
             strikes = 0;
             count = -2f;
         }
-        /* It's probably better to clamp in PC
-         */
-        public void SubmitMomentum()
+        private void SubmitMomentum()
         {
-            if (momentum < 1f)
-            {
-                PC.Momentum = 1f;
-            }
-            else
-            {
-                PC.Momentum = momentum;
-            }
+            if (momentum < 1f) PC.Momentum = 1f;
+            else PC.Momentum = momentum;
         }
     }
 }

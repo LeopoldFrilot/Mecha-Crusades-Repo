@@ -25,18 +25,19 @@ namespace FightingGame.Player.Movement
             {
                 if (PC.IsGrounded)
                 {
-                    rb.velocity = new Vector2((float)PC.CurHorizDir * PC.Momentum, PC.FullHopHeight);    // For now, we will always jump at fullhopheight
-                    PC.Lag(PC.LagJump);
+                    rb.velocity = new Vector2((float)PC.CurHorizDir * PC.Momentum, PC.CD.FullHopHeight);    // For now, we will always jump at fullhopheight
+                    //Debug.Log(PC.CD.FullHopHeight);
+                    PC.Lag(PC.CD.LagJump);
                 }
                 else
                 {
-                    if (PC.DoubleJumpCount < PC.MaxDoubleJumps && PC.MidairOptionsCount < PC.MaxMidairOptions)
+                    if (PC.DoubleJumpCount < PC.CD.MaxDoubleJumps && PC.MidairOptionsCount < PC.CD.MaxMidairOptions)
                     {
                         //Debug.Log("DJ");
-                        rb.velocity = new Vector2((float)PC.CurHorizDir * PC.Momentum, PC.MidAirJumpHeight); // Will midAirJump if airborne and have enough midair jumps left
+                        rb.velocity = new Vector2((float)PC.CurHorizDir * PC.Momentum, PC.CD.MidAirJumpHeight); // Will midAirJump if airborne and have enough midair jumps left
                         PC.DoubleJumpCount++;
                         PC.MidairOptionsCount++;
-                        PC.Lag(PC.LagDoubleJump);
+                        PC.Lag(PC.CD.LagDoubleJump);
                     }
                 }
             }

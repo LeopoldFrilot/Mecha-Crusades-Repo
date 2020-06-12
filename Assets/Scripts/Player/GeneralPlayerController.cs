@@ -9,32 +9,8 @@ namespace FightingGame.Player
     {
         Rigidbody2D rb;
         LagManager LM;
+        [SerializeField] CharacterData cD;
         GameObject player;
-
-        // private character statistics that won't change
-        [Header("General")]
-        [SerializeField] float maxHealth;  // Initializing for later
-        [SerializeField] float maxMomentum; // Holds the maximum momentum values a character can reach
-        [Header("Grounded")]
-        [SerializeField] float speed;   // Horizontal speed of movement while grounded
-        [SerializeField] float shortHopHeight;  // velocity multiplier for shorthop
-        [SerializeField] float fullHopMultiplier;   // Multiplier to compine with shorthopheight to get fullhopheight, will usually be 2
-        [SerializeField] float fullHopHeight;   // velocity multiplier for fullhop
-        [Header("Aerial")]
-        [SerializeField] float aerialSpeed;   // Horizontal speed of movement while airborne
-        [SerializeField] int maxMidairOptions;  // Denotes the amount of options a player has for midair movement before falling to the ground
-        [SerializeField] int maxDoubleJumps;  // max number of midair jumps a character is allowed
-        [SerializeField] float midAirJumpHeight;    // velocity multiplier for when a player jumps midair
-        [SerializeField] float maxAirSpeed;  // Max speed the player can go while airborne, barring momentum
-        [SerializeField] float airDashDist;  // Distance the player will travel when the air-dash has been triggered
-        [SerializeField] float gravityScalar;    // How fast characters fall
-        [SerializeField] float fastFallPush;    // Holds the initial velocity increase for when you fastfall
-        [Header("Lag")]
-        [SerializeField] int lagJump;
-        [SerializeField] int lagDoubleJump;
-        [SerializeField] int lagNormalLand;
-        [SerializeField] int lagHardLand;
-        [SerializeField] int lagAirDash;
 
         // variables that will change
         [Header("Variables")]
@@ -55,36 +31,6 @@ namespace FightingGame.Player
             LM = FindObjectOfType<LagManager>();
             Player = gameObject;
             rb = Player.GetComponent<Rigidbody2D>();
-            LoadDefaultStats();
-        }
-        private void LoadDefaultStats()
-        {
-            // General
-            MaxHealth = 100f;
-            MaxMomentum = 10f;
-
-            // Grounded
-            Speed = 6f;
-            ShortHopHeight = 3.75f;
-            FullHopMultiplier = 2f;
-            FullHopHeight = FullHopMultiplier * ShortHopHeight;
-
-            // Aerial
-            AerialSpeed = 5f;
-            MaxMidairOptions = 2;
-            MaxDoubleJumps = 1;
-            MidAirJumpHeight = 7f;
-            MaxAirSpeed = 7.5f;
-            AirDashDist = 2f;
-            GravityScalar = 2f;
-            FastFallPush = 3f;
-
-            // Lag
-            LagJump = 1;
-            LagDoubleJump = 1;
-            LagNormalLand = 3;
-            LagHardLand = 8;
-            LagAirDash = 10;
         }
         public void Lag(int num)
         {
@@ -95,30 +41,11 @@ namespace FightingGame.Player
         {
             DoubleJumpCount = 0;
             MidairOptionsCount = 0;
-            rb.gravityScale = GravityScalar;
+            rb.gravityScale = CD.GravityScalar;
             rb.velocity = Vector2.zero;
         }
-
+        public CharacterData CD { get => cD; set => cD = value; }
         public GameObject Player { get => player; set => player = value; }
-        public float MaxHealth { get => maxHealth; set => maxHealth = value; }
-        public float MaxMomentum { get => maxMomentum; set => maxMomentum = value; }
-        public float Speed { get => speed; set => speed = value; }
-        public float ShortHopHeight { get => shortHopHeight; set => shortHopHeight = value; }
-        public float FullHopMultiplier { get => fullHopMultiplier; set => fullHopMultiplier = value; }
-        public float FullHopHeight { get => fullHopHeight; set => fullHopHeight = value; }
-        public float AerialSpeed { get => aerialSpeed; set => aerialSpeed = value; }
-        public int MaxMidairOptions { get => maxMidairOptions; set => maxMidairOptions = value; }
-        public int MaxDoubleJumps { get => maxDoubleJumps; set => maxDoubleJumps = value; }
-        public float MidAirJumpHeight { get => midAirJumpHeight; set => midAirJumpHeight = value; }
-        public float MaxAirSpeed { get => maxAirSpeed; set => maxAirSpeed = value; }
-        public float AirDashDist { get => airDashDist; set => airDashDist = value; }
-        public float GravityScalar { get => gravityScalar; set => gravityScalar = value; }
-        public float FastFallPush { get => fastFallPush; set => fastFallPush = value; }
-        public int LagJump { get => lagJump; set => lagJump = value; }
-        public int LagDoubleJump { get => lagDoubleJump; set => lagDoubleJump = value; }
-        public int LagNormalLand { get => lagNormalLand; set => lagNormalLand = value; }
-        public int LagHardLand { get => lagHardLand; set => lagHardLand = value; }
-        public int LagAirDash { get => lagAirDash; set => lagAirDash = value; }
         public int DoubleJumpCount { get => _doubleJumpCount; set => _doubleJumpCount = value; }
         public int MidairOptionsCount { get => _midairOptionsCount; set => _midairOptionsCount = value; }
         public int CurHorizDir { get => _curHorizDir; set => _curHorizDir = value; }

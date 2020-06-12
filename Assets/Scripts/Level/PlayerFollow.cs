@@ -15,17 +15,17 @@ namespace FightingGame.Level
         [SerializeField] float maxCameraWidth = 15f;
         [Header("Ground")]
         [SerializeField] GameObject ground;
-        [SerializeField] float groundSpeedScalar = .062f; // .062 for exact, .07 for some depth perception
-        [Header("Background")]
+        [SerializeField] float groundSpeedScalar; // .062 for exact, .07 for some depth perception
+        [Header("Level")]
         [SerializeField] GameObject sky;
+        [SerializeField] float skyScalar;
         [SerializeField] GameObject backgroundBack;
+        [SerializeField] float backgroundBackScalar;
         [SerializeField] GameObject backgroundMid;
+        [SerializeField] float backgroundMidScalar;
         [SerializeField] GameObject backgroundFront;
-        [SerializeField] float skyScalar = .003f;
-        [SerializeField] float backgroundBackScalar = .007f;
-        [SerializeField] float backgroundMidScalar = .03f;
-        [SerializeField] float backgroundFrontScalar = .05f;
-        float middle;
+        [SerializeField] float backgroundFrontScalar;
+        float middle; 
         float step;
 
         public void Start()
@@ -85,7 +85,6 @@ namespace FightingGame.Level
         }
         public float MaxCameraWidth { get => maxCameraWidth; private set => maxCameraWidth = value; }
         public float Middle { get => middle; private set => middle = value; }
-
     }
 }
 
