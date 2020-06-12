@@ -10,7 +10,7 @@ namespace FightingGame.Player.Movement
         [SerializeField] float momentum;
         [SerializeField] float momentumGrowthSpeed = .1f;
         [SerializeField] int maxStrikes = 5;
-        int strikes;
+        [SerializeField] int strikes;
         [SerializeField] float count;   // Serialized for viewing
         enum State {positive, neutral, negative} // Holds the direction the player is travelling generally
         State direction;
