@@ -34,8 +34,8 @@ namespace FightingGame.Player.Movement
             // Should AirDash cancel lag? currently: no
             if (PC.IsInLag)
             {
-                return;
-                //PC.Lag(0);
+                //return;
+                PC.Lag(0);
             }
             if (PC.MidairOptionsCount < PC.CD.MaxMidairOptions)
             {

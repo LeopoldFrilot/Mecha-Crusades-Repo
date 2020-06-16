@@ -29,6 +29,6 @@ MonoBehaviour:
   fastFallPush: 3
   lagJump: 3
   lagDoubleJump: 3
-  lagNormalLand: 4
-  lagHardLand: 10
+  lagNormalLand: 0
+  lagHardLand: 0
   lagAirDash: 7

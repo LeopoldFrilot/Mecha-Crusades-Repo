@@ -12,6 +12,7 @@ namespace FightingGame.Player.Movement
         [SerializeField] int maxStrikes = 5;
         [SerializeField] int strikes;
         [SerializeField] float count;   // Serialized for viewing
+        [SerializeField] float baseMomentumCount = -1.5f;
         enum State {positive, neutral, negative} // Holds the direction the player is travelling generally
         State direction;
         State state;
@@ -77,7 +78,7 @@ namespace FightingGame.Player.Movement
         {
             momentum = 0f;
             strikes = 0;
-            count = -2f;
+            count = baseMomentumCount;
         }
         private void SubmitMomentum()
         {
