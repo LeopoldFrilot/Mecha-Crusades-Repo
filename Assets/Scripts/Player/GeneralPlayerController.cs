@@ -11,6 +11,8 @@ namespace FightingGame.Player
         LagManager LM;
         [SerializeField] CharacterData cD;
         GameObject player;
+        GameObject otherPlayer;
+        Animator playerAnimator;
 
         // variables that will change
         [Header("Variables")]
@@ -22,6 +24,7 @@ namespace FightingGame.Player
         [SerializeField] bool _isInLag;
         [SerializeField] bool _isGrounded;
         [SerializeField] bool _isFalling;
+        [SerializeField] string _dirRelativeToOpp;
         [SerializeField] string _lagType;
         [SerializeField] int _health;
 
@@ -30,7 +33,9 @@ namespace FightingGame.Player
         {
             LM = FindObjectOfType<LagManager>();
             Player = gameObject;
+            OtherPlayer = FindObjectOfType<PlayerSelect>().GetOtherPlayer(Player);
             rb = Player.GetComponent<Rigidbody2D>();
+            PlayerAnimator = Player.GetComponent<Animator>();
         }
         public void Lag(int num)
         {
@@ -43,9 +48,14 @@ namespace FightingGame.Player
             MidairOptionsCount = 0;
             rb.gravityScale = CD.GravityScalar;
             rb.velocity = Vector2.zero;
+            PlayerAnimator.SetBool("isAirborne", false);
         }
         public CharacterData CD { get => cD; set => cD = value; }
         public GameObject Player { get => player; set => player = value; }
+        public GameObject OtherPlayer { get => otherPlayer; set => otherPlayer = value; }
+        public Animator PlayerAnimator { get => playerAnimator; set => playerAnimator = value; }
+
+
         public int DoubleJumpCount { get => _doubleJumpCount; set => _doubleJumpCount = value; }
         public int MidairOptionsCount { get => _midairOptionsCount; set => _midairOptionsCount = value; }
         public int CurHorizDir { get => _curHorizDir; set => _curHorizDir = value; }
@@ -54,8 +64,10 @@ namespace FightingGame.Player
         public bool IsInLag { get => _isInLag; set => _isInLag = value; }
         public bool IsGrounded { get => _isGrounded; set => _isGrounded = value; }
         public bool IsFalling { get => _isFalling; set => _isFalling = value; }
+        public string DirRelativeToOpp { get => _dirRelativeToOpp; set => _dirRelativeToOpp = value; }
         public string LagType { get => _lagType; set => _lagType = value; }
         public int Health { get => _health; set => _health = value; }
+
     }
 }
 

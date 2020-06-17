@@ -97,8 +97,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   momentum: 0
   momentumGrowthSpeed: 0.01
-  maxStrikes: 5
+  maxStrikes: 10
+  strikes: 0
   count: 0
+  baseMomentumCount: -1.5
 --- !u!114 &285538100943999450
 MonoBehaviour:
   m_ObjectHideFlags: 0

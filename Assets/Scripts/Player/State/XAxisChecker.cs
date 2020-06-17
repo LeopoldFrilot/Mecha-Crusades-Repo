@@ -21,14 +21,25 @@ namespace FightingGame.Player.State
             if(Input.GetAxis("Horizontal") > 0)
             {
                 PC.CurHorizDir = 1;
+                if (PC.IsGrounded)
+                {
+                    PC.Player.GetComponent<SpriteRenderer>().flipX = true;
+                }
+                PC.PlayerAnimator.SetBool("isRunning", true);
             }
             else if (Input.GetAxis("Horizontal") < 0)
             {
                 PC.CurHorizDir = -1;
+                if (PC.IsGrounded)
+                {
+                    PC.Player.GetComponent<SpriteRenderer>().flipX = false;
+                }
+                PC.PlayerAnimator.SetBool("isRunning", true);
             }
             else
             {
                 PC.CurHorizDir = 0;
+                PC.PlayerAnimator.SetBool("isRunning", false);
             }
         }
     }

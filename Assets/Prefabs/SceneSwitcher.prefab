@@ -10,6 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1959288159167705104}
   - component: {fileID: 3469977494194578532}
+  - component: {fileID: 1136162780}
+  - component: {fileID: 1136162781}
+  - component: {fileID: 1136162782}
+  - component: {fileID: 1136162783}
+  - component: {fileID: 1136162784}
   m_Layer: 0
   m_Name: SceneSwitcher
   m_TagString: Untagged
@@ -43,3 +48,81 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bd0ab123335ebb429adec93d9cdb907, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1136162780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5465405783244208775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b0e613acb5f58749b22f214d61fd1ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player1: {fileID: 0}
+  player2: {fileID: 0}
+--- !u!114 &1136162781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5465405783244208775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9286de61126b034a850c880d6f305e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  percentageFrameDifAllowed: 10
+--- !u!114 &1136162782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5465405783244208775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8502d40b7174ed940b556da677e34db6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1136162783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5465405783244208775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50dccee06e72427469952a149eaeaaaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aerialOptionsCounter: {fileID: 0}
+  FPSTracker: {fileID: 0}
+  momentumSlider: {fileID: 0}
+--- !u!114 &1136162784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5465405783244208775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8989fcd452c20540bf6b6ccc95badcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraMoveSpeed: 5000
+  maxCameraWidth: 15
+  ground: {fileID: 0}
+  groundSpeedScalar: 0.062
+  sky: {fileID: 0}
+  skyScalar: 0.001
+  backgroundBack: {fileID: 0}
+  backgroundBackScalar: 0.005
+  backgroundMid: {fileID: 0}
+  backgroundMidScalar: 0.02
+  backgroundFront: {fileID: 0}
+  backgroundFrontScalar: 0.04

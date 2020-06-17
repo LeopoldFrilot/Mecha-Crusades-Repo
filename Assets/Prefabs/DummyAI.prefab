@@ -45,7 +45,7 @@ Animator:
   m_GameObject: {fileID: 7855951906288086732}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ddc0f31570534e448b19b58861c386ad, type: 2}
+  m_Controller: {fileID: 9100000, guid: 9b2949028e6c2af4d83dceacd10f2d0c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -115,7 +115,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 3ff2ff74da08c944c9b426e917a9d377, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dbd6e22dfe4054c4a9e07d17fc8892cd, type: 3}
   m_Color: {r: 0.8207547, g: 0.7872018, b: 0.7704254, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -155,4 +155,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   opponent: {fileID: 0}
-  speed: 0
+  defSpeed: 0

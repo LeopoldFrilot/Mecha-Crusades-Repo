@@ -39,11 +39,12 @@ namespace FightingGame.Player.State
                     }
                 }
                 PC.IsGrounded = true;
-                //Debug.Log("State: Grounded");
+                PC.PlayerAnimator.SetBool("isAirborne", false);
             }
             else
             {
                 PC.IsGrounded = false;
+                PC.PlayerAnimator.SetBool("isAirborne", true);
                 //Debug.Log("State: Aerial");
             }
         }
