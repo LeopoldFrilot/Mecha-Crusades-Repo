@@ -7,7 +7,10 @@ namespace FightingGame.Player.Movement
     public class AirDash : MonoBehaviour
     {
         GeneralPlayerController PC;
-        int dashTimeLength = 3; // in frames
+        Vector3 curPos;
+        Vector3 finalPos;
+        float step;
+        bool isDashing = false;
         public void Start()
         {
             PC = GetComponent<GeneralPlayerController>();
@@ -15,7 +18,12 @@ namespace FightingGame.Player.Movement
         public void Update()
         {
             AirDashCheck();
+            if (isDashing)
+            {
+                Move();
+            }
         }
+
 
         /* AirDashCheck is a function which moves the character completely horizontally
         * and lag for a few frames */
@@ -40,29 +48,36 @@ namespace FightingGame.Player.Movement
             }
             if (PC.MidairOptionsCount < PC.CD.MaxMidairOptions && PC.CurHorizDir != 0)
             {
+                PC.Lag(PC.CD.LagAirDash);
                 ChooseDirection();
                 PC.PlayerAnimator.SetTrigger("AIRDASH");
-                Vector3 curPos = PC.Player.transform.position;
-                Vector3 finalPos = PC.Player.transform.position + PC.CurHorizDir * new Vector3(PC.CD.AirDashDist * PC.Momentum, 0, 0);
-                float step = Mathf.Abs(curPos.x - finalPos.x) / dashTimeLength;
-                while (curPos != finalPos)
-                {
-                    PC.Player.transform.position = Vector3.MoveTowards(curPos, finalPos, step);
-                    curPos = PC.Player.transform.position;
-                }
+                curPos = PC.Player.transform.position;
+                finalPos = PC.Player.transform.position + PC.CurHorizDir * new Vector3(PC.CD.AirDashDist * PC.Momentum, 0, 0);
+                step = Mathf.Abs(curPos.x - finalPos.x) / PC.CD.LagAirDash;
                 PC.MidairOptionsCount++;
-                PC.Lag(PC.CD.LagAirDash);
+                isDashing = true;
             }
+        }
+        private void Move()
+        {
+            if (Mathf.Abs(curPos.x - finalPos.x) < Mathf.Epsilon)
+            {
+                isDashing = false;
+            }
+            PC.Player.transform.position = Vector3.MoveTowards(curPos, finalPos, step);
+            curPos = PC.Player.transform.position;
         }
         private void ChooseDirection()
         {
             if(PC.CurHorizDir > 0)
             {
-                PC.Player.GetComponent<SpriteRenderer>().flipX = true;
+                PC.Player.transform.localScale = new Vector2(PC.PlayerXScale * -1, PC.Player.transform.localScale.y);
+                PC.DirFacing = 1;
             }
             else
             {
-                PC.Player.GetComponent<SpriteRenderer>().flipX = false;
+                PC.Player.transform.localScale = new Vector2(PC.PlayerXScale * 1, PC.Player.transform.localScale.y);
+                PC.DirFacing = -1;
             }
         }
     }

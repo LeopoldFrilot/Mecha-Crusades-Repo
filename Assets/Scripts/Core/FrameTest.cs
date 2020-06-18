@@ -28,7 +28,7 @@ namespace FightingGame.Core
                     float percError = Mathf.Abs((CurFrameTime - targetFrameLength) / targetFrameLength) * 100;
                     if (percError >= percentageFrameDifAllowed)
                     {
-                        Debug.Log("Frame dropped from calculation because it differed from target framerate by " + (int)percError + "%");
+                        //Debug.Log("Frame dropped from calculation because it differed from target framerate by " + (int)percError + "%");
                         CurFrameTime = prevFrameTime;
                     }
                 }

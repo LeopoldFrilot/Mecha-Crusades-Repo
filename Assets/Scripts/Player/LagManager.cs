@@ -35,15 +35,12 @@ namespace FightingGame.Player
          * runs out */
         private void ManageLag()
         {
-            //Debug.Log("lag is: " + lag);
-            if (lagTrack < lag)
+            if (lagTrack < lag && lag > 0)
             {
                 lagTrack++;
-                //Debug.Log("I've been lagging for " + lagTrack + " frames: " + inLag);
             }
             else
             {
-                //Debug.Log("Lag Over: " + lag);
                 Reset();
             }
 

@@ -39,7 +39,11 @@ namespace FightingGame.Player.Movement
                 if (momentum <= PC.CD.MaxMomentum) 
                 { 
                     IncrementMomentum();    // increment Momentum exponentially as long as it's less than max momentum
-                }    
+                }
+                else
+                {
+                    PC.PlayerAnimator.SetBool("isMaxMomentum", true);
+                }
             }
             // else put a strike on momentum
             else
@@ -47,7 +51,8 @@ namespace FightingGame.Player.Movement
                 strikes++;
                 if (strikes > maxStrikes)    // if x strikes momentum ends
                 {
-                    ResetMomentum();
+                    ResetMomentum(); 
+                    PC.PlayerAnimator.SetBool("isMaxMomentum", false);
                     state = direction;  // start new direction
                 }
             }

@@ -24,11 +24,11 @@ MonoBehaviour:
   maxDoubleJumps: 1
   midAirJumpHeight: 7
   maxAirSpeed: 7.5
-  airDashDist: 2
+  airDashDist: 3
   gravityScalar: 2
   fastFallPush: 3
-  lagJump: 3
-  lagDoubleJump: 3
-  lagNormalLand: 0
-  lagHardLand: 0
+  lagJump: 0
+  lagDoubleJump: 0
+  lagNormalLand: 2
+  lagHardLand: 4
   lagAirDash: 7

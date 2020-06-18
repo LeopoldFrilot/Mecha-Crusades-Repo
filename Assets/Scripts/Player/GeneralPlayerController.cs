@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using FightingGame.Player.Attack;
+using FightingGame.Player.State;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
@@ -9,10 +11,13 @@ namespace FightingGame.Player
     {
         Rigidbody2D rb;
         LagManager LM;
+        AttacksController AC;
+        XAxisChecker XAC;
         [SerializeField] CharacterData cD;
         GameObject player;
         GameObject otherPlayer;
         Animator playerAnimator;
+        float playerXScale;
 
         // variables that will change
         [Header("Variables")]
@@ -24,7 +29,7 @@ namespace FightingGame.Player
         [SerializeField] bool _isInLag;
         [SerializeField] bool _isGrounded;
         [SerializeField] bool _isFalling;
-        [SerializeField] string _dirRelativeToOpp;
+        [SerializeField] int _dirFacing;
         [SerializeField] string _lagType;
         [SerializeField] int _health;
 
@@ -32,10 +37,13 @@ namespace FightingGame.Player
         public void Awake()
         {
             LM = FindObjectOfType<LagManager>();
+            AC = FindObjectOfType<AttacksController>();
+            XAC = FindObjectOfType<XAxisChecker>();
             Player = gameObject;
             OtherPlayer = FindObjectOfType<PlayerSelect>().GetOtherPlayer(Player);
             rb = Player.GetComponent<Rigidbody2D>();
             PlayerAnimator = Player.GetComponent<Animator>();
+            PlayerXScale = playerXScale = Player.transform.localScale.x;
         }
         public void Lag(int num)
         {
@@ -49,6 +57,10 @@ namespace FightingGame.Player
             rb.gravityScale = CD.GravityScalar;
             rb.velocity = Vector2.zero;
             PlayerAnimator.SetBool("isAirborne", false);
+        }
+        public void ActivateAttack(int index)
+        {
+            AC.ActivateAttack(index);
         }
         public CharacterData CD { get => cD; set => cD = value; }
         public GameObject Player { get => player; set => player = value; }
@@ -64,10 +76,10 @@ namespace FightingGame.Player
         public bool IsInLag { get => _isInLag; set => _isInLag = value; }
         public bool IsGrounded { get => _isGrounded; set => _isGrounded = value; }
         public bool IsFalling { get => _isFalling; set => _isFalling = value; }
-        public string DirRelativeToOpp { get => _dirRelativeToOpp; set => _dirRelativeToOpp = value; }
+        public int DirFacing { get => _dirFacing; set => _dirFacing = value; }
         public string LagType { get => _lagType; set => _lagType = value; }
         public int Health { get => _health; set => _health = value; }
-
+        public float PlayerXScale { get => playerXScale; set => playerXScale = value; }
     }
 }
 
