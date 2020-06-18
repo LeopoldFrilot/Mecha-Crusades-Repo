@@ -1007,7 +1007,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: SceneSwitcher
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1136162780, guid: 3c36ee79bda273143978944daf18d0a9, type: 3}
+    - {fileID: 1136162781, guid: 3c36ee79bda273143978944daf18d0a9, type: 3}
+    - {fileID: 1136162782, guid: 3c36ee79bda273143978944daf18d0a9, type: 3}
+    - {fileID: 1136162783, guid: 3c36ee79bda273143978944daf18d0a9, type: 3}
+    - {fileID: 1136162784, guid: 3c36ee79bda273143978944daf18d0a9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3c36ee79bda273143978944daf18d0a9, type: 3}
 --- !u!114 &8573404392992068149 stripped
 MonoBehaviour:

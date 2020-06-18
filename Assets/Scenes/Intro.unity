@@ -181,10 +181,10 @@ PrefabInstance:
     - target: {fileID: 1107283271090549239, guid: ba02cee58508539479faeb1b89e3b71b, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 23b6a5999095dcf459ffcadf15695bfb, type: 3}
+      objectReference: {fileID: 8300000, guid: d6ed2ed6a96f7474d98c6cafdf33d0eb, type: 3}
     - target: {fileID: 1107283271090549239, guid: ba02cee58508539479faeb1b89e3b71b, type: 3}
       propertyPath: m_Volume
-      value: 0.6
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1107283271090549239, guid: ba02cee58508539479faeb1b89e3b71b, type: 3}
       propertyPath: Priority
@@ -402,7 +402,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 9104ba36644d9fa479be01b2203a158d, type: 3}
     - target: {fileID: 1107283271090549239, guid: ba02cee58508539479faeb1b89e3b71b, type: 3}
       propertyPath: m_Volume
-      value: 0.1
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 1107283271090549239, guid: ba02cee58508539479faeb1b89e3b71b, type: 3}
       propertyPath: Priority
@@ -687,6 +687,18 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: f6cad19b77169b343919314372c79f93, type: 2}
+    - target: {fileID: 2931668558369384505, guid: 5f632d4d148f5074b8ed43f3ad5186fd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1699141206}
+    - target: {fileID: 2931668558369384505, guid: 5f632d4d148f5074b8ed43f3ad5186fd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Quit
+      objectReference: {fileID: 0}
+    - target: {fileID: 2931668558369384505, guid: 5f632d4d148f5074b8ed43f3ad5186fd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: FightingGame.Scene.SceneSwitcher, Assembly-CSharp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f632d4d148f5074b8ed43f3ad5186fd, type: 3}
 --- !u!1001 &8573404392992068148
@@ -744,5 +756,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SceneSwitcher
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1136162780, guid: 3c36ee79bda273143978944daf18d0a9, type: 3}
+    - {fileID: 1136162781, guid: 3c36ee79bda273143978944daf18d0a9, type: 3}
+    - {fileID: 1136162782, guid: 3c36ee79bda273143978944daf18d0a9, type: 3}
+    - {fileID: 1136162783, guid: 3c36ee79bda273143978944daf18d0a9, type: 3}
+    - {fileID: 1136162784, guid: 3c36ee79bda273143978944daf18d0a9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3c36ee79bda273143978944daf18d0a9, type: 3}
