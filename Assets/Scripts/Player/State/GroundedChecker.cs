@@ -63,13 +63,13 @@ namespace FightingGame.Player.State
             }
             PC.IsGrounded = true;
             PC.PlayerAnimator.SetBool("isAirborne", false);
-            Debug.Log("Grounded");
+            //Debug.Log("Grounded");
         }
         private void SetAirborne()
         {
             PC.IsGrounded = false;
             PC.PlayerAnimator.SetBool("isAirborne", true);
-            Debug.Log("State: Aerial");
+            //Debug.Log("State: Aerial");
         }
         public void OnTriggerEnter2D(Collider2D collision)
         {

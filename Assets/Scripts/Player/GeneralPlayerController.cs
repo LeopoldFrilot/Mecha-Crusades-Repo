@@ -12,12 +12,12 @@ namespace FightingGame.Player
         Rigidbody2D rb;
         LagManager LM;
         AttacksController AC;
-        XAxisChecker XAC;
         [SerializeField] CharacterData cD;
         GameObject player;
         GameObject otherPlayer;
         Animator playerAnimator;
         float playerXScale;
+        Transform projectileLocation;
 
         // variables that will change
         [Header("Variables")]
@@ -38,12 +38,12 @@ namespace FightingGame.Player
         {
             LM = FindObjectOfType<LagManager>();
             AC = FindObjectOfType<AttacksController>();
-            XAC = FindObjectOfType<XAxisChecker>();
             Player = gameObject;
             OtherPlayer = FindObjectOfType<PlayerSelect>().GetOtherPlayer(Player);
             rb = Player.GetComponent<Rigidbody2D>();
             PlayerAnimator = Player.GetComponent<Animator>();
             PlayerXScale = playerXScale = Player.transform.localScale.x;
+            ProjectileLocation = GameObject.Find("ProjectileLocation").transform;
         }
         public void Lag(int num)
         {
@@ -80,6 +80,7 @@ namespace FightingGame.Player
         public string LagType { get => _lagType; set => _lagType = value; }
         public int Health { get => _health; set => _health = value; }
         public float PlayerXScale { get => playerXScale; set => playerXScale = value; }
+        public Transform ProjectileLocation { get => projectileLocation; set => projectileLocation = value; }
     }
 }
 

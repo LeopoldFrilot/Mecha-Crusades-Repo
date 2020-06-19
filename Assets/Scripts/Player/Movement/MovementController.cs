@@ -10,18 +10,15 @@ namespace FightingGame.Player.Movement
     {
         GeneralPlayerController PC;
         FrameTest FT;
-        PlayerFollow PF;
 
         public void Start()
         {
             PC = FindObjectOfType<GeneralPlayerController>();
             FT = FindObjectOfType<FrameTest>();
-            PF = FindObjectOfType<PlayerFollow>();
         }
         public void Update()
         {
             MoveCheck();
-            ClampHorizontalMovement();
         }
 
         /* Move is a function which allows primitive movement
@@ -55,11 +52,6 @@ namespace FightingGame.Player.Movement
         private void DI()
         {
 
-        }
-        private void ClampHorizontalMovement()
-        {
-            float xClamped = Mathf.Clamp(PC.Player.transform.position.x, PF.Middle - PF.MaxCameraWidth / 2f, PF.Middle + PF.MaxCameraWidth / 2f);
-            PC.Player.transform.position = new Vector3(xClamped, PC.Player.transform.position.y, PC.Player.transform.position.z);
         }
     }
 }

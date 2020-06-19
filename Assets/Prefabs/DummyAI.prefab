@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7855951906288086733}
   - component: {fileID: 7855951906288086730}
   - component: {fileID: 7855951906288086742}
+  - component: {fileID: 955669201}
   m_Layer: 8
   m_Name: DummyAI
   m_TagString: Untagged
@@ -69,11 +70,11 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 2
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!212 &7855951906288086733
 SpriteRenderer:
@@ -156,3 +157,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   opponent: {fileID: 0}
   defSpeed: 0
+--- !u!114 &955669201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7855951906288086732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d3c800f505788343bcd0cbee253bd57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

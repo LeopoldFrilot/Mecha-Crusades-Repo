@@ -7,8 +7,9 @@ namespace FightingGame.Player.Attack
     public class Attack : MonoBehaviour
     {
         GeneralPlayerController PC;
-        [SerializeField] float damage;
-        [SerializeField] Vector2 knockback;
+        [SerializeField] CharacterAttack cA;
+
+
         public void Start()
         {
             PC = FindObjectOfType<GeneralPlayerController>();
@@ -18,9 +19,10 @@ namespace FightingGame.Player.Attack
             if (collision.gameObject != PC.Player)
             {
                 Debug.Log("Hit: " + collision.gameObject.name);
-                collision.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(knockback.x * PC.DirFacing, knockback.y);
+                collision.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(CA.Knockback.x * PC.DirFacing, CA.Knockback.y);
             }
         }
+        public CharacterAttack CA { get => cA; set => cA = value; }
     }
 }
 

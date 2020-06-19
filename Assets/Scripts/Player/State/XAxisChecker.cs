@@ -20,10 +20,12 @@ namespace FightingGame.Player.State
         {
             if(Input.GetAxis("Horizontal") > 0)
             {
+                if (PC.IsInLag) return;
                 GoRight();
             }
             else if (Input.GetAxis("Horizontal") < 0)
             {
+                if (PC.IsInLag) return;
                 GoLeft();
             }
             else

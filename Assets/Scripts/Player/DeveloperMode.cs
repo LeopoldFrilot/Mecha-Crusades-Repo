@@ -6,7 +6,7 @@ namespace FightingGame.Player
 {
     public class DeveloperMode : MonoBehaviour
     {
-        bool devMode = false;
+        bool devMode = true;
         GeneralPlayerController PC;
         public void Start()
         {
