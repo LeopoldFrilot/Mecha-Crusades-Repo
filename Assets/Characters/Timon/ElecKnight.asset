@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c0ed5e6f6c6e6f4e91af7c5e0a2a0ba, type: 3}
+  m_Name: ElecKnight
+  m_EditorClassIdentifier: 
+  charName: ElecKnight
+  charDescription: Actually Default
+  maxHealth: 1000
+  maxMomentum: 10
+  speed: 6
+  shortHopHeight: 3.75
+  fullHopMultiplier: 2
+  aerialSpeed: 5
+  maxMidairOptions: 2
+  maxDoubleJumps: 1
+  midAirJumpHeight: 7
+  maxAirSpeed: 7.5
+  airDashDist: 3
+  gravityScalar: 2
+  fastFallPush: 3
+  lagJump: 1
+  lagDoubleJump: 1
+  lagNormalLand: 2
+  lagHardLand: 4
+  lagAirDash: 7
