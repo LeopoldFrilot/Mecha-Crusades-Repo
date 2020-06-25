@@ -12,9 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79e29c5b235f53d46a105c186883e9c4, type: 3}
   m_Name: Medium Grounded
   m_EditorClassIdentifier: 
-  damage: 0
-  knockback: {x: 0, y: 6}
-  hitstun: 0
-  blockstun: 0
+  triggerWord: MEDIUMATTACK
+  damage: 100
+  knockback: {x: 20, y: 6}
+  startupFrames: 14
+  activeFrames: 5
+  recoveryFrames: 21
+  hitstun: 12
+  blockstun: 2
   hasProjectile: 0
   projectile: {fileID: 0}
