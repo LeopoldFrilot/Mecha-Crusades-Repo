@@ -58,9 +58,13 @@ namespace FightingGame.Player
             rb.velocity = Vector2.zero;
             PlayerAnimator.SetBool("isAirborne", false);
         }
-        public void ActivateAttack(int index)
+        public void StartMove(string name)
         {
-            AC.ActivateAttack(index);
+            AC.StartMove(name);
+        }
+        public void ActivateAttack()
+        {
+            AC.ActivateAttack();
         }
         public CharacterData CD { get => cD; set => cD = value; }
         public GameObject Player { get => player; set => player = value; }

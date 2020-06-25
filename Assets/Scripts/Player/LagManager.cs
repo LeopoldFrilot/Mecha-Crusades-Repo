@@ -35,7 +35,7 @@ namespace FightingGame.Player
          * runs out */
         private void ManageLag()
         {
-            if (lagTrack < lag && lag > 0)
+            if (lagTrack < lag-1 && lag > 0)
             {
                 lagTrack++;
             }
@@ -43,7 +43,6 @@ namespace FightingGame.Player
             {
                 Reset();
             }
-
         }
 
         private void Reset()

@@ -37,7 +37,7 @@ namespace FightingGame.AI
         {
             if(speed == defSpeed)
             {
-                speed = 100f;
+                speed = 1000f;
                 renderer.enabled = false;
             }
             else

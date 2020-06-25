@@ -9,7 +9,6 @@ namespace FightingGame.Player.Attack
         GeneralPlayerController PC;
         [SerializeField] CharacterAttack cA;
 
-
         public void Start()
         {
             PC = FindObjectOfType<GeneralPlayerController>();

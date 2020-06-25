@@ -9,6 +9,8 @@ namespace FightingGame.Player.Attack
         GeneralPlayerController PC;
         PolygonCollider2D hitbox;
         GameObject attack;
+        Attack attackRef;
+        string curMove;
 
         public void Start()
         {
@@ -18,70 +20,59 @@ namespace FightingGame.Player.Attack
         {
             if (PC.IsInLag == false)
             {
-                /*if (PC.IsGrounded)
-                {
-                    if(Input.GetAxis("Horizontal") == 0)
-                    {
-                        CheckInput();
-                    }
-                }
-                else
-                {
-                    CheckInput();
-                }*/
                 CheckInput();
             }
         }
 
         private void CheckInput()
         {
-            // Turn into switch case one day
-            // Light Attack
-            if (PC.IsGrounded && Input.GetButtonDown("Light Attack"))
+            if (PC.IsGrounded)
             {
-                PC.PlayerAnimator.SetTrigger("LIGHTATTACK");
-                PC.Lag(6);
+                // Light Attack
+                if (Input.GetButtonDown("Light Attack"))
+                {
+                    PC.PlayerAnimator.SetTrigger("LIGHTATTACK");
+                }
+                // Medium Attack
+                else if (Input.GetButtonDown("Medium Attack"))
+                {
+                    PC.PlayerAnimator.SetTrigger("MEDIUMATTACK");
+                }
+                // Heavy Attack
+                else if (Input.GetButtonDown("Heavy Attack"))
+                {
+                    PC.PlayerAnimator.SetTrigger("HEAVYATTACK");
+                }
             }
-            // Medium Attack
-            else if (PC.IsGrounded && Input.GetButtonDown("Medium Attack"))
+            else
             {
-                PC.PlayerAnimator.SetTrigger("MEDIUMATTACK");
-                PC.Lag(25);
-            }
-            // Heavy Attack
-            else if (PC.IsGrounded && Input.GetButtonDown("Heavy Attack"))
-            {
-                PC.PlayerAnimator.SetTrigger("HEAVYATTACK");
-                PC.Lag(35);
-            }
-            // Light Attack Aerial
-            else if (PC.IsGrounded == false && Input.GetButtonDown("Light Attack"))
-            {
-                PC.PlayerAnimator.SetTrigger("LIGHTAERIAL");
-                PC.Lag(7);
-            }
-            // Medium Attack Aerial
-            else if (PC.IsGrounded == false && Input.GetButtonDown("Medium Attack"))
-            {
-                PC.PlayerAnimator.SetTrigger("MEDIUMAERIAL");
-                PC.Lag(11);
-            }
-            // Heavy Attack Aerial
-            else if (PC.IsGrounded == false && Input.GetButtonDown("Heavy Attack"))
-            {
-                PC.PlayerAnimator.SetTrigger("HEAVYAERIAL");
-                PC.Lag(40);
+                // Light Attack Aerial
+                if (PC.IsGrounded == false && Input.GetButtonDown("Light Attack"))
+                {
+                    PC.PlayerAnimator.SetTrigger("LIGHTAERIAL");
+                }
+                // Medium Attack Aerial
+                else if (PC.IsGrounded == false && Input.GetButtonDown("Medium Attack"))
+                {
+                    PC.PlayerAnimator.SetTrigger("MEDIUMAERIAL");
+                }
+                // Heavy Attack Aerial
+                else if (PC.IsGrounded == false && Input.GetButtonDown("Heavy Attack"))
+                {
+                    PC.PlayerAnimator.SetTrigger("HEAVYAERIAL");
+                }
             }
         }
-        public void ActivateAttack(int index)
+        public void StartMove(string name)
         {
-            attack = gameObject.transform.GetChild(index).gameObject;
-            Activate(attack);
+            curMove = name;
+            attack = gameObject.transform.Find(curMove).gameObject;
+            attackRef = attack.GetComponent<Attack>();
+            PC.Lag(attackRef.CA.GetMoveLength());
         }
-        private void Activate(GameObject attack)
+        public void ActivateAttack()
         {
             hitbox = attack.GetComponent<PolygonCollider2D>();
-            Attack attackRef = attack.GetComponent<Attack>();
             Debug.Log(attackRef);
             hitbox.enabled = !hitbox.enabled;
             if (attackRef.CA.HasProjectile == true && hitbox.enabled)
@@ -89,6 +80,7 @@ namespace FightingGame.Player.Attack
                 Instantiate(attackRef.CA.Projectile, PC.ProjectileLocation.position, Quaternion.identity);
             }
         }
+        
     }
 }
 

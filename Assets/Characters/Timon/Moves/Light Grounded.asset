@@ -12,9 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79e29c5b235f53d46a105c186883e9c4, type: 3}
   m_Name: Light Grounded
   m_EditorClassIdentifier: 
-  damage: 0
-  knockback: {x: 2, y: 2}
-  hitstun: 0
-  blockstun: 0
+  triggerWord: LIGHTATTACK
+  damage: 20
+  knockback: {x: 2, y: 4}
+  startupFrames: 4
+  activeFrames: 2
+  recoveryFrames: 8
+  hitstun: 4
+  blockstun: 2
   hasProjectile: 0
   projectile: {fileID: 0}

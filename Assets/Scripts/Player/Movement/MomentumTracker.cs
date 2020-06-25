@@ -48,7 +48,8 @@ namespace FightingGame.Player.Movement
             // else put a strike on momentum
             else
             {
-                strikes++;
+                if(direction != State.neutral || PC.CurHorizDir == 0)
+                    strikes++;
                 if (strikes > maxStrikes)    // if x strikes momentum ends
                 {
                     ResetMomentum(); 
