@@ -12,7 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79e29c5b235f53d46a105c186883e9c4, type: 3}
   m_Name: Heavy Grounded
   m_EditorClassIdentifier: 
-  damage: 0
-  knockback: {x: 2, y: 10}
-  hitstun: 0
-  blockstun: 0
+  triggerWord: HEAVYATTACK
+  damage: 110
+  knockback: {x: 2, y: 12}
+  startupFrames: 23
+  activeFrames: 3
+  recoveryFrames: 6
+  hitstun: 60
+  blockstun: 5
+  hasProjectile: 0
+  projectile: {fileID: 0}

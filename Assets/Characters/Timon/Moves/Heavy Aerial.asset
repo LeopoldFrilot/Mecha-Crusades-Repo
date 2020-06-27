@@ -12,9 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79e29c5b235f53d46a105c186883e9c4, type: 3}
   m_Name: Heavy Aerial
   m_EditorClassIdentifier: 
-  damage: 0
-  knockback: {x: 1, y: -20}
-  hitstun: 0
-  blockstun: 0
+  triggerWord: HEAVYAERIAL
+  damage: 150
+  knockback: {x: 3, y: -40}
+  startupFrames: 16
+  activeFrames: 3
+  recoveryFrames: 40
+  hitstun: 100
+  blockstun: 7
   hasProjectile: 0
   projectile: {fileID: 0}

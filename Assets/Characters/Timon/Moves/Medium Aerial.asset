@@ -12,9 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79e29c5b235f53d46a105c186883e9c4, type: 3}
   m_Name: Medium Aerial
   m_EditorClassIdentifier: 
-  damage: 0
+  triggerWord: MEDIUMAERIAL
+  damage: 2
   knockback: {x: 3, y: 1}
-  hitstun: 0
-  blockstun: 0
+  startupFrames: 10
+  activeFrames: 2
+  recoveryFrames: 10
+  hitstun: 20
+  blockstun: 2
   hasProjectile: 1
   projectile: {fileID: 612910761698120517, guid: 0b37ead0a0f36574b9040ed503068037, type: 3}

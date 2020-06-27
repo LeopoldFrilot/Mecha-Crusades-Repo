@@ -41,6 +41,7 @@ namespace FightingGame.Player
             }
             else
             {
+                Debug.Log("Reset");
                 Reset();
             }
         }
@@ -51,6 +52,7 @@ namespace FightingGame.Player
             lagTrack = 0;
             lag = 0;
             PC.LagType = "None";
+            PC.PlayerAnimator.StopPlayback();
         }
 
         public void SetLagType(string name)

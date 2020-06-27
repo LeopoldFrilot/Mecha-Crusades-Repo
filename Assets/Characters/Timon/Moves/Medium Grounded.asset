@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggerWord: MEDIUMATTACK
   damage: 100
-  knockback: {x: 20, y: 6}
+  knockback: {x: 10, y: 6}
   startupFrames: 14
   activeFrames: 5
   recoveryFrames: 21

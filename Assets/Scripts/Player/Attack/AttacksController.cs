@@ -28,6 +28,10 @@ namespace FightingGame.Player.Attack
         {
             if (PC.IsGrounded)
             {
+                if (hitbox != null && hitbox.enabled) // Turns off hitboxes that might have gotten stuck on after falling
+                {
+                    ActivateAttack();
+                }
                 // Light Attack
                 if (Input.GetButtonDown("Light Attack"))
                 {

@@ -25,10 +25,12 @@ namespace FightingGame.Player.State
             if(curHeight < prevHeight)
             {
                 PC.IsFalling = true;
+                PC.PlayerAnimator.SetBool("isFalling", true);
             }
-            else
+            else if(curHeight > prevHeight)
             {
                 PC.IsFalling = false;
+                PC.PlayerAnimator.SetBool("isFalling", false);
             }
         }
     }
