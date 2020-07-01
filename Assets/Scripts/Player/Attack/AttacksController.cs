@@ -70,9 +70,10 @@ namespace FightingGame.Player.Attack
         public void StartMove(string name)
         {
             curMove = name;
-            attack = gameObject.transform.Find(curMove).gameObject;
+            attack = transform.Find(curMove).gameObject;
             attackRef = attack.GetComponent<Attack>();
             PC.Lag(attackRef.CA.GetMoveLength());
+            PC.LagType = "recovery";
         }
         public void ActivateAttack()
         {

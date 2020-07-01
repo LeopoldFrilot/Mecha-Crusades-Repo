@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: 7855951906288086733}
   - component: {fileID: 7855951906288086730}
   - component: {fileID: 7855951906288086742}
-  - component: {fileID: 955669201}
+  - component: {fileID: 955669196}
+  - component: {fileID: 5512604914752084612}
   m_Layer: 8
   m_Name: DummyAI
   m_TagString: Untagged
@@ -31,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 7855951906288086732}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 6.35, y: -3.853, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -46,7 +47,7 @@ Animator:
   m_GameObject: {fileID: 7855951906288086732}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9b2949028e6c2af4d83dceacd10f2d0c, type: 2}
+  m_Controller: {fileID: 9100000, guid: b5efe0c84a765464ab97e3dee6ed43c1, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -116,12 +117,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: dbd6e22dfe4054c4a9e07d17fc8892cd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c4349c4ac72b6264599f39f37300322b, type: 3}
   m_Color: {r: 0.8207547, g: 0.7872018, b: 0.7704254, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.93, y: 0.93}
+  m_Size: {x: 4, y: 4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -140,8 +141,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.3296684}
-  m_Size: {x: 0.2221111, y: 0.50943065}
+  m_Offset: {x: 0.22286367, y: 1.6203299}
+  m_Size: {x: 0.8764906, y: 2.9308147}
   m_Direction: 0
 --- !u!114 &7855951906288086742
 MonoBehaviour:
@@ -157,7 +158,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   opponent: {fileID: 0}
   defSpeed: 0
---- !u!114 &955669201
+--- !u!114 &955669196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7855951906288086732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55c5485eabd057643be34db4794b2014, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  framesNeeded: 3
+  aveHorizSpeed: 0
+--- !u!114 &5512604914752084612
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

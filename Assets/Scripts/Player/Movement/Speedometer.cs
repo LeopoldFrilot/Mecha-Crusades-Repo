@@ -9,17 +9,17 @@ namespace FightingGame.Player.Movement
     {
         GeneralPlayerController PC;
         [SerializeField] int framesNeeded = 3;    // In order to find the average apeed we will take the average of speeds over this frame period
-        private List<float> speedList = new List<float>();  // Tracks the speeds found in an array
-        private Vector3 prevPosition;   // Keeps a record of the object's previous position one frame ago
+        List<float> speedList = new List<float>();  // Tracks the speeds found in an array
+        Vector3 prevPosition;   // Keeps a record of the object's previous position one frame ago
         private Vector3 curPosition;    // Keeps a record of the objects current position
         [SerializeField] float aveHorizSpeed;   // The average speed. Its the whole purpose of this script. Serialized for viewing purposes.
-        private FrameTest frameT;
+        //private FrameTest frameT;
 
         // Start is called before the first frame update
         void Start()
         {
-            PC = FindObjectOfType<GeneralPlayerController>();
-            frameT = FindObjectOfType<FrameTest>();
+            PC = GetComponent<GeneralPlayerController>();
+            //frameT = FindObjectOfType<FrameTest>();
             // Initializing
             curPosition = Vector3.zero;
             speedList.Clear();
@@ -29,16 +29,17 @@ namespace FightingGame.Player.Movement
         void Update()
         {
             prevPosition = curPosition;
-            curPosition = PC.Player.transform.position;
+            curPosition = transform.position;
             PopulateHorizSpeedList();
-            PC.AveHorizSpeed = CalculateAveSpeed();
+            aveHorizSpeed = CalculateAveSpeed();
+            if (PC) PC.AveHorizSpeed = aveHorizSpeed;
         }
 
         private void PopulateHorizSpeedList()
         {
-            if(frameT.CurFrameTime != 0)
+            if (Time.deltaTime != 0)   //if(frameT.CurFrameTime != 0)
             {
-                float horizSpeed = (curPosition.x - prevPosition.x) / frameT.CurFrameTime;
+                float horizSpeed = (curPosition.x - prevPosition.x) / Time.deltaTime;   //frameT.CurFrameTime
                 if (speedList.Count == framesNeeded)
                 {
                     speedList.RemoveRange(0, 1);

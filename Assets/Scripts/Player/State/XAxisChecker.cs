@@ -9,7 +9,7 @@ namespace FightingGame.Player.State
         GeneralPlayerController PC;
         public void Start()
         {
-            PC = FindObjectOfType<GeneralPlayerController>();
+            PC = GetComponent<GeneralPlayerController>();
         }
         public void Update()
         {
@@ -40,7 +40,7 @@ namespace FightingGame.Player.State
             PC.CurHorizDir = 1;
             if (PC.IsGrounded)
             {
-                PC.Player.transform.localScale = new Vector2(PC.PlayerXScale * -1, PC.Player.transform.localScale.y);
+                transform.localScale = new Vector2(PC.PlayerXScale * -1, transform.localScale.y);
                 PC.DirFacing = 1;
             }
             PC.PlayerAnimator.SetBool("isRunning", true);
@@ -51,7 +51,7 @@ namespace FightingGame.Player.State
             PC.CurHorizDir = -1;
             if (PC.IsGrounded)
             {
-                PC.Player.transform.localScale = new Vector2(PC.PlayerXScale * 1, PC.Player.transform.localScale.y);
+                transform.localScale = new Vector2(PC.PlayerXScale * 1, transform.localScale.y);
                 PC.DirFacing = -1;
             }
             PC.PlayerAnimator.SetBool("isRunning", true);

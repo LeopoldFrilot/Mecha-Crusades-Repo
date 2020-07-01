@@ -8,7 +8,7 @@ namespace FightingGame.Player.Movement
     {
         GeneralPlayerController PC;
         [SerializeField] float momentum;
-        [SerializeField] float momentumGrowthSpeed = .1f;
+        [SerializeField] float momentumGrowthSpeed = .05f;
         [SerializeField] int maxStrikes = 5;
         [SerializeField] int strikes;
         [SerializeField] float count;   // Serialized for viewing
@@ -20,7 +20,7 @@ namespace FightingGame.Player.Movement
 
         public void Start()
         {
-            PC = FindObjectOfType<GeneralPlayerController>();
+            PC = GetComponent<GeneralPlayerController>();
             ResetMomentum();
         }
         public void Update()

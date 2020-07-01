@@ -13,14 +13,6 @@ namespace FightingGame.Player.Attack
         {
             PC = FindObjectOfType<GeneralPlayerController>();
         }
-        /*public void OnCollisionEnter2D(Collision2D collision)
-        {
-            if (collision.gameObject != PC.Player)
-            {
-                Debug.Log("Hit: " + collision.gameObject.name);
-                collision.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(CA.Knockback.x * PC.DirFacing, CA.Knockback.y);
-            }
-        }*/
         public void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.gameObject != PC.Player)

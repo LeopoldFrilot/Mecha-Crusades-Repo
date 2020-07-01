@@ -12,8 +12,8 @@ namespace FightingGame.Player.Movement
         bool isFFState;
         public void Start()
         {
-            PC = FindObjectOfType<GeneralPlayerController>();
-            rb = PC.Player.GetComponent<Rigidbody2D>();
+            PC = GetComponent<GeneralPlayerController>();
+            rb = GetComponent<Rigidbody2D>();
         }
         public void Update()
         {

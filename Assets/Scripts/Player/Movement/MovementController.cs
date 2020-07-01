@@ -2,19 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 using FightingGame.Core;
-using FightingGame.Level;
 
 namespace FightingGame.Player.Movement
 {
     public class MovementController : MonoBehaviour
     {
         GeneralPlayerController PC;
-        FrameTest FT;
+        //FrameTest FT;
 
         public void Start()
         {
-            PC = FindObjectOfType<GeneralPlayerController>();
-            FT = FindObjectOfType<FrameTest>();
+            PC = GetComponent<GeneralPlayerController>();
+            //FT = FindObjectOfType<FrameTest>();
         }
         public void Update()
         {
@@ -26,7 +25,7 @@ namespace FightingGame.Player.Movement
         private void MoveCheck()
         {
             // Player cannot move when in lag
-            if (PC.IsInLag)
+            if (PC.IsInLag && PC.LagType != "recovery")
             {
                 /*if(lagMan.GetType() = "hit")
                 {
@@ -37,14 +36,15 @@ namespace FightingGame.Player.Movement
             float movement; // stores this frame's movement based on player input
             if (PC.IsGrounded)
             {
-                movement = Input.GetAxis("Horizontal") * PC.CD.Speed * FT.CurFrameTime * PC.Momentum;    // Framerate-independednt horizontal movement
-                PC.Player.transform.Translate(movement, 0, 0);
+                if (PC.LagType == "recovery") return;
+                movement = Input.GetAxis("Horizontal") * PC.CD.Speed * Time.deltaTime * PC.Momentum;    // Framerate-independednt horizontal movement
+                transform.Translate(movement, 0, 0);
             }
             else
             {
                 if(Mathf.Abs(PC.AveHorizSpeed) <= PC.CD.MaxAirSpeed * PC.Momentum)
                 {
-                    movement = Input.GetAxis("Horizontal") * PC.CD.AerialSpeed * FT.CurFrameTime * PC.Momentum;
+                    movement = Input.GetAxis("Horizontal") * PC.CD.AerialSpeed * Time.deltaTime * PC.Momentum;
                     PC.Player.transform.Translate(movement, 0, 0);
                 }
             }

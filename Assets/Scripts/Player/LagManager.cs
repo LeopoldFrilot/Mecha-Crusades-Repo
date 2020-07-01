@@ -12,7 +12,7 @@ namespace FightingGame.Player
 
         public void Start()
         {
-            PC = FindObjectOfType<GeneralPlayerController>();
+            PC = GetComponent<GeneralPlayerController>();
             lagTrack = 0;
         }
         public void Update()
@@ -51,8 +51,8 @@ namespace FightingGame.Player
             PC.IsInLag = false;
             lagTrack = 0;
             lag = 0;
-            PC.LagType = "None";
-            PC.PlayerAnimator.StopPlayback();
+            PC.LagType = "none";
+            //PC.PlayerAnimator.StopPlayback();
         }
 
         public void SetLagType(string name)

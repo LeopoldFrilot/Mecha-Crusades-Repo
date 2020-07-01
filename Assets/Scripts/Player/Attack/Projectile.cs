@@ -8,14 +8,14 @@ namespace FightingGame.Player.Attack
     public class Projectile : MonoBehaviour
     {
         GeneralPlayerController PC;
-        FrameTest FT;
+        //FrameTest FT;
         [SerializeField] ProjectileAttack pA;
         float time;
         int dir;
         public void Start()
         {
             PC = FindObjectOfType<GeneralPlayerController>();
-            FT = FindObjectOfType<FrameTest>();
+            //FT = FindObjectOfType<FrameTest>();
             time = 0;
             dir = PC.DirFacing;
             if(dir > 0)
@@ -36,15 +36,6 @@ namespace FightingGame.Player.Attack
                 Destroy(gameObject);
             }
         }
-        /*public void OnCollisionEnter2D(Collision2D collision)
-        {
-            if (collision.gameObject != PC.Player)
-            {
-                Debug.Log("Hit: " + collision.gameObject.name);
-                collision.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(PA.ProjKnockback.x * PC.DirFacing, PA.ProjKnockback.y);
-                Destroy(gameObject);
-            }
-        }*/
         public void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.gameObject != PC.Player)
@@ -56,7 +47,7 @@ namespace FightingGame.Player.Attack
         }
         private void ManageDistance()
         {
-            gameObject.transform.position += new Vector3(dir * PA.Speed * PC.Momentum * FT.CurFrameTime, 0, 0);
+            transform.position += new Vector3(dir * PA.Speed * PC.Momentum * Time.deltaTime, 0, 0);
         }
         public ProjectileAttack PA { get => pA; set => pA = value; }
     }

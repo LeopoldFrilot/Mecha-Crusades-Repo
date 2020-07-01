@@ -10,7 +10,7 @@ namespace FightingGame.Player
         GeneralPlayerController PC;
         public void Start()
         {
-            PC = FindObjectOfType<GeneralPlayerController>();
+            PC = GetComponent<GeneralPlayerController>();
         }
         public void Update()
         {
@@ -27,11 +27,11 @@ namespace FightingGame.Player
         {
             if (PC.IsInLag)
             {
-                PC.Player.GetComponent<SpriteRenderer>().color = Color.yellow;
+                GetComponent<SpriteRenderer>().color = Color.yellow;
             }
             else
             {
-                PC.Player.GetComponent<SpriteRenderer>().color = Color.white;
+                GetComponent<SpriteRenderer>().color = Color.white;
             }
         }
         public void ToggleDevMode()

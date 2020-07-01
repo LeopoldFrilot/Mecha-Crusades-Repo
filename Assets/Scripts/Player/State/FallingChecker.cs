@@ -11,7 +11,7 @@ namespace FightingGame.Player.State
         float curHeight;
         public void Start()
         {
-            PC = FindObjectOfType<GeneralPlayerController>();
+            PC = GetComponent<GeneralPlayerController>();
         }
         public void Update()
         {

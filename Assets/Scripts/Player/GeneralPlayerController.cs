@@ -30,19 +30,19 @@ namespace FightingGame.Player
         [SerializeField] bool _isGrounded;
         [SerializeField] bool _isFalling;
         [SerializeField] int _dirFacing;
-        [SerializeField] string _lagType;
+        [SerializeField] string _lagType;   // Lagtypes: none, recovery, hit, landing
         [SerializeField] int _health;
 
         // Start is called before the first frame update
         public void Awake()
         {
-            LM = FindObjectOfType<LagManager>();
-            AC = FindObjectOfType<AttacksController>();
             Player = gameObject;
-            OtherPlayer = FindObjectOfType<PlayerSelect>().GetOtherPlayer(Player);
-            rb = Player.GetComponent<Rigidbody2D>();
-            PlayerAnimator = Player.GetComponent<Animator>();
-            PlayerXScale = playerXScale = Player.transform.localScale.x;
+            LM = GetComponent<LagManager>();
+            AC = transform.GetChild(0).GetComponent<AttacksController>();
+            OtherPlayer = FindObjectOfType<PlayerSelect>().GetOtherPlayer(gameObject);
+            rb = GetComponent<Rigidbody2D>();
+            PlayerAnimator = GetComponent<Animator>();
+            PlayerXScale = playerXScale = transform.localScale.x;
             ProjectileLocation = GameObject.Find("ProjectileLocation").transform;
         }
         public void Lag(int num)
@@ -67,9 +67,9 @@ namespace FightingGame.Player
             AC.ActivateAttack();
         }
         public CharacterData CD { get => cD; set => cD = value; }
-        public GameObject Player { get => player; set => player = value; }
         public GameObject OtherPlayer { get => otherPlayer; set => otherPlayer = value; }
         public Animator PlayerAnimator { get => playerAnimator; set => playerAnimator = value; }
+        public GameObject Player { get => player; set => player = value; }
 
 
         public int DoubleJumpCount { get => _doubleJumpCount; set => _doubleJumpCount = value; }
