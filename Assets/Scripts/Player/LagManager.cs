@@ -17,6 +17,8 @@ namespace FightingGame.Player
         }
         public void Update()
         {
+            //Debug.Log(PC.Player.name + " " + PC.LagType);
+
             if (PC.IsInLag)
             {
                 ManageLag();
@@ -41,7 +43,7 @@ namespace FightingGame.Player
             }
             else
             {
-                //Debug.Log("Reset");
+                if(PC.LagType == "hit") Debug.Log("Reset after hit");
                 Reset();
             }
         }
@@ -53,11 +55,6 @@ namespace FightingGame.Player
             lag = 0;
             PC.LagType = "none";
             //PC.PlayerAnimator.StopPlayback();
-        }
-
-        public void SetLagType(string name)
-        {
-            PC.LagType = name;
         }
     }
 }

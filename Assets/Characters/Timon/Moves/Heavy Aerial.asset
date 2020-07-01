@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggerWord: HEAVYAERIAL
   damage: 150
-  knockback: {x: 3, y: -40}
+  knockback: {x: 7, y: -20}
   startupFrames: 16
   activeFrames: 3
   recoveryFrames: 40

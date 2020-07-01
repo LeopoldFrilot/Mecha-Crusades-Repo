@@ -34,7 +34,7 @@ namespace FightingGame.Player.Movement
         private void ManageMomentum()
         {
             // If direction continues... 
-            if (direction != State.neutral && direction == state)
+            if (direction != State.neutral && direction == state && PC.LagType != "hit")
             {
                 if (momentum <= PC.CD.MaxMomentum) 
                 { 
@@ -48,7 +48,7 @@ namespace FightingGame.Player.Movement
             // else put a strike on momentum
             else
             {
-                if(direction != State.neutral || PC.CurHorizDir == 0)
+                if(direction != State.neutral || PC.CurHorizDir == 0 || PC.LagType == "hit")
                     strikes++;
                 if (strikes > maxStrikes)    // if x strikes momentum ends
                 {

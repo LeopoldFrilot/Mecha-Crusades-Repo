@@ -27,7 +27,7 @@ namespace FightingGame.Player.Movement
                 {
                     rb.velocity = new Vector2((float)PC.CurHorizDir * PC.Momentum, PC.CD.FullHopHeight);    // For now, we will always jump at fullhopheight
                     //Debug.Log(PC.CD.FullHopHeight);
-                    PC.Lag(PC.CD.LagJump);
+                    PC.Lag(PC.CD.LagJump, "recovery");
                 }
                 else
                 {
@@ -37,7 +37,7 @@ namespace FightingGame.Player.Movement
                         rb.velocity = new Vector2((float)PC.CurHorizDir * PC.Momentum, PC.CD.MidAirJumpHeight); // Will midAirJump if airborne and have enough midair jumps left
                         PC.DoubleJumpCount++;
                         PC.MidairOptionsCount++;
-                        PC.Lag(PC.CD.LagDoubleJump);
+                        PC.Lag(PC.CD.LagDoubleJump, "recovery");
                     }
                 }
             }

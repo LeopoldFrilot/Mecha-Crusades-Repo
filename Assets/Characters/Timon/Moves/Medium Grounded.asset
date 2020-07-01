@@ -18,7 +18,7 @@ MonoBehaviour:
   startupFrames: 14
   activeFrames: 5
   recoveryFrames: 21
-  hitstun: 12
+  hitstun: 20
   blockstun: 2
   hasProjectile: 0
   projectile: {fileID: 0}

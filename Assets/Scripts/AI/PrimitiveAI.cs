@@ -26,11 +26,17 @@ namespace FightingGame.AI
         }
         private void Update()
         {
+            
             Move();
         }
 
         private void Move()
         {
+            if (PC.IsInLag && PC.LagType!= "recovery")
+            {
+                return;
+            }
+
             float step = speed * Time.deltaTime;
             transform.position = Vector3.MoveTowards(transform.position,
                 new Vector3(opponent.transform.position.x, transform.position.y, transform.position.z),

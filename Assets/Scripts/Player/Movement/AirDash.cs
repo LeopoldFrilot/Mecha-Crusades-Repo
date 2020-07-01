@@ -41,14 +41,14 @@ namespace FightingGame.Player.Movement
         private void Dash()
         {
             // Should AirDash cancel lag? currently: no
-            if (PC.IsInLag)
+            if (PC.IsInLag && PC.LagType != "hit")
             {
                 //return;
-                PC.Lag(0);
+                PC.Lag(0, "none");
             }
             if (PC.MidairOptionsCount < PC.CD.MaxMidairOptions && PC.CurHorizDir != 0)
             {
-                PC.Lag(PC.CD.LagAirDash);
+                PC.Lag(PC.CD.LagAirDash, "recovery");
                 ChooseDirection();
                 PC.PlayerAnimator.SetTrigger("AIRDASH");
                 curPos = transform.position;

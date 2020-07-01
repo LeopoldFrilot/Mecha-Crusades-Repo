@@ -45,9 +45,10 @@ namespace FightingGame.Player
             PlayerXScale = playerXScale = transform.localScale.x;
             ProjectileLocation = transform.GetChild(1).gameObject;
         }
-        public void Lag(int num)
+        public void Lag(int num, string lagType)
         {
             LM.LagForFrames(num);
+            LagType = lagType;
         }
         /* GroundedReset sets certain variables to their original values as needed */
         public void GroundedReset()
@@ -57,6 +58,7 @@ namespace FightingGame.Player
             rb.gravityScale = CD.GravityScalar;
             rb.velocity = Vector2.zero;
             PlayerAnimator.SetBool("isAirborne", false);
+            LagType = "none";
         }
         public void StartMove(string name)
         {

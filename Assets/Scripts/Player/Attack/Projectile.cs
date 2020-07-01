@@ -39,10 +39,12 @@ namespace FightingGame.Player.Attack
         }
         public void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.gameObject != PC.Player)
+            GameObject collidedObject = collision.gameObject;
+            if (collidedObject != PC.Player)
             {
                 //Debug.Log(gameObject.name + " hit: " + collision.gameObject.name);
                 collision.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(PA.ProjKnockback.x * PC.DirFacing, PA.ProjKnockback.y);
+                collidedObject.GetComponent<GeneralPlayerController>().Lag(PA.ProjHitstun, "hit");
                 Destroy(gameObject);
             }
         }

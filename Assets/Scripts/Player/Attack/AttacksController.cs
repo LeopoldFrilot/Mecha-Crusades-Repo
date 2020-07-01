@@ -72,8 +72,7 @@ namespace FightingGame.Player.Attack
             curMove = name;
             attack = transform.Find(curMove).gameObject;
             attackRef = attack.GetComponent<Attack>();
-            PC.Lag(attackRef.CA.GetMoveLength());
-            PC.LagType = "recovery";
+            PC.Lag(attackRef.CA.GetMoveLength(), "recovery");
         }
         public void ActivateAttack()
         {
