@@ -55,7 +55,7 @@ PolygonCollider2D:
   m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 1101017461087942641}
   - component: {fileID: 5084945498779971465}
   m_Layer: 9
-  m_Name: ElecKnightAttacks
+  m_Name: Attacks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -150,7 +150,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4714255113167657116}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.65, y: 1.64, z: 0}
+  m_LocalPosition: {x: -0.35, y: 1.26, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3553234922724148521}
@@ -211,7 +211,7 @@ PolygonCollider2D:
   m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -229,8 +229,9 @@ PolygonCollider2D:
     - - {x: -0.54002106, y: 67.15021}
       - {x: -1.0642136, y: 66.928085}
       - {x: -1.1367533, y: 51.13}
-      - {x: -0.24075508, y: 28.899376}
-      - {x: -0.14369515, y: 48.79919}
+      - {x: -0.16951811, y: 39.757423}
+      - {x: 0.78669465, y: 36.279186}
+      - {x: 0.80488247, y: 48.15096}
 --- !u!1 &6825223223889870277
 GameObject:
   m_ObjectHideFlags: 0
@@ -241,7 +242,7 @@ GameObject:
   m_Component:
   - component: {fileID: 16114566671567797}
   - component: {fileID: 8110944294069803677}
-  - component: {fileID: 7741853791572483961}
+  - component: {fileID: 442666457}
   m_Layer: 9
   m_Name: Light Attack
   m_TagString: Untagged
@@ -276,7 +277,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cA: {fileID: 11400000, guid: 10f778cc33ab7ad4e8a30aaede7245c5, type: 2}
---- !u!60 &7741853791572483961
+--- !u!60 &442666457
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -286,7 +287,7 @@ PolygonCollider2D:
   m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -301,12 +302,11 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.22413674, y: 28.069628}
-      - {x: -0.8126193, y: 2.0186763}
-      - {x: -1.0565332, y: 5.0580707}
-      - {x: -0.9064116, y: 6.6944947}
-      - {x: -0.6801261, y: 24.360983}
-      - {x: -0.36519825, y: 35.831963}
+    - - {x: -0.6880106, y: 24.350243}
+      - {x: -1.0529839, y: 4.9350123}
+      - {x: -0.79673654, y: 2.0547016}
+      - {x: -0.6863078, y: 14.610959}
+      - {x: -0.49121737, y: 20.35498}
 --- !u!1 &6949176133651709182
 GameObject:
   m_ObjectHideFlags: 0
@@ -317,9 +317,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6480706820095546947}
   - component: {fileID: 2475704268555302419}
-  - component: {fileID: 91533976739623631}
+  - component: {fileID: 1972695540}
   m_Layer: 9
-  m_Name: Heavy Attack Aerial
+  m_Name: Heavy Aerial
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -352,7 +352,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cA: {fileID: 11400000, guid: 1a342fd042b07e34581243dec012a4ea, type: 2}
---- !u!60 &91533976739623631
+--- !u!60 &1972695540
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -362,7 +362,7 @@ PolygonCollider2D:
   m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -377,12 +377,13 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.4591899, y: 48.82272}
-      - {x: -0.58587384, y: 47.194042}
-      - {x: -0.5750274, y: 16.718779}
-      - {x: -0.338304, y: 17.319868}
-      - {x: -0.27997482, y: 19.820396}
-      - {x: -0.28911793, y: 50.319706}
+    - - {x: -0.8375745, y: 92.76349}
+      - {x: -1.0072346, y: 86.80476}
+      - {x: -1.0747838, y: 8.736157}
+      - {x: -0.90647745, y: 0.9736426}
+      - {x: -0.8059555, y: 2.754965}
+      - {x: -0.36829066, y: 28.523897}
+      - {x: -0.47743386, y: 89.28011}
 --- !u!1 &7328937532076782991
 GameObject:
   m_ObjectHideFlags: 0
@@ -395,7 +396,7 @@ GameObject:
   - component: {fileID: 948963847293776688}
   - component: {fileID: 3352855875762855859}
   m_Layer: 9
-  m_Name: Light Attack Aerial
+  m_Name: Light Aerial
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -438,7 +439,7 @@ PolygonCollider2D:
   m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -453,12 +454,18 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.04700376, y: 35.851196}
-      - {x: -0.53873473, y: 36.47633}
-      - {x: -0.6003365, y: 36.25421}
-      - {x: -0.5443975, y: 27.478292}
-      - {x: -0.28720626, y: 29.509964}
-      - {x: -0.03602124, y: 30.002861}
+    - - {x: 0.47449192, y: 37.53253}
+      - {x: 0.36240932, y: 55.467503}
+      - {x: 0.09264893, y: 65.284584}
+      - {x: -0.27520424, y: 69.72903}
+      - {x: -0.6385449, y: 64.897964}
+      - {x: -0.9000928, y: 52.736923}
+      - {x: -1.0131406, y: 39.655388}
+      - {x: -0.93433845, y: 22.320944}
+      - {x: -0.6936205, y: 10.438241}
+      - {x: -0.28879064, y: 4.9184065}
+      - {x: 0.13819723, y: 9.3181715}
+      - {x: 0.39045534, y: 21.676695}
 --- !u!1 &7535269020938167940
 GameObject:
   m_ObjectHideFlags: 0
@@ -485,6 +492,7 @@ GameObject:
   - component: {fileID: 1916425256107436251}
   - component: {fileID: 7177441455950715639}
   - component: {fileID: 7535269020938167941}
+  - component: {fileID: 2081315861624740600}
   m_Layer: 8
   m_Name: Timon
   m_TagString: Untagged
@@ -792,6 +800,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbe1da201dfbd2b479aa83e8c56b7993, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2081315861624740600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7535269020938167940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d3c800f505788343bcd0cbee253bd57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8628001628978956208
 GameObject:
   m_ObjectHideFlags: 0
@@ -804,7 +824,7 @@ GameObject:
   - component: {fileID: 8305758873437652911}
   - component: {fileID: 8009438539890727611}
   m_Layer: 9
-  m_Name: Medium Attack Aerial
+  m_Name: Medium Aerial
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -847,7 +867,7 @@ PolygonCollider2D:
   m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -862,10 +882,15 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.16993637, y: 37.88288}
-      - {x: -0.37254992, y: 43.28695}
-      - {x: -0.58778524, y: 43.575474}
-      - {x: -0.5697068, y: 32.32307}
-      - {x: -0.35590416, y: 32.47936}
-      - {x: -0.09196028, y: 33.104492}
-      - {x: -0.090256214, y: 37.1919}
+    - - {x: -0.03496097, y: 40.637913}
+      - {x: -0.21882796, y: 42.152523}
+      - {x: -0.33147132, y: 41.331036}
+      - {x: -0.42281523, y: 37.903366}
+      - {x: -0.49643055, y: 30.56217}
+      - {x: -0.42723262, y: 22.761526}
+      - {x: -0.32133046, y: 18.525198}
+      - {x: -0.20593147, y: 17.083633}
+      - {x: -0.061141975, y: 18.342281}
+      - {x: 0.01677005, y: 21.598219}
+      - {x: 0.08738884, y: 29.620836}
+      - {x: 0.044719197, y: 37.191906}

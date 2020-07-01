@@ -31,17 +31,25 @@ namespace FightingGame.Player.Attack
         {
             ManageDistance();
             time += Time.deltaTime;
-            Debug.Log(time);
             if (time >= PA.MaxLifespan)
             {
                 Destroy(gameObject);
             }
         }
-        public void OnCollisionEnter2D(Collision2D collision)
+        /*public void OnCollisionEnter2D(Collision2D collision)
         {
             if (collision.gameObject != PC.Player)
             {
                 Debug.Log("Hit: " + collision.gameObject.name);
+                collision.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(PA.ProjKnockback.x * PC.DirFacing, PA.ProjKnockback.y);
+                Destroy(gameObject);
+            }
+        }*/
+        public void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.gameObject != PC.Player)
+            {
+                Debug.Log(gameObject.name + " hit: " + collision.gameObject.name);
                 collision.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(PA.ProjKnockback.x * PC.DirFacing, PA.ProjKnockback.y);
                 Destroy(gameObject);
             }

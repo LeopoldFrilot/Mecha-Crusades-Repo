@@ -77,7 +77,7 @@ namespace FightingGame.Player.Attack
         public void ActivateAttack()
         {
             hitbox = attack.GetComponent<PolygonCollider2D>();
-            Debug.Log(attackRef);
+            //Debug.Log(attackRef);
             hitbox.enabled = !hitbox.enabled;
             if (attackRef.CA.HasProjectile == true && hitbox.enabled)
             {

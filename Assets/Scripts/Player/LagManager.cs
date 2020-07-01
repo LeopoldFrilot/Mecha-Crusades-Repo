@@ -41,7 +41,7 @@ namespace FightingGame.Player
             }
             else
             {
-                Debug.Log("Reset");
+                //Debug.Log("Reset");
                 Reset();
             }
         }
