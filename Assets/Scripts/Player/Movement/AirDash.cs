@@ -52,7 +52,7 @@ namespace FightingGame.Player.Movement
                 ChooseDirection();
                 PC.PlayerAnimator.SetTrigger("AIRDASH");
                 curPos = transform.position;
-                finalPos = transform.position + PC.CurHorizDir * new Vector3(PC.CD.AirDashDist * PC.Momentum, 0, 0);
+                finalPos = transform.position + PC.CurHorizDir * new Vector3(PC.CD.AirDashDist + PC.Momentum - 1, 0, 0);
                 step = Mathf.Abs(curPos.x - finalPos.x) / PC.CD.LagAirDash;
                 PC.MidairOptionsCount++;
                 isDashing = true;

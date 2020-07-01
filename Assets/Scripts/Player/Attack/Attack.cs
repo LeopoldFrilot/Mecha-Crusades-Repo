@@ -11,13 +11,13 @@ namespace FightingGame.Player.Attack
 
         public void Start()
         {
-            PC = FindObjectOfType<GeneralPlayerController>();
+            PC = transform.parent.parent.GetComponent<GeneralPlayerController>();
         }
         public void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.gameObject != PC.Player)
             {
-                Debug.Log(gameObject.name + " hit: " + collision.gameObject.name);
+                //Debug.Log(gameObject.name + " hit: " + collision.gameObject.name);
                 collision.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(CA.Knockback.x * PC.DirFacing, CA.Knockback.y);
             }
         }

@@ -14,7 +14,7 @@ namespace FightingGame.Player.Attack
 
         public void Start()
         {
-            PC = FindObjectOfType<GeneralPlayerController>();
+            PC = transform.parent.GetComponent<GeneralPlayerController>();
         }
         public void Update()
         {
@@ -82,7 +82,8 @@ namespace FightingGame.Player.Attack
             hitbox.enabled = !hitbox.enabled;
             if (attackRef.CA.HasProjectile == true && hitbox.enabled)
             {
-                Instantiate(attackRef.CA.Projectile, PC.ProjectileLocation.position, Quaternion.identity);
+                var projectile = Instantiate(attackRef.CA.Projectile, PC.ProjectileLocation.transform.position, Quaternion.identity);
+                projectile.transform.parent = PC.Player.transform;
             }
         }
         

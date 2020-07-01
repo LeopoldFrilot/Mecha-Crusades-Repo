@@ -8,9 +8,13 @@ namespace FightingGame.Player
     {
         bool devMode = true;
         GeneralPlayerController PC;
+        [SerializeField] Color defaultColor;
+        [SerializeField] Color normalLagColor;
+        [SerializeField] Color hitLagColor;
         public void Start()
         {
             PC = GetComponent<GeneralPlayerController>();
+            defaultColor = GetComponent<SpriteRenderer>().color;
         }
         public void Update()
         {
@@ -27,11 +31,12 @@ namespace FightingGame.Player
         {
             if (PC.IsInLag)
             {
-                GetComponent<SpriteRenderer>().color = Color.yellow;
+                if (PC.LagType == "hit") GetComponent<SpriteRenderer>().color = hitLagColor;
+                else GetComponent<SpriteRenderer>().color = normalLagColor;
             }
             else
             {
-                GetComponent<SpriteRenderer>().color = Color.white;
+                GetComponent<SpriteRenderer>().color = defaultColor;
             }
         }
         public void ToggleDevMode()

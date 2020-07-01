@@ -17,7 +17,7 @@ namespace FightingGame.Player
         GameObject otherPlayer;
         Animator playerAnimator;
         float playerXScale;
-        Transform projectileLocation;
+        GameObject projectileLocation;
 
         // variables that will change
         [Header("Variables")]
@@ -43,7 +43,7 @@ namespace FightingGame.Player
             rb = GetComponent<Rigidbody2D>();
             PlayerAnimator = GetComponent<Animator>();
             PlayerXScale = playerXScale = transform.localScale.x;
-            ProjectileLocation = GameObject.Find("ProjectileLocation").transform;
+            ProjectileLocation = transform.GetChild(1).gameObject;
         }
         public void Lag(int num)
         {
@@ -84,7 +84,7 @@ namespace FightingGame.Player
         public string LagType { get => _lagType; set => _lagType = value; }
         public int Health { get => _health; set => _health = value; }
         public float PlayerXScale { get => playerXScale; set => playerXScale = value; }
-        public Transform ProjectileLocation { get => projectileLocation; set => projectileLocation = value; }
+        public GameObject ProjectileLocation { get => projectileLocation; set => projectileLocation = value; }
     }
 }
 
