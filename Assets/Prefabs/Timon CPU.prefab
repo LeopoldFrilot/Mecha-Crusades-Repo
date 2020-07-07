@@ -1,5 +1,19 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1144219351142206307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5468085956992078738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39e3158b62901904a8391e1792f46667, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  opponent: {fileID: 0}
+  defaultSpeed: 2
 --- !u!1001 &2553589868329891094
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -93,7 +107,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3553234922724148521, guid: d88ff8b495c60c845a6318812d9eda87, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.22
+      value: 6.57
       objectReference: {fileID: 0}
     - target: {fileID: 3553234922724148521, guid: d88ff8b495c60c845a6318812d9eda87, type: 3}
       propertyPath: m_LocalPosition.y
@@ -142,7 +156,11 @@ PrefabInstance:
     - target: {fileID: 4180247430010649947, guid: d88ff8b495c60c845a6318812d9eda87, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 1d6faa93bbeaec641a78b0887daad84a, type: 2}
+      objectReference: {fileID: 9100000, guid: b5efe0c84a765464ab97e3dee6ed43c1, type: 2}
+    - target: {fileID: 5465659932963843199, guid: d88ff8b495c60c845a6318812d9eda87, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7177441455950715639, guid: d88ff8b495c60c845a6318812d9eda87, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -162,6 +180,34 @@ PrefabInstance:
     - target: {fileID: 7535269020938167940, guid: d88ff8b495c60c845a6318812d9eda87, type: 3}
       propertyPath: m_Name
       value: Timon CPU
+      objectReference: {fileID: 0}
+    - target: {fileID: 7535269020938167941, guid: d88ff8b495c60c845a6318812d9eda87, type: 3}
+      propertyPath: defaultColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7535269020938167941, guid: d88ff8b495c60c845a6318812d9eda87, type: 3}
+      propertyPath: defaultColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7535269020938167941, guid: d88ff8b495c60c845a6318812d9eda87, type: 3}
+      propertyPath: normalLagColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7535269020938167941, guid: d88ff8b495c60c845a6318812d9eda87, type: 3}
+      propertyPath: normalLagColor.g
+      value: 0.6339869
+      objectReference: {fileID: 0}
+    - target: {fileID: 7535269020938167941, guid: d88ff8b495c60c845a6318812d9eda87, type: 3}
+      propertyPath: hitLagColor.r
+      value: 0.05490196
+      objectReference: {fileID: 0}
+    - target: {fileID: 7535269020938167941, guid: d88ff8b495c60c845a6318812d9eda87, type: 3}
+      propertyPath: hitLagColor.g
+      value: 0.9098039
+      objectReference: {fileID: 0}
+    - target: {fileID: 7535269020938167941, guid: d88ff8b495c60c845a6318812d9eda87, type: 3}
+      propertyPath: hitLagColor.b
+      value: 0.88235295
       objectReference: {fileID: 0}
     - target: {fileID: 7535269021033160722, guid: d88ff8b495c60c845a6318812d9eda87, type: 3}
       propertyPath: m_Enabled
@@ -189,3 +235,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d88ff8b495c60c845a6318812d9eda87, type: 3}
+--- !u!1 &5468085956992078738 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7535269020938167940, guid: d88ff8b495c60c845a6318812d9eda87, type: 3}
+  m_PrefabInstance: {fileID: 2553589868329891094}
+  m_PrefabAsset: {fileID: 0}

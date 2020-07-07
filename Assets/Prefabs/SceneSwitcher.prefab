@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1136162782}
   - component: {fileID: 1136162783}
   - component: {fileID: 1136162784}
+  - component: {fileID: 1196955486}
   m_Layer: 0
   m_Name: SceneSwitcher
   m_TagString: Untagged
@@ -99,9 +100,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50dccee06e72427469952a149eaeaaaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aerialOptionsCounter: {fileID: 0}
   FPSTracker: {fileID: 0}
-  momentumSlider: {fileID: 0}
+  momentumSliderP1: {fileID: 0}
+  healthSliderP1: {fileID: 0}
+  momentumSliderP2: {fileID: 0}
+  healthSliderP2: {fileID: 0}
+  roundDisplay: {fileID: 0}
+  pauseMenu: {fileID: 0}
+  gameScreen: {fileID: 0}
 --- !u!114 &1136162784
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126,3 +132,16 @@ MonoBehaviour:
   backgroundMidScalar: 0.02
   backgroundFront: {fileID: 0}
   backgroundFrontScalar: 0.04
+--- !u!114 &1196955486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5465405783244208775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1568dcef483c270409af45391d316b4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxWins: 3
