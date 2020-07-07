@@ -43,7 +43,7 @@ namespace FightingGame.Player
             }
             else
             {
-                if(PC.LagType == "hit") Debug.Log("Reset after hit");
+                //if(PC.LagType == "hit") Debug.Log("Reset after hit");
                 Reset();
             }
         }

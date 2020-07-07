@@ -42,9 +42,11 @@ namespace FightingGame.Player.Attack
             GameObject collidedObject = collision.gameObject;
             if (collidedObject != PC.Player)
             {
+                var OtherPC = collidedObject.GetComponent<GeneralPlayerController>();
                 //Debug.Log(gameObject.name + " hit: " + collision.gameObject.name);
                 collision.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(PA.ProjKnockback.x * PC.DirFacing, PA.ProjKnockback.y);
-                collidedObject.GetComponent<GeneralPlayerController>().Lag(PA.ProjHitstun, "hit");
+                OtherPC.Lag(PA.ProjHitstun, "hit");
+                OtherPC.DealDamage(PA.ProjDamage);
                 Destroy(gameObject);
             }
         }

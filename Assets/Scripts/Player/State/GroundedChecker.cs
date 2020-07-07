@@ -29,12 +29,12 @@ namespace FightingGame.Player.State
             {
                 if (PC.LagType == "hit")
                 {
-                    Debug.Log("Bounce");
+                    //Debug.Log("Bounce");
                     Bounce();
                 }
                 else
                 {
-                    Debug.Log(PC.Player.name);
+                    //Debug.Log(PC.Player.name);
                     SetGrounded();
                 }
             }

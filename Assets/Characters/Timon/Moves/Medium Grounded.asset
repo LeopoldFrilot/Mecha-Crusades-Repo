@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Medium Grounded
   m_EditorClassIdentifier: 
   triggerWord: MEDIUMATTACK
-  damage: 100
+  damage: 80
   knockback: {x: 10, y: 6}
   startupFrames: 14
   activeFrames: 5
   recoveryFrames: 21
-  hitstun: 20
+  hitstun: 40
   blockstun: 2
   hasProjectile: 0
   projectile: {fileID: 0}

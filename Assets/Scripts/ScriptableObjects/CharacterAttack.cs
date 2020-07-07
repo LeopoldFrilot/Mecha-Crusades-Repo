@@ -4,7 +4,7 @@
 public class CharacterAttack : ScriptableObject
 {
     [SerializeField] string triggerWord;
-    [SerializeField] float damage;
+    [SerializeField] int damage;
     [SerializeField] Vector2 knockback;
     [SerializeField] int startupFrames;
     [SerializeField] int activeFrames;
@@ -19,7 +19,7 @@ public class CharacterAttack : ScriptableObject
     {
         return startupFrames + activeFrames + recoveryFrames;
     }
-    public float Damage { get => damage; set => damage = value; }
+    public int Damage { get => damage; set => damage = value; }
     public Vector2 Knockback { get => knockback; set => knockback = value; }
     public int StartupFrames { get => startupFrames; set => startupFrames = value; }
     public int ActiveFrames { get => activeFrames; set => activeFrames = value; }

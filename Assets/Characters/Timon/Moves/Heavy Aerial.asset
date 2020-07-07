@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Heavy Aerial
   m_EditorClassIdentifier: 
   triggerWord: HEAVYAERIAL
-  damage: 150
+  damage: 100
   knockback: {x: 7, y: -20}
   startupFrames: 16
   activeFrames: 3
   recoveryFrames: 40
-  hitstun: 100
+  hitstun: 60
   blockstun: 7
   hasProjectile: 0
   projectile: {fileID: 0}

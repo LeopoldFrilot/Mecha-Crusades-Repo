@@ -32,6 +32,7 @@ namespace FightingGame.Player
         [SerializeField] int _dirFacing;
         [SerializeField] string _lagType;   // Lagtypes: none, recovery, hit, landing
         [SerializeField] int _health;
+        [SerializeField] int _wins;
 
         // Start is called before the first frame update
         public void Awake()
@@ -68,6 +69,15 @@ namespace FightingGame.Player
         {
             AC.ActivateAttack();
         }
+        public void DealDamage(int damage)
+        {
+            Health -= damage;
+            //Debug.Log(Health + " health for " + gameObject.name);
+            if(Health <= 0)
+            {
+                FindObjectOfType<WinManager>().ManageWin(OtherPlayer, Player);
+            }
+        }
         public CharacterData CD { get => cD; set => cD = value; }
         public GameObject OtherPlayer { get => otherPlayer; set => otherPlayer = value; }
         public Animator PlayerAnimator { get => playerAnimator; set => playerAnimator = value; }
@@ -87,6 +97,7 @@ namespace FightingGame.Player
         public int Health { get => _health; set => _health = value; }
         public float PlayerXScale { get => playerXScale; set => playerXScale = value; }
         public GameObject ProjectileLocation { get => projectileLocation; set => projectileLocation = value; }
+        public int Wins { get => _wins; set => _wins = value; }
     }
 }
 

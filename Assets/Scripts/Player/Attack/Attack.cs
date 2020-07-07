@@ -18,9 +18,11 @@ namespace FightingGame.Player.Attack
             GameObject collidedObject = collision.gameObject;
             if (collidedObject != PC.Player)
             {
+                var OtherPC = collidedObject.GetComponent<GeneralPlayerController>();
                 //Debug.Log(gameObject.name + " hit: " + collision.gameObject.name);
                 collidedObject.GetComponent<Rigidbody2D>().velocity = new Vector2(CA.Knockback.x * PC.DirFacing, CA.Knockback.y);
-                collidedObject.GetComponent<GeneralPlayerController>().Lag(CA.Hitstun, "hit");
+                OtherPC.Lag(CA.Hitstun, "hit");
+                OtherPC.DealDamage(CA.Damage);
             }
         }
         public CharacterAttack CA { get => cA; set => cA = value; }

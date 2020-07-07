@@ -7,7 +7,7 @@ public class CharacterData : ScriptableObject
     [SerializeField] string charName;
     [SerializeField] string charDescription;
     [Header("General")]
-    [SerializeField] float maxHealth;  // Initializing for later
+    [SerializeField] int maxHealth;  // Initializing for later
     [SerializeField] float maxMomentum; // Holds the maximum momentum values a character can reach
     [Header("Grounded")]
     [SerializeField] float speed;   // Horizontal speed of movement while grounded
@@ -31,7 +31,7 @@ public class CharacterData : ScriptableObject
 
     public string CharName { get => charName; }
     public string CharDescription { get => charDescription; }
-    public float MaxHealth { get => maxHealth; }
+    public int MaxHealth { get => maxHealth; }
     public float MaxMomentum { get => maxMomentum; }
     public float Speed { get => speed; }
     public float ShortHopHeight { get => shortHopHeight; }

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Light Aerial
   m_EditorClassIdentifier: 
   triggerWord: LIGHTAERIAL
-  damage: 30
+  damage: 35
   knockback: {x: 5, y: 7}
   startupFrames: 4
   activeFrames: 2

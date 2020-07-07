@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Medium Aerial
   m_EditorClassIdentifier: 
   triggerWord: MEDIUMAERIAL
-  damage: 2
+  damage: 10
   knockback: {x: 3, y: 1}
   startupFrames: 10
   activeFrames: 2
   recoveryFrames: 10
-  hitstun: 20
+  hitstun: 5
   blockstun: 2
   hasProjectile: 1
   projectile: {fileID: 612910761698120517, guid: 0b37ead0a0f36574b9040ed503068037, type: 3}
