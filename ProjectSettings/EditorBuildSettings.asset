@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Intro.unity
     guid: 422ba8fdc7f99fa4e9adba6852e9fc63
   - enabled: 1
+    path: Assets/Scenes/CharacterSelect.unity
+    guid: 8ce48e2410cc47c4ca98ebd2331c3b21
+  - enabled: 1
     path: Assets/Scenes/Versus.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
