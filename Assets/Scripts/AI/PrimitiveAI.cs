@@ -1,5 +1,4 @@
-﻿using FightingGame.Core;
-using FightingGame.Player;
+﻿using FightingGame.Player;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,59 +8,113 @@ namespace FightingGame.AI
     public class PrimitiveAI : MonoBehaviour
     {
         PlayerSelect PS;
-        GeneralPlayerController PC;
-        //FrameTest FT;
+        GeneralPlayerController PC, OPC;
+        InputManager IM;
         [SerializeField] GameObject opponent;
-        [SerializeField] float defaultSpeed = 0f;
-        float speed;
-        SpriteRenderer renderer;
-        private void Start()
+        [SerializeField] bool isActive = false;
+        string[] emoStates = { "Aggressive", "Defensive", "Neutral" };
+        [SerializeField] string emoState;
+        [SerializeField] int neutralThreshold = 50;
+        [SerializeField] float distFromOpp;
+
+        private void Awake()
         {
             PC = GetComponent<GeneralPlayerController>();
             PS = FindObjectOfType<PlayerSelect>();
-            //FT = FindObjectOfType<FrameTest>();
-            opponent = PS.GetOtherPlayer(gameObject);
-            renderer = gameObject.GetComponent<SpriteRenderer>();
-            speed = defaultSpeed;
+            Opponent = PS.GetOtherPlayer(gameObject);
+            OPC = Opponent.GetComponent<GeneralPlayerController>();
+            IM = GetComponent<InputManager>();
+            ToggleAI();
         }
         private void Update()
         {
-            
-            Move();
+            ManageState();
+            UpdateDistance();
         }
 
-        private void Move()
+        private void ManageState()
         {
-            if (PC.IsInLag && PC.LagType!= "recovery")
+            if (!IsActive) return;
+            if (Mathf.Abs(PC.Health - OPC.Health) <= neutralThreshold)
             {
-                return;
+                EmoState = emoStates[2];
             }
-
-            float step = speed * Time.deltaTime;
-            transform.position = Vector3.MoveTowards(transform.position,
-                new Vector3(opponent.transform.position.x, transform.position.y, transform.position.z),
-                step);
-            if(PC.AveHorizSpeed <= Mathf.Epsilon)
+            else if (PC.Health > OPC.Health)
             {
-                PC.PlayerAnimator.SetBool("isRunning", false);
+                EmoState = emoStates[1]; // Defensive when winning
             }
             else
             {
-                PC.PlayerAnimator.SetBool("isRunning", true);
+                EmoState = emoStates[0];
             }
+        }
+        public void Forward()
+        {
+            if(Opponent.transform.position.x < transform.position.x)
+            {
+                IM.Left();
+            }
+            else
+            {
+                IM.Right();
+            }
+        }
+        public void Backward()
+        {
+            if (Opponent.transform.position.x < transform.position.x)
+            {
+                IM.Right();
+            }
+            else
+            {
+                IM.Left();
+            }
+        }
+        public void Jump()
+        {
+            IM.Jump();
+        }
+        public void LightAttack()
+        {
+            Forward();
+            IM.LightAttack();
+        }
+        public void LightAerial()
+        {
+            Forward();
+            Jump();
+            IM.LightAttack();
+        }
+        public void MediumAttack()
+        {
+            Forward();
+            IM.MediumAttack();
+        }
+        public void MediumAerial()
+        {
+            Forward();
+            Jump();
+            IM.MediumAttack();
         }
         public void ToggleAI()
         {
-            if(speed == defaultSpeed)
+            IsActive = !IsActive;
+            if (!IsActive)
             {
-                speed = 1000f;
-                renderer.enabled = false;
+                GetComponent<InputReader>().enabled = true;
             }
             else
             {
-                speed = defaultSpeed;
-                renderer.enabled = true;
+                GetComponent<InputReader>().enabled = false;
             }
         }
+        private void UpdateDistance()
+        {
+            DistFromOpp = Mathf.Abs(transform.position.x - Opponent.transform.position.x);
+        }
+        public GameObject Opponent { get => opponent; set => opponent = value; }
+        public bool IsActive { get => isActive; set => isActive = value; }
+        public string EmoState { get => emoState; set => emoState = value; }
+        public float DistFromOpp { get => distFromOpp; set => distFromOpp = value; }
     }
 }

@@ -17,7 +17,7 @@ MonoBehaviour:
   knockback: {x: 3, y: 1}
   startupFrames: 10
   activeFrames: 2
-  recoveryFrames: 10
+  recoveryFrames: 30
   hitstun: 5
   blockstun: 2
   hasProjectile: 1

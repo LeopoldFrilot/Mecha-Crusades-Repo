@@ -280,6 +280,50 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1055623344940228975}
         m_TargetAssemblyTypeName: Puck, Assembly-CSharp
+        m_MethodName: SelectCharacter
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 25d79407-67a2-432a-aa06-6808881e1fc8
+    m_ActionName: UI/Select[/Keyboard/space,/Keyboard/enter]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2cfe7d69-1af8-4322-9a18-76c23bfe8952
+    m_ActionName: Versus/Horizontal[/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 164c2be4-1cb9-46d4-8d54-728c314be304
+    m_ActionName: Versus/Vertical[/Keyboard/s,/Keyboard/w]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 478751d8-4f74-4643-8e83-1fa14318a71b
+    m_ActionName: Versus/Jump[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: e4430d99-a800-43c7-a607-5afd31b6d694
+    m_ActionName: Versus/Dash[/Keyboard/leftShift]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 58e311fe-47c1-489a-a9a9-733b4954d096
+    m_ActionName: Versus/Light Attack[/Keyboard/i]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: eef39d72-cc62-4bd0-9522-56f71074d2dc
+    m_ActionName: Versus/Medium Attack[/Keyboard/o]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: bdb024cb-c5b1-45fa-b3ed-e232a773719b
+    m_ActionName: Versus/Heavy Attack[/Keyboard/p]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1055623344940228975}
+        m_TargetAssemblyTypeName: Puck, Assembly-CSharp
         m_MethodName: MoveHorizontal
         m_Mode: 0
         m_Arguments:
@@ -290,8 +334,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: b30bf1f5-2c2b-4ee9-8d4c-26f8a69d5d98
-    m_ActionName: UI/Horizontal[/Keyboard/a,/Keyboard/d]
+    m_ActionId: 1f1fbba8-ec71-4365-bf40-732f191c506f
+    m_ActionName: UI/Horizontal[/Keyboard/a,/Keyboard/d,/DualShock4GamepadHID/dpad/left,/DualShock4GamepadHID/dpad/right]
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1055623344940228975}
@@ -306,24 +350,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 90020b14-88f5-478d-bb73-8d9fdcd480fe
-    m_ActionName: UI/Vertical[/Keyboard/s,/Keyboard/w]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1055623344940228975}
-        m_TargetAssemblyTypeName: Puck, Assembly-CSharp
-        m_MethodName: SelectCharacter
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 25d79407-67a2-432a-aa06-6808881e1fc8
-    m_ActionName: UI/Select[/Keyboard/space,/Keyboard/enter]
+    m_ActionId: 729ded6c-1fa4-493b-8e5f-24087b8183cf
+    m_ActionName: UI/Vertical[/Keyboard/s,/Keyboard/w,/DualShock4GamepadHID/dpad/down,/DualShock4GamepadHID/dpad/up]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: UI

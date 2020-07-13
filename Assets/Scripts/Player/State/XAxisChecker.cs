@@ -18,12 +18,12 @@ namespace FightingGame.Player.State
         /* CheckState is a function which manages the grounded and aerial state */
         private void CheckStickState()
         {
-            if(Input.GetAxis("Horizontal") > 0)
+            if(PC.CurHorizInput > 0)
             {
                 if (PC.IsInLag) return;
                 GoRight();
             }
-            else if (Input.GetAxis("Horizontal") < 0)
+            else if (PC.CurHorizInput < 0)
             {
                 if (PC.IsInLag) return;
                 GoLeft();

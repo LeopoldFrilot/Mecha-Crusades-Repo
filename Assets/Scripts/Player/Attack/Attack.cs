@@ -22,7 +22,7 @@ namespace FightingGame.Player.Attack
                 //Debug.Log(gameObject.name + " hit: " + collision.gameObject.name);
                 collidedObject.GetComponent<Rigidbody2D>().velocity = new Vector2(CA.Knockback.x * PC.DirFacing, CA.Knockback.y);
                 OtherPC.Lag(CA.Hitstun, "hit");
-                OtherPC.DealDamage(CA.Damage);
+                OtherPC.DamagePlayer(CA.Damage);
             }
         }
         public CharacterAttack CA { get => cA; set => cA = value; }

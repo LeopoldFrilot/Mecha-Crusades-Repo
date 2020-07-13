@@ -8,7 +8,7 @@ namespace FightingGame.Player.Movement
     {
         GeneralPlayerController PC;
         [SerializeField] float momentum;
-        [SerializeField] float momentumGrowthSpeed = .05f;
+        [SerializeField] float momentumGrowthSpeed = .01f;
         [SerializeField] int maxStrikes = 5;
         [SerializeField] int strikes;
         [SerializeField] float count;   // Serialized for viewing
@@ -26,11 +26,25 @@ namespace FightingGame.Player.Movement
         public void Update()
         {
             // Detect Direction
-            DetectDirection();
+            DetectDirectionOfMovement();
             ManageMomentum();
             SubmitMomentum();
         }
-
+        private void DetectDirectionOfMovement()
+        {
+            if (PC.AveHorizSpeed < 0)
+            {
+                direction = State.negative;
+            }
+            else if (PC.AveHorizSpeed > 0)
+            {
+                direction = State.positive;
+            }
+            else
+            {
+                direction = State.neutral;
+            }
+        }
         private void ManageMomentum()
         {
             // If direction continues... 
@@ -48,8 +62,10 @@ namespace FightingGame.Player.Movement
             // else put a strike on momentum
             else
             {
-                if(direction != State.neutral || PC.CurHorizDir == 0 || PC.LagType == "hit")
+                if (direction != State.neutral || PC.CurHorizDir == 0 || PC.LagType == "hit")
+                {
                     strikes++;
+                }
                 if (strikes > maxStrikes)    // if x strikes momentum ends
                 {
                     ResetMomentum(); 
@@ -59,21 +75,6 @@ namespace FightingGame.Player.Movement
             }
         }
 
-        private void DetectDirection()
-        {
-            if (PC.AveHorizSpeed < 0)
-            {
-                direction = State.negative;
-            }
-            else if (PC.AveHorizSpeed > 0)
-            {
-                direction = State.positive;
-            }
-            else
-            {
-                direction = State.neutral;
-            }
-        }
 
         private void IncrementMomentum()
         {

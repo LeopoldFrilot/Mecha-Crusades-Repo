@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using FightingGame.Core;
 
 namespace FightingGame.Player.Movement
 {
@@ -13,13 +12,11 @@ namespace FightingGame.Player.Movement
         Vector3 prevPosition;   // Keeps a record of the object's previous position one frame ago
         private Vector3 curPosition;    // Keeps a record of the objects current position
         [SerializeField] float aveHorizSpeed;   // The average speed. Its the whole purpose of this script. Serialized for viewing purposes.
-        //private FrameTest frameT;
 
         // Start is called before the first frame update
         void Start()
         {
             PC = GetComponent<GeneralPlayerController>();
-            //frameT = FindObjectOfType<FrameTest>();
             // Initializing
             curPosition = Vector3.zero;
             speedList.Clear();

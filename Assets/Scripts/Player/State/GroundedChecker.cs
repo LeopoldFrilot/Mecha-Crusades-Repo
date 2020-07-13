@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using FightingGame.Player.Attack;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -29,12 +30,10 @@ namespace FightingGame.Player.State
             {
                 if (PC.LagType == "hit")
                 {
-                    //Debug.Log("Bounce");
                     Bounce();
                 }
                 else
                 {
-                    //Debug.Log(PC.Player.name);
                     SetGrounded();
                 }
             }
@@ -57,6 +56,7 @@ namespace FightingGame.Player.State
         {
             if (PC.IsGrounded == false)
             {
+                transform.GetChild(0).GetComponent<AttacksController>().CorrectAttackForLanding();
                 PC.GroundedReset();
                 bounce = 0;
                 if (PC.IsInLag)
@@ -70,13 +70,11 @@ namespace FightingGame.Player.State
             }
             PC.IsGrounded = true;
             PC.PlayerAnimator.SetBool("isAirborne", false);
-            //Debug.Log("Grounded");
         }
         private void SetAirborne()
         {
             PC.IsGrounded = false;
             PC.PlayerAnimator.SetBool("isAirborne", true);
-            //Debug.Log("State: Aerial");
         }
     }
 }

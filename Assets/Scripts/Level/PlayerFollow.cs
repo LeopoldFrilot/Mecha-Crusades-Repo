@@ -1,5 +1,4 @@
-﻿using FightingGame.Core;
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,7 +8,6 @@ namespace FightingGame.Level
     public class PlayerFollow : MonoBehaviour
     {
         PlayerSelect PS;
-        FrameTest FT;
         [Header("Camera")]
         [SerializeField] float cameraMoveSpeed = 5f;
         [SerializeField] float maxCameraWidth = 15f;
@@ -31,7 +29,6 @@ namespace FightingGame.Level
         public void Start()
         {
             PS = FindObjectOfType<PlayerSelect>();
-            FT = FindObjectOfType<FrameTest>();
         }
         public void Update()
         {
@@ -43,7 +40,7 @@ namespace FightingGame.Level
             if (Mathf.Abs(PS.Player1.transform.position.x - PS.Player2.transform.position.x) <= MaxCameraWidth)
             {
                 Middle = (PS.Player1.transform.position.x + PS.Player2.transform.position.x) / 2f;
-                step = cameraMoveSpeed * FT.CurFrameTime;
+                step = cameraMoveSpeed * Time.deltaTime;
                 MoveCamera();
                 MoveGround();
                 MoveBackground();

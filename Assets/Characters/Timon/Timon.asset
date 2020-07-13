@@ -17,12 +17,12 @@ MonoBehaviour:
   maxHealth: 500
   maxMomentum: 10
   speed: 6
-  shortHopHeight: 3.75
+  shortHopHeight: 4.5
   fullHopMultiplier: 2
   aerialSpeed: 5
   maxMidairOptions: 2
   maxDoubleJumps: 1
-  midAirJumpHeight: 7
+  midAirJumpHeight: 8
   maxAirSpeed: 7.5
   airDashDist: 3
   gravityScalar: 2

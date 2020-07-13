@@ -17,30 +17,15 @@ namespace FightingGame.Player.Movement
         }
         public void Update()
         {
-            AirDashCheck();
             if (isDashing)
             {
                 Move();
             }
         }
-
-
-        /* AirDashCheck is a function which moves the character completely horizontally
-        * and lag for a few frames */
-        private void AirDashCheck()
-        {
-            if (PC.IsGrounded == false)
-            {
-                if (Input.GetButtonDown("Dash"))
-                {
-                    Dash();
-                }
-            }
-        }
         // This needs WORK but it works for now. We don't want the dash to be so instant
-        private void Dash()
+        public void SetAirDash()
         {
-            // Should AirDash cancel lag? currently: no
+            // Should AirDash cancel lag? currently: yes
             if (PC.IsInLag && PC.LagType != "hit")
             {
                 //return;
@@ -60,12 +45,13 @@ namespace FightingGame.Player.Movement
         }
         private void Move()
         {
+            transform.position = Vector3.MoveTowards(curPos, finalPos, step);
+            curPos = transform.position;
+
             if (Mathf.Abs(curPos.x - finalPos.x) < Mathf.Epsilon)
             {
                 isDashing = false;
             }
-            transform.position = Vector3.MoveTowards(curPos, finalPos, step);
-            curPos = transform.position;
         }
         private void ChooseDirection()
         {

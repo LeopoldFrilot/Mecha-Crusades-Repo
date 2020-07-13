@@ -1,5 +1,4 @@
-﻿using FightingGame.Core;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,23 +7,21 @@ namespace FightingGame.Player.Attack
     public class Projectile : MonoBehaviour
     {
         GeneralPlayerController PC;
-        //FrameTest FT;
         [SerializeField] ProjectileAttack PA;
         float time;
         int dir;
         public void Start()
         {
             PC = transform.parent.GetComponent<GeneralPlayerController>();
-            //FT = FindObjectOfType<FrameTest>();
             time = 0;
             dir = PC.DirFacing;
             if(dir > 0)
             {
-                transform.localScale = new Vector2(PC.PlayerXScale * -1, transform.localScale.y);
+                transform.localScale = new Vector2(transform.localScale.x * PC.PlayerXScale * -1, transform.localScale.y);
             }
             else
             {
-                transform.localScale = new Vector2(PC.PlayerXScale * 1, transform.localScale.y);
+                transform.localScale = new Vector2(transform.localScale.x * PC.PlayerXScale * 1, transform.localScale.y);
             }
             transform.parent = null;
         }
@@ -43,10 +40,9 @@ namespace FightingGame.Player.Attack
             if (collidedObject != PC.Player)
             {
                 var OtherPC = collidedObject.GetComponent<GeneralPlayerController>();
-                //Debug.Log(gameObject.name + " hit: " + collision.gameObject.name);
                 collision.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(PA.ProjKnockback.x * PC.DirFacing, PA.ProjKnockback.y);
                 OtherPC.Lag(PA.ProjHitstun, "hit");
-                OtherPC.DealDamage(PA.ProjDamage);
+                OtherPC.DamagePlayer(PA.ProjDamage);
                 Destroy(gameObject);
             }
         }

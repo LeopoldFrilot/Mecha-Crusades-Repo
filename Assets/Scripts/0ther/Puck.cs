@@ -22,7 +22,7 @@ public class Puck : MonoBehaviour
     {
         vertMove = context.ReadValue<float>();
     }
-    public void SelectCharacter(InputAction.CallbackContext context)
+    public void SelectCharacter()
     {
         if (selectable)
         {

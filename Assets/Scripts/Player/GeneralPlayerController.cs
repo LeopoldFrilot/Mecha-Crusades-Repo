@@ -1,4 +1,5 @@
 ﻿using FightingGame.Player.Attack;
+using FightingGame.Player.Movement;
 using FightingGame.Player.State;
 using System.Collections;
 using System.Collections.Generic;
@@ -11,13 +12,12 @@ namespace FightingGame.Player
     {
         Rigidbody2D rb;
         LagManager LM;
-        AttacksController AC;
         [SerializeField] CharacterData cD;
         GameObject player;
         GameObject otherPlayer;
         Animator playerAnimator;
         float playerXScale;
-        GameObject projectileLocation;
+        [SerializeField] GameObject projectileLocation;
 
         // variables that will change
         [Header("Variables")]
@@ -33,18 +33,18 @@ namespace FightingGame.Player
         [SerializeField] string _lagType;   // Lagtypes: none, recovery, hit, landing
         [SerializeField] int _health;
         [SerializeField] int _wins;
+        [SerializeField] int _curHorizInput;
+        [SerializeField] bool _isFastFalling;
 
         // Start is called before the first frame update
         public void Awake()
         {
             Player = gameObject;
             LM = GetComponent<LagManager>();
-            AC = transform.GetChild(0).GetComponent<AttacksController>();
             OtherPlayer = FindObjectOfType<PlayerSelect>().GetOtherPlayer(gameObject);
             rb = GetComponent<Rigidbody2D>();
             PlayerAnimator = GetComponent<Animator>();
             PlayerXScale = playerXScale = transform.localScale.x;
-            ProjectileLocation = transform.GetChild(1).gameObject;
         }
         public void Lag(int num, string lagType)
         {
@@ -60,16 +60,9 @@ namespace FightingGame.Player
             rb.velocity = Vector2.zero;
             PlayerAnimator.SetBool("isAirborne", false);
             LagType = "none";
+            IsFastFalling = false;
         }
-        public void StartMove(string name)
-        {
-            AC.StartMove(name);
-        }
-        public void ActivateAttack()
-        {
-            AC.ActivateAttack();
-        }
-        public void DealDamage(int damage)
+        public void DamagePlayer(int damage)
         {
             Health -= damage;
             //Debug.Log(Health + " health for " + gameObject.name);
@@ -98,6 +91,8 @@ namespace FightingGame.Player
         public float PlayerXScale { get => playerXScale; set => playerXScale = value; }
         public GameObject ProjectileLocation { get => projectileLocation; set => projectileLocation = value; }
         public int Wins { get => _wins; set => _wins = value; }
+        public int CurHorizInput { get => _curHorizInput; set => _curHorizInput = value; }
+        public bool IsFastFalling { get => _isFastFalling; set => _isFastFalling = value; }
     }
 }
 
