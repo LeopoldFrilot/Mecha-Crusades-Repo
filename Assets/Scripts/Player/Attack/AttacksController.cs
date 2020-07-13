@@ -28,7 +28,6 @@ namespace FightingGame.Player.Attack
         {
             hitbox = attack.GetComponent<PolygonCollider2D>();
             hitbox.enabled = !hitbox.enabled;
-            Debug.Log(hitbox + " hitbox is now enabled: " + hitbox.enabled);
             if (attackRef.CA.HasProjectile == true && hitbox.enabled)
             {
                 var projectile = Instantiate(attackRef.CA.Projectile, PC.ProjectileLocation.transform.position, Quaternion.identity);

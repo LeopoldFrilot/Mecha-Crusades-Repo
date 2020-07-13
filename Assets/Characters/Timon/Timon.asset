@@ -27,8 +27,8 @@ MonoBehaviour:
   airDashDist: 3
   gravityScalar: 2
   fastFallPush: 3
-  lagJump: 1
-  lagDoubleJump: 1
-  lagNormalLand: 0
-  lagHardLand: 5
+  lagJump: 5
+  lagDoubleJump: 0
+  lagNormalLand: 3
+  lagHardLand: 10
   lagAirDash: 7

@@ -9,7 +9,7 @@ namespace FightingGame.AI
     {
         PrimitiveAI PA;
         GeneralPlayerController PC, OPC;
-        float seed;
+        int seed;
         [SerializeField] int horizontalMoveLockoutMin = 5; // Min frames the CPU will move in one direction
         [SerializeField] int horizontalMoveLockoutMax = 20; // Max frames the CPU will move in one direction
         int horizontalMoveLockout;
@@ -29,7 +29,7 @@ namespace FightingGame.AI
         private void Act()
         {
             if (!PA.IsActive) return;
-            seed = Random.Range(0, 1f);
+            seed = Random.Range(1, 100);    // This is int so it is easy to map
             NeutralHandbook();
             /*if (PA.EmoState == "Neutral") NeutralHandbook();
             else if (PA.EmoState == "Aggressive") AggressiveHandbook();
@@ -37,47 +37,64 @@ namespace FightingGame.AI
         }
         private void NeutralHandbook()
         {
-            HorizontalMove(.5f);
+            HorizontalMove(50);
+            NeutralAttack();
+        }
+
+        private void NeutralAttack()
+        {
             float dist = PA.DistFromOpp;
             if (dist <= 1f)
             {
-                if (OPC.IsGrounded && !OPC.IsInLag && PC.IsGrounded && CheckProbability(.8f))
+                if (OPC.IsGrounded && !OPC.IsInLag && PC.IsGrounded && CheckProbability(80))
                 {
                     PA.LightAttack();
                 }
-                else if(OPC.IsFalling && OPC.IsInLag && CheckProbability(.9f))
+                else if (OPC.IsFalling && OPC.IsInLag && CheckProbability(90))
                 {
                     PA.LightAerial();
                 }
+                else if (CheckProbability(10))
+                {
+                    if (PC.IsGrounded) PA.Jump();
+                    PA.DashAway();
+                    PA.DashAway();
+                }
             }
-            else if(dist <= 3f)
+            else if (dist <= 3f)
             {
-                if (CheckProbability(.2f))
+                if(PC.IsGrounded && !OPC.IsGrounded && CheckProbability(5))
+                {
+                    PA.HeavyAttack();
+                }
+                else if(PC.IsFalling && OPC.IsGrounded && CheckProbability(30))
+                {
+                    PA.LightAerial();
+                }
+                else if (CheckProbability(20))
                 {
                     PA.MediumAttack();
                 }
             }
-            else if(dist <= 8.5f)
+            else if (dist <= 8.5f)
             {
-                if (CheckProbability(.3f))
+                if (PC.DirFacing != OPC.DirFacing && CheckProbability(3))
                 {
+                    PA.Jump();
                     PA.MediumAerial();
                 }
             }
-            else
-            {
-
-            }
         }
+
         private void AggressiveHandbook()
         {
-            HorizontalMove(.65f);
+            HorizontalMove(65);
         }
         private void DefensiveHandbook()
         {
-            HorizontalMove(.3f);
+            HorizontalMove(30);
         }
-        private void HorizontalMove(float prob)
+        private void HorizontalMove(int prob)
         {
             horizontalMoveFrame++;
             if (horizontalMoveFrame >= horizontalMoveLockout)
@@ -89,9 +106,11 @@ namespace FightingGame.AI
             }
             
         }
-        private bool CheckProbability(float probability)
+        private bool CheckProbability(int probability)
         {
-            if (seed <= probability) return true; // Succes! The metric should change though
+            if (probability > 50) probability = 50; // Eventually we need to find a way to map larger percentages
+            int modular = (int)(100f / (float)probability);
+            if (seed % modular == 0) return true; // Succes! The metric should change though
             else return false;
         }
     }

@@ -1,4 +1,5 @@
 ﻿using FightingGame.Player;
+using FightingGame.Player.Movement;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -50,7 +51,7 @@ namespace FightingGame.AI
         }
         public void Forward()
         {
-            if(Opponent.transform.position.x < transform.position.x)
+            if (Opponent.transform.position.x < transform.position.x)
             {
                 IM.Left();
             }
@@ -72,7 +73,18 @@ namespace FightingGame.AI
         }
         public void Jump()
         {
+            Forward();
             IM.Jump();
+        }
+        public void DashForward()
+        {
+            Forward();
+            IM.Dash();
+        }
+        public void DashAway()
+        {
+            Backward();
+            IM.Dash();
         }
         public void LightAttack()
         {
@@ -82,7 +94,6 @@ namespace FightingGame.AI
         public void LightAerial()
         {
             Forward();
-            Jump();
             IM.LightAttack();
         }
         public void MediumAttack()
@@ -93,8 +104,12 @@ namespace FightingGame.AI
         public void MediumAerial()
         {
             Forward();
-            Jump();
             IM.MediumAttack();
+        }
+        public void HeavyAttack()
+        {
+            Forward();
+            IM.HeavyAttack();
         }
         public void ToggleAI()
         {

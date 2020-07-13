@@ -47,6 +47,7 @@ namespace FightingGame.Player
         }
         public void Jump()
         {
+            if (PC.IsInLag) return;
             GetComponent<Jump>().StartJump();
         }
         public void Dash()

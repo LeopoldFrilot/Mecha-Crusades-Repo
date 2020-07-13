@@ -1253,10 +1253,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Timon
       objectReference: {fileID: 0}
-    - target: {fileID: 8074384903851989326, guid: d88ff8b495c60c845a6318812d9eda87, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.76
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d88ff8b495c60c845a6318812d9eda87, type: 3}
 --- !u!1 &1173500419 stripped
