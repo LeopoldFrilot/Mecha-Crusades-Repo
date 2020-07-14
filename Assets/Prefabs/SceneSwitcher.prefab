@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1959288159167705104}
   - component: {fileID: 3469977494194578532}
   - component: {fileID: 1136162780}
-  - component: {fileID: 1136162781}
   - component: {fileID: 1136162782}
   - component: {fileID: 1136162783}
   - component: {fileID: 1136162784}
@@ -63,19 +62,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player1: {fileID: 0}
   player2: {fileID: 0}
---- !u!114 &1136162781
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5465405783244208775}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9286de61126b034a850c880d6f305e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  percentageFrameDifAllowed: 10
 --- !u!114 &1136162782
 MonoBehaviour:
   m_ObjectHideFlags: 0

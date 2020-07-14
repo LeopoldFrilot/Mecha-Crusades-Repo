@@ -32,7 +32,6 @@ namespace FightingGame.Player
         [SerializeField] int _dirFacing;
         [SerializeField] string _lagType;   // Lagtypes: none, recovery, hit, landing
         [SerializeField] int _health;
-        [SerializeField] int _wins;
         [SerializeField] int _curHorizInput;
         [SerializeField] bool _isFastFalling;
 
@@ -68,7 +67,7 @@ namespace FightingGame.Player
             //Debug.Log(Health + " health for " + gameObject.name);
             if(Health <= 0)
             {
-                FindObjectOfType<WinManager>().ManageWin(OtherPlayer, Player);
+                FindObjectOfType<WinManager>().ManageRoundOver(OtherPlayer, Player);
             }
         }
         public CharacterData CD { get => cD; set => cD = value; }
@@ -90,7 +89,6 @@ namespace FightingGame.Player
         public int Health { get => _health; set => _health = value; }
         public float PlayerXScale { get => playerXScale; set => playerXScale = value; }
         public GameObject ProjectileLocation { get => projectileLocation; set => projectileLocation = value; }
-        public int Wins { get => _wins; set => _wins = value; }
         public int CurHorizInput { get => _curHorizInput; set => _curHorizInput = value; }
         public bool IsFastFalling { get => _isFastFalling; set => _isFastFalling = value; }
     }

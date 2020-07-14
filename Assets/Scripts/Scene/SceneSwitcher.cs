@@ -15,9 +15,9 @@ namespace FightingGame.Scene
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
-        public void LoadWinScene(string winnerName)
+        public void LoadWinScene()
         {
-            LoadNextScene();    //Temporary
+            LoadNextScene();    // Temporary
         }
         public void ReloadScene()
         {

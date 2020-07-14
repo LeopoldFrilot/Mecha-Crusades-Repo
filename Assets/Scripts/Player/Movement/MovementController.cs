@@ -9,6 +9,7 @@ namespace FightingGame.Player.Movement
         GeneralPlayerController PC;
         int horizMovement;
         int vertMovement;
+        float DIMultiplier = .1f;
 
         public void Start()
         {
@@ -40,17 +41,15 @@ namespace FightingGame.Player.Movement
                 if(Mathf.Abs(PC.AveHorizSpeed) <= PC.CD.MaxAirSpeed * PC.Momentum)
                 {
                     movement = horizMovement * PC.CD.AerialSpeed * Time.deltaTime * PC.Momentum;
-                    PC.Player.transform.Translate(movement, 0, 0);
+                    transform.Translate(movement, 0, 0);
                 }
             }
         }
         // DI is only called if the player is in hitlag
         private void DI()
         {
-            if(PC.LagType == "hit")
-            {
-                Debug.Log("DI");
-            }
+            float alteration = vertMovement * PC.CD.AerialSpeed * Time.deltaTime * DIMultiplier;
+            GetComponent<Rigidbody2D>().velocity += new Vector2(0, alteration);
         }
         public void SetMovingHoriz(int num)
         {

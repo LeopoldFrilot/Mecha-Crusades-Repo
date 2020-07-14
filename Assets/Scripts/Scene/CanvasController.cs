@@ -14,8 +14,10 @@ namespace FightingGame.Scene
         [SerializeField] GameObject FPSTracker;
         [SerializeField] GameObject momentumSliderP1;
         [SerializeField] GameObject healthSliderP1;
+        [SerializeField] GameObject p1WinCounter;
         [SerializeField] GameObject momentumSliderP2;
         [SerializeField] GameObject healthSliderP2;
+        [SerializeField] GameObject p2WinCounter;
         [SerializeField] GameObject roundDisplay;
         [SerializeField] GameObject pauseMenu;
         [SerializeField] GameObject gameScreen;
@@ -56,6 +58,11 @@ namespace FightingGame.Scene
         public void UpdateRound(int num)
         {
             roundDisplay.GetComponent<TextMeshProUGUI>().text = "ROUND " + num;
+        }
+        public void UpdateWins(int p1Wins, int p2Wins)
+        {
+            p1WinCounter.GetComponent<Slider>().value = p1Wins;
+            p2WinCounter.GetComponent<Slider>().value = p2Wins;
         }
         public void TogglePause()
         {

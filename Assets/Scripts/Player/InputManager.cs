@@ -3,7 +3,6 @@ using FightingGame.Player.Movement;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 namespace FightingGame.Player
 {
@@ -27,11 +26,11 @@ namespace FightingGame.Player
         }
         public void Up()
         {
-            MC.SetMovingVert(1);
+            if (PC.LagType == "hit" && !PC.IsGrounded) MC.SetMovingVert(1);
         }
         public void Down()
         {
-            MC.SetMovingVert(-1);
+            if (PC.LagType == "hit" && !PC.IsGrounded) MC.SetMovingVert(-1);
             if (!PC.IsGrounded && PC.IsFalling && PC.LagType != "hit") GetComponent<FastFall>().SetFastFall();
         }
         public void Neutral(string direction)
