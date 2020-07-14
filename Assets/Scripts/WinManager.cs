@@ -11,6 +11,7 @@ namespace FightingGame
         CanvasController CC;
         [SerializeField] int maxWins = 3;
         bool win = false;
+        bool roundOver = false;
         public void Start()
         {
             CC = FindObjectOfType<CanvasController>();
@@ -19,9 +20,13 @@ namespace FightingGame
         }
         public void ManageRoundOver(GameObject winner, GameObject loser)
         {
+            if (roundOver) return;
+            roundOver = true;
             ManageWinner(winner);
             ManageLoser(loser);
             SceneStatics.Round++;
+            CC.ToggleInputsAndCPU(winner);
+            CC.ToggleInputsAndCPU(loser);
             StartCoroutine(Transition());
 
         }
@@ -70,7 +75,6 @@ namespace FightingGame
         private void GameOver()
         {
             ResetGame();
-            Debug.Log("Loading Win");
             Destroy(GameObject.Find("MusicPlayer"));
             FindObjectOfType<SceneSwitcher>().LoadWinScene();
         }

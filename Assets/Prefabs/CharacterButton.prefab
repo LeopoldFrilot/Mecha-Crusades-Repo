@@ -126,7 +126,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultColor: {r: 0.05882353, g: 0.007843138, b: 0.023529412, a: 1}
   hoverColor: {r: 1, g: 1, b: 1, a: 1}
-  charObject: {fileID: 7535269020938167940, guid: d88ff8b495c60c845a6318812d9eda87, type: 3}
+  charObjectP1: {fileID: 7535269020938167940, guid: d88ff8b495c60c845a6318812d9eda87, type: 3}
+  charObjectP2: {fileID: 3010177320383912346, guid: 5e9837bcbff900843ac6ee09fb341932, type: 3}
 --- !u!50 &639153135
 Rigidbody2D:
   serializedVersion: 4

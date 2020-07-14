@@ -73,7 +73,7 @@ public class Puck : MonoBehaviour
     }
     public GameObject GetChosenChar()
     {
-        return SelectedChar.GetCharObject();
+        return SelectedChar.GetCharObject(isP1);
     }
     public CharButton SelectedChar { get => selectedChar; set => selectedChar = value; }
     public bool IsP1 { get => isP1; set => isP1 = value; }

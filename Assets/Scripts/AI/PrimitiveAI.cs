@@ -12,20 +12,20 @@ namespace FightingGame.AI
         GeneralPlayerController PC, OPC;
         InputManager IM;
         [SerializeField] GameObject opponent;
-        [SerializeField] bool isActive = false;
+        [SerializeField] bool isActive = true;
         string[] emoStates = { "Aggressive", "Defensive", "Neutral" };
         [SerializeField] string emoState;
         [SerializeField] int neutralThreshold = 50;
         [SerializeField] float distFromOpp;
 
-        private void Awake()
+        private void Start()
         {
             PC = GetComponent<GeneralPlayerController>();
             PS = FindObjectOfType<PlayerSelect>();
+            IM = GetComponent<InputManager>();
+            GetComponent<InputReader>().enabled = false;
             Opponent = PS.GetOtherPlayer(gameObject);
             OPC = Opponent.GetComponent<GeneralPlayerController>();
-            IM = GetComponent<InputManager>();
-            ToggleAI();
         }
         private void Update()
         {
@@ -48,6 +48,11 @@ namespace FightingGame.AI
             {
                 EmoState = emoStates[0];
             }
+        }
+        public void StandNeutral()
+        {
+            IM.Neutral("Horizontal");
+            IM.Neutral("Vertical");
         }
         public void Forward()
         {
@@ -111,17 +116,14 @@ namespace FightingGame.AI
             Forward();
             IM.HeavyAttack();
         }
+        public void HeavyAerial()
+        {
+            Forward();
+            IM.HeavyAttack();
+        }
         public void ToggleAI()
         {
             IsActive = !IsActive;
-            if (!IsActive)
-            {
-                GetComponent<InputReader>().enabled = true;
-            }
-            else
-            {
-                GetComponent<InputReader>().enabled = false;
-            }
         }
         private void UpdateDistance()
         {

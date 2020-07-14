@@ -36,7 +36,7 @@ namespace FightingGame.Player
         [SerializeField] bool _isFastFalling;
 
         // Start is called before the first frame update
-        public void Awake()
+        public void Start()
         {
             Player = gameObject;
             LM = GetComponent<LagManager>();

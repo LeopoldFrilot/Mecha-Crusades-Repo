@@ -150,7 +150,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4714255113167657116}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.35, y: 0.76, z: 0}
+  m_LocalPosition: {x: -0.35, y: 1.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3553234922724148521}
@@ -302,7 +302,8 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.6880106, y: 24.350243}
+    - - {x: -0.12233623, y: 30.980309}
+      - {x: -0.26768777, y: 40.268867}
       - {x: -1.0529839, y: 4.9350123}
       - {x: -0.79673654, y: 2.0547016}
       - {x: -0.6863078, y: 14.610959}
@@ -497,7 +498,7 @@ GameObject:
   - component: {fileID: 8742494278227716584}
   - component: {fileID: 1528335416833419180}
   m_Layer: 8
-  m_Name: Timon
+  m_Name: TimonP1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -580,7 +581,7 @@ Animator:
   m_GameObject: {fileID: 7535269020938167940}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b5efe0c84a765464ab97e3dee6ed43c1, type: 2}
+  m_Controller: {fileID: 9100000, guid: 1d6faa93bbeaec641a78b0887daad84a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -830,7 +831,6 @@ MonoBehaviour:
   _dirFacing: 0
   _lagType: 
   _health: 0
-  _wins: 0
   _curHorizInput: 0
   _isFastFalling: 0
 --- !u!114 &1032250730518409449
@@ -986,7 +986,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbe1da201dfbd2b479aa83e8c56b7993, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultColor: {r: 1, g: 1, b: 1, a: 1}
   normalLagColor: {r: 0.990566, g: 0.98843575, b: 0.032707386, a: 1}
   hitLagColor: {r: 0.1792453, g: 0.10347897, b: 0.0042274827, a: 1}
 --- !u!114 &1528335416833419180

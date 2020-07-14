@@ -8,7 +8,7 @@ namespace FightingGame.Player
     {
         bool devMode = true;
         GeneralPlayerController PC;
-        [SerializeField] Color defaultColor;
+        Color defaultColor;
         [SerializeField] Color normalLagColor;
         [SerializeField] Color hitLagColor;
         public void Start()

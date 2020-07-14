@@ -10,10 +10,6 @@ namespace FightingGame
         {
             Application.targetFrameRate = 60;
         }
-        public void Update()
-        {
-            
-        }
     }
 }
 

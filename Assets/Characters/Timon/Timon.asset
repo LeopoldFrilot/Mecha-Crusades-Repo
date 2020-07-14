@@ -18,15 +18,15 @@ MonoBehaviour:
   maxMomentum: 10
   speed: 6
   shortHopHeight: 4.5
-  fullHopMultiplier: 2
+  fullHopMultiplier: 2.5
   aerialSpeed: 5
   maxMidairOptions: 2
   maxDoubleJumps: 1
-  midAirJumpHeight: 8
+  midAirJumpHeight: 9
   maxAirSpeed: 7.5
   airDashDist: 3
-  gravityScalar: 2
-  fastFallPush: 3
+  gravityScalar: 2.5
+  fastFallPush: 6
   lagJump: 5
   lagDoubleJump: 0
   lagNormalLand: 3

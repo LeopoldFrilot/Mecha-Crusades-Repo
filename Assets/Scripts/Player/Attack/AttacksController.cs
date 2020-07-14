@@ -36,9 +36,13 @@ namespace FightingGame.Player.Attack
         }
         public void CorrectAttackForLanding()
         {
-            if (hitbox != null && hitbox.enabled && PC.IsGrounded)
+            var attacks = transform.GetComponentsInChildren<Attack>();
+            foreach(Attack attack in attacks)
             {
-                ActivateAttack();
+                if (hitbox != null && hitbox.enabled && PC.IsGrounded)
+                {
+                    ActivateAttack();
+                }
             }
         }
     }

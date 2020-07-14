@@ -9,7 +9,6 @@ namespace FightingGame.AI
     {
         PrimitiveAI PA;
         GeneralPlayerController PC, OPC;
-        int seed;
         [SerializeField] int horizontalMoveLockoutMin = 5; // Min frames the CPU will move in one direction
         [SerializeField] int horizontalMoveLockoutMax = 20; // Max frames the CPU will move in one direction
         int horizontalMoveLockout;
@@ -28,8 +27,11 @@ namespace FightingGame.AI
 
         private void Act()
         {
-            if (!PA.IsActive) return;
-            seed = Random.Range(1, 100);    // This is int so it is easy to map
+            if (!PA.IsActive)
+            {
+                PA.StandNeutral();
+                return;
+            }
             NeutralHandbook();
             /*if (PA.EmoState == "Neutral") NeutralHandbook();
             else if (PA.EmoState == "Aggressive") AggressiveHandbook();
@@ -71,6 +73,11 @@ namespace FightingGame.AI
                 {
                     PA.LightAerial();
                 }
+                else if (!OPC.IsFalling && OPC.IsInLag && PC.IsGrounded && CheckProbability(50))
+                {
+                    PA.Jump();
+                    PA.HeavyAerial();
+                }
                 else if (CheckProbability(20))
                 {
                     PA.MediumAttack();
@@ -108,10 +115,12 @@ namespace FightingGame.AI
         }
         private bool CheckProbability(int probability)
         {
-            if (probability > 50) probability = 50; // Eventually we need to find a way to map larger percentages
-            int modular = (int)(100f / (float)probability);
-            if (seed % modular == 0) return true; // Succes! The metric should change though
+            if (RandInt() <= probability) return true;
             else return false;
+        }
+        private int RandInt()
+        {
+            return Random.Range(1, 100);
         }
     }
 }

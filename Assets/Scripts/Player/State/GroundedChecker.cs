@@ -28,7 +28,7 @@ namespace FightingGame.Player.State
         {
             if(collision.gameObject.tag == "Ground")
             {
-                if (PC.LagType == "hit")
+                if (PC.LagType == "hit" && bounce < maxBounces)
                 {
                     Bounce();
                 }
@@ -50,15 +50,14 @@ namespace FightingGame.Player.State
             bounce++;
             float bounceScalar = .5f / bounce;
             rb.velocity = new Vector2(prevVel.x * bounceScalar, prevVel.y * -1 * bounceScalar);
-            if (bounce >= maxBounces) SetGrounded();
         }
         private void SetGrounded()
         {
+            transform.GetChild(0).GetComponent<AttacksController>().CorrectAttackForLanding();
+            PC.GroundedReset();
+            bounce = 0;
             if (PC.IsGrounded == false)
             {
-                transform.GetChild(0).GetComponent<AttacksController>().CorrectAttackForLanding();
-                PC.GroundedReset();
-                bounce = 0;
                 if (PC.IsInLag)
                 {
                     PC.Lag(PC.CD.LagHardLand, "landing");

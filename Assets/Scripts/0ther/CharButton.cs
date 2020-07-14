@@ -7,7 +7,8 @@ public class CharButton : MonoBehaviour
     [SerializeField] Color defaultColor;
     [SerializeField] Color hoverColor;
     SpriteRenderer SR;
-    [SerializeField] GameObject charObject;
+    [SerializeField] GameObject charObjectP1;
+    [SerializeField] GameObject charObjectP2;
     int numObjects = 0;
     void Start()
     {
@@ -32,8 +33,9 @@ public class CharButton : MonoBehaviour
     {
         numObjects--;
     }
-    public GameObject GetCharObject()
+    public GameObject GetCharObject(bool isP1)
     {
-        return charObject;
+        if (isP1) return charObjectP1;
+        else return charObjectP2;
     }
 }

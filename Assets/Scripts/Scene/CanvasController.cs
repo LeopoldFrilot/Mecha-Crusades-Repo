@@ -68,6 +68,8 @@ namespace FightingGame.Scene
         {
             pauseMenu.SetActive(!pauseMenu.activeSelf);
             gameScreen.SetActive(!gameScreen.activeSelf);
+            ToggleInputsAndCPU(PCP1.gameObject);
+            ToggleInputsAndCPU(PCP2.gameObject);
         }
         public void ToggleDevMode()
         {
@@ -76,6 +78,17 @@ namespace FightingGame.Scene
         public void ToggleAI()
         {
             FindObjectOfType<PrimitiveAI>().ToggleAI();
+        }
+        public void ToggleInputsAndCPU(GameObject player)
+        {
+            if (player.GetComponent<PrimitiveAI>())
+            {
+                player.GetComponent<PrimitiveAI>().ToggleAI();
+            }
+            else
+            {
+                player.GetComponent<InputReader>().enabled = !player.GetComponent<InputReader>().enabled;
+            }
         }
     }
 }
