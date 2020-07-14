@@ -12,6 +12,7 @@ public class Puck : MonoBehaviour
     bool selectable = false;
     CharButton curChar;
     CharButton selectedChar;
+    [SerializeField] bool isP1;
 
 
     public void MoveHorizontal(InputAction.CallbackContext context)
@@ -22,11 +23,12 @@ public class Puck : MonoBehaviour
     {
         vertMove = context.ReadValue<float>();
     }
-    public void SelectCharacter()
+    public void SelectCharacter(InputAction.CallbackContext context)
     {
-        if (selectable)
+        if (selectable && context.ReadValue<float>()<= Mathf.Epsilon)
         {
             SelectedChar = curChar;
+            FindObjectOfType<CSS>().CheckSelected();
         }
     }
     private void Update()
@@ -37,7 +39,7 @@ public class Puck : MonoBehaviour
 
     private void Move()
     {
-        if (isCPU)
+        if (IsCPU)
         {
             AI();
             return;
@@ -56,6 +58,7 @@ public class Puck : MonoBehaviour
         if(transform.position == curChar.transform.position)
         {
             SelectedChar = curChar;
+            FindObjectOfType<CSS>().CheckSelected();
         }
     }
     public void OnTriggerEnter2D(Collider2D collision)
@@ -70,7 +73,9 @@ public class Puck : MonoBehaviour
     }
     public GameObject GetChosenChar()
     {
-        return curChar.GetCharObject();
+        return SelectedChar.GetCharObject();
     }
     public CharButton SelectedChar { get => selectedChar; set => selectedChar = value; }
+    public bool IsP1 { get => isP1; set => isP1 = value; }
+    public bool IsCPU { get => isCPU; set => isCPU = value; }
 }

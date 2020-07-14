@@ -134,6 +134,10 @@ PrefabInstance:
       propertyPath: isCPU
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1055623344940228975, guid: b6b2860e4cacb6e4485a96beaabd9c98, type: 3}
+      propertyPath: isP1
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3005830190163933553, guid: b6b2860e4cacb6e4485a96beaabd9c98, type: 3}
       propertyPath: m_Name
       value: P2
@@ -1349,6 +1353,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3120337698560643532, guid: b6b2860e4cacb6e4485a96beaabd9c98, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3881661428215045972, guid: b6b2860e4cacb6e4485a96beaabd9c98, type: 3}
+      propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4644476060437510966, guid: b6b2860e4cacb6e4485a96beaabd9c98, type: 3}

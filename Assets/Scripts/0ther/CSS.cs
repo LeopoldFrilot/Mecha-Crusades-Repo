@@ -12,13 +12,7 @@ public class CSS : MonoBehaviour
         pucks = FindObjectsOfType<Puck>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        CheckSelected();
-    }
-
-    private void CheckSelected()
+    public void CheckSelected()
     {
         foreach (Puck puck in pucks)
         {
@@ -32,6 +26,21 @@ public class CSS : MonoBehaviour
 
     private void MoveOn()
     {
+        foreach (Puck puck in pucks)
+        {
+            if (puck.IsP1)
+            {
+                SceneStatics.Player1 = puck.GetChosenChar();
+                if (puck.IsCPU) SceneStatics.IsP1CPU = true;
+                else SceneStatics.IsP1CPU = false;
+            }
+            else
+            {
+                SceneStatics.Player2 = puck.GetChosenChar();
+                if (puck.IsCPU) SceneStatics.IsP2CPU = true;
+                else SceneStatics.IsP2CPU = false;
+            }
+        }
         GetComponent<SceneSwitcher>().LoadNextScene();
     }
 }

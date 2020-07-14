@@ -251,6 +251,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   isCPU: 0
+  isP1: 1
 --- !u!114 &3881661428215045972
 MonoBehaviour:
   m_ObjectHideFlags: 0
