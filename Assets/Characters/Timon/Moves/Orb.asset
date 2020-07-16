@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxLifespan: 0.5
   projDamage: 30
-  projKnockback: {x: 6, y: 5}
-  projHitstun: 20
+  projKnockback: {x: 3, y: 5}
+  projHitstun: 15
   projBlockstun: 1
   speed: 13

@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggerWord: MEDIUMATTACK
   damage: 80
-  knockback: {x: 10, y: 6}
-  startupFrames: 14
+  knockback: {x: 10, y: 4}
+  startupFrames: 11
   activeFrames: 5
-  recoveryFrames: 21
-  hitstun: 40
+  recoveryFrames: 20
+  hitstun: 30
   blockstun: 2
   hasProjectile: 0
   projectile: {fileID: 0}

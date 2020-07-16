@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1847240360009913048}
   - component: {fileID: 6744056312298202325}
   - component: {fileID: 7706401164231175175}
-  - component: {fileID: 453761520490456765}
+  - component: {fileID: 4663960656441436539}
   m_Layer: 11
   m_Name: Orb
   m_TagString: Projectile
@@ -119,8 +119,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!60 &453761520490456765
-PolygonCollider2D:
+--- !u!58 &4663960656441436539
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -133,28 +133,5 @@ PolygonCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.715, y: 0.715}
-    newSize: {x: 0.715, y: 0.715}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.323781, y: 0.12755376}
-      - {x: 0.24466562, y: 0.23980188}
-      - {x: 0.1385498, y: 0.3193456}
-      - {x: -0.021122932, y: 0.35442364}
-      - {x: -0.1688385, y: 0.30640125}
-      - {x: -0.2781453, y: 0.2103728}
-      - {x: -0.3453493, y: -0.0011948347}
-      - {x: -0.28288412, y: -0.1839065}
-      - {x: -0.17417955, y: -0.2947703}
-      - {x: -0.0053548813, y: -0.35620502}
-      - {x: 0.13957882, y: -0.32312733}
-      - {x: 0.2530613, y: -0.23022607}
-      - {x: 0.3205495, y: -0.13217139}
-      - {x: 0.34096718, y: 0.0056399703}
+  serializedVersion: 2
+  m_Radius: 0.3575

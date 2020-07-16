@@ -7,7 +7,7 @@ namespace FightingGame.Player.Attack
     public class AttacksController : MonoBehaviour
     {
         GeneralPlayerController PC;
-        PolygonCollider2D hitbox;
+        Collider2D hitbox;
         GameObject attack;
         Attack attackRef;
         string curMove;
@@ -26,23 +26,12 @@ namespace FightingGame.Player.Attack
         }
         public void ActivateAttack()
         {
-            hitbox = attack.GetComponent<PolygonCollider2D>();
+            hitbox = attack.GetComponent<Collider2D>();
             hitbox.enabled = !hitbox.enabled;
             if (attackRef.CA.HasProjectile == true && hitbox.enabled)
             {
                 var projectile = Instantiate(attackRef.CA.Projectile, PC.ProjectileLocation.transform.position, Quaternion.identity);
                 projectile.transform.parent = PC.Player.transform;
-            }
-        }
-        public void CorrectAttackForLanding()
-        {
-            var attacks = transform.GetComponentsInChildren<Attack>();
-            foreach(Attack attack in attacks)
-            {
-                if (hitbox != null && hitbox.enabled && PC.IsGrounded)
-                {
-                    ActivateAttack();
-                }
             }
         }
     }

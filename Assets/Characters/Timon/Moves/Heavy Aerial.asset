@@ -15,10 +15,10 @@ MonoBehaviour:
   triggerWord: HEAVYAERIAL
   damage: 100
   knockback: {x: 7, y: -20}
-  startupFrames: 16
-  activeFrames: 3
+  startupFrames: 13
+  activeFrames: 2
   recoveryFrames: 40
-  hitstun: 60
+  hitstun: 50
   blockstun: 7
   hasProjectile: 0
   projectile: {fileID: 0}

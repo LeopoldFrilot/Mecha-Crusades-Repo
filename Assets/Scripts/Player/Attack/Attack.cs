@@ -8,12 +8,20 @@ namespace FightingGame.Player.Attack
     {
         GeneralPlayerController PC;
         [SerializeField] CharacterAttack cA;
+        [SerializeField] bool isAerial;
 
         public void Start()
         {
             PC = transform.parent.parent.GetComponent<GeneralPlayerController>();
         }
-        public void OnTriggerEnter2D(Collider2D collision)
+        public void LateUpdate()
+        {
+            if(isAerial && PC.IsGrounded && GetComponent<Collider2D>().enabled)
+            {
+                GetComponent<Collider2D>().enabled = false;
+            }
+        }
+        public void OnTriggerExit2D(Collider2D collision)
         {
             GameObject collidedObject = collision.gameObject;
             if (collidedObject != PC.Player)

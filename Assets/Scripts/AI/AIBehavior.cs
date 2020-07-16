@@ -39,7 +39,7 @@ namespace FightingGame.AI
         }
         private void NeutralHandbook()
         {
-            HorizontalMove(50);
+            HorizontalMove(65);
             NeutralAttack();
         }
 
@@ -95,11 +95,11 @@ namespace FightingGame.AI
 
         private void AggressiveHandbook()
         {
-            HorizontalMove(65);
+            HorizontalMove(85);
         }
         private void DefensiveHandbook()
         {
-            HorizontalMove(30);
+            HorizontalMove(50);
         }
         private void HorizontalMove(int prob)
         {

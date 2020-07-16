@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Light Aerial
   m_EditorClassIdentifier: 
   triggerWord: LIGHTAERIAL
-  damage: 35
-  knockback: {x: 5, y: 7}
-  startupFrames: 4
-  activeFrames: 2
-  recoveryFrames: 8
-  hitstun: 15
+  damage: 25
+  knockback: {x: 3, y: 5}
+  startupFrames: 11
+  activeFrames: 4
+  recoveryFrames: 5
+  hitstun: 20
   blockstun: 1
   hasProjectile: 0
   projectile: {fileID: 0}

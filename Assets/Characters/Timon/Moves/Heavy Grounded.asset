@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Heavy Grounded
   m_EditorClassIdentifier: 
   triggerWord: HEAVYATTACK
-  damage: 110
-  knockback: {x: 2, y: 12}
-  startupFrames: 23
-  activeFrames: 3
-  recoveryFrames: 6
-  hitstun: 60
+  damage: 70
+  knockback: {x: 3, y: 12}
+  startupFrames: 20
+  activeFrames: 5
+  recoveryFrames: 7
+  hitstun: 70
   blockstun: 5
   hasProjectile: 0
   projectile: {fileID: 0}

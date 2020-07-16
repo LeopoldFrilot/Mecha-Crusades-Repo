@@ -40,7 +40,7 @@ namespace FightingGame.Player.Attack
             if (collidedObject != PC.Player)
             {
                 var OtherPC = collidedObject.GetComponent<GeneralPlayerController>();
-                collision.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(PA.ProjKnockback.x * PC.DirFacing, PA.ProjKnockback.y);
+                collision.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(PA.ProjKnockback.x * dir, PA.ProjKnockback.y);
                 OtherPC.Lag(PA.ProjHitstun, "hit");
                 OtherPC.DamagePlayer(PA.ProjDamage);
                 Destroy(gameObject);

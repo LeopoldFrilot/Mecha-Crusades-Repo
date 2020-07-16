@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Light Grounded
   m_EditorClassIdentifier: 
   triggerWord: LIGHTATTACK
-  damage: 30
-  knockback: {x: 2, y: 5}
-  startupFrames: 4
+  damage: 20
+  knockback: {x: 0.1, y: 8}
+  startupFrames: 9
   activeFrames: 2
-  recoveryFrames: 8
-  hitstun: 10
-  blockstun: 2
+  recoveryFrames: 7
+  hitstun: 25
+  blockstun: 7
   hasProjectile: 0
   projectile: {fileID: 0}
