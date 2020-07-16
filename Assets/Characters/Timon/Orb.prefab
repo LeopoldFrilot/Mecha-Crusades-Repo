@@ -47,6 +47,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PA: {fileID: 11400000, guid: 66ab42b15def91548be8527a9613dfa9, type: 2}
+  hitSound: {fileID: 8300000, guid: 5ad39c7a8b46a254ca85ff0fab413ad8, type: 3}
+  musicHitSounds:
+  - {fileID: 8300000, guid: 417ebe190c4ee934ebfd7af90e597307, type: 3}
+  - {fileID: 8300000, guid: 79ceffde34dcf6e40886e16eb10a06ef, type: 3}
+  - {fileID: 8300000, guid: 40173b845678f3f44a7683ffd643c13a, type: 3}
 --- !u!212 &6744056312298202325
 SpriteRenderer:
   m_ObjectHideFlags: 0

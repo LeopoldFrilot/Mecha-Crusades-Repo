@@ -61,6 +61,10 @@ namespace FightingGame.Player
             LagType = "none";
             IsFastFalling = false;
         }
+        public void PlayClipDuringAttack(int index)
+        {
+            transform.GetChild(0).GetComponent<AttacksController>().PlayAudioClip(index);
+        }
         public void DamagePlayer(int damage)
         {
             Health -= damage;

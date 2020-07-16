@@ -11,6 +11,7 @@ namespace FightingGame.Player.Attack
         GameObject attack;
         Attack attackRef;
         string curMove;
+        [SerializeField] List<AudioClip> audioClips = new List<AudioClip>();
 
         public void Start()
         {
@@ -32,6 +33,13 @@ namespace FightingGame.Player.Attack
             {
                 var projectile = Instantiate(attackRef.CA.Projectile, PC.ProjectileLocation.transform.position, Quaternion.identity);
                 projectile.transform.parent = PC.Player.transform;
+            }
+        }
+        public void PlayAudioClip(int index)
+        {
+            if (index >= 0 && index < audioClips.Count)
+            {
+                FindObjectOfType<AudioSource>().PlayOneShot(audioClips[index], .2f);
             }
         }
     }

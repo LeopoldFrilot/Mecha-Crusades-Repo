@@ -8,6 +8,8 @@ namespace FightingGame.Player.Attack
     {
         GeneralPlayerController PC;
         [SerializeField] ProjectileAttack PA;
+        [SerializeField] AudioClip hitSound;
+        [SerializeField] List<AudioClip> musicHitSounds = new List<AudioClip>();
         float time;
         int dir;
         public void Start()
@@ -43,8 +45,16 @@ namespace FightingGame.Player.Attack
                 collision.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(PA.ProjKnockback.x * dir, PA.ProjKnockback.y);
                 OtherPC.Lag(PA.ProjHitstun, "hit");
                 OtherPC.DamagePlayer(PA.ProjDamage);
+                if (musicHitSounds.Count > 0) PickRandomSound();
                 Destroy(gameObject);
             }
+        }
+        private void PickRandomSound()
+        {
+            var audioSource = FindObjectOfType<AudioSource>();
+            audioSource.PlayOneShot(hitSound, .4f);
+            var randInt = (int)Random.Range(0, musicHitSounds.Count - Mathf.Epsilon);
+            audioSource.PlayOneShot(musicHitSounds[randInt], .5f);
         }
         private void ManageDistance()
         {

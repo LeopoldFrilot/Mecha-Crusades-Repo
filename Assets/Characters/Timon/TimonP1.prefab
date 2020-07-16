@@ -46,6 +46,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cA: {fileID: 11400000, guid: e05b229f478b6c747b4e98ff37a0bd49, type: 2}
   isAerial: 0
+  hitSounds:
+  - {fileID: 8300000, guid: 45a7e86d54336984c93a686f1b944f0f, type: 3}
+  - {fileID: 8300000, guid: 9ec4054c5aa23b544870e8714183ca27, type: 3}
 --- !u!60 &7535269021033160722
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -127,6 +130,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d097b4577118bd47a684dc19c9cd180, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioClips:
+  - {fileID: 8300000, guid: e20d66b39f3bba94bad151d516d7bf74, type: 3}
+  - {fileID: 8300000, guid: 450badf9c11bdb4418607cd3434f170b, type: 3}
+  - {fileID: 8300000, guid: bb13f9f76ead5f34cae69c79b6d62238, type: 3}
+  - {fileID: 8300000, guid: 2ccb2b121504e5344b77bbc2210a3d9b, type: 3}
+  - {fileID: 8300000, guid: 53c0fe082a623714598adc4c8cd4b9ef, type: 3}
+  - {fileID: 8300000, guid: 9647fb4c7999db646a796aef1871b020, type: 3}
+  - {fileID: 8300000, guid: 2e58d30fc8c1592449133df7439fd781, type: 3}
+  - {fileID: 8300000, guid: 4665f547d6fae454280c26517fbe992d, type: 3}
+  - {fileID: 8300000, guid: 3c6d6663dc23f58409cb47c9ba0bf774, type: 3}
+  - {fileID: 8300000, guid: 6b92afe067c3ccd4698345d1d2993377, type: 3}
 --- !u!1 &4714255113167657116
 GameObject:
   m_ObjectHideFlags: 0
@@ -203,6 +217,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cA: {fileID: 11400000, guid: 1f868165d326d6742a4c0af9fa9c4a97, type: 2}
   isAerial: 0
+  hitSounds:
+  - {fileID: 8300000, guid: 50833b3b169c3c4468d8e5d263f97cbd, type: 3}
+  - {fileID: 8300000, guid: 694cb99379acdbf44bbccb24431e7f43, type: 3}
 --- !u!60 &7213626477871069290
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -280,6 +297,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cA: {fileID: 11400000, guid: 10f778cc33ab7ad4e8a30aaede7245c5, type: 2}
   isAerial: 0
+  hitSounds:
+  - {fileID: 8300000, guid: a3b66c4646c63264295fc33cbf121859, type: 3}
+  - {fileID: 8300000, guid: 0bc689120216bb9469e931a163bd1a36, type: 3}
 --- !u!60 &6055319965899409174
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -356,6 +376,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cA: {fileID: 11400000, guid: 1a342fd042b07e34581243dec012a4ea, type: 2}
   isAerial: 1
+  hitSounds:
+  - {fileID: 8300000, guid: 709b03daa9fa02145930959bec7fa1fa, type: 3}
+  - {fileID: 8300000, guid: e57f7a13dc93b1d4493c894225627901, type: 3}
 --- !u!60 &1972695540
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -434,6 +457,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cA: {fileID: 11400000, guid: 6828931e87480f346a0c4f315187da7d, type: 2}
   isAerial: 1
+  hitSounds:
+  - {fileID: 8300000, guid: 532bc828228e3cb47a8e438571a8fa09, type: 3}
+  - {fileID: 8300000, guid: 36a7f952db51c2149a8f3fbd774160bf, type: 3}
 --- !u!58 &383095032
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1056,6 +1082,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cA: {fileID: 11400000, guid: bfa804c56f0184144bc817f29c4778e3, type: 2}
   isAerial: 1
+  hitSounds: []
 --- !u!60 &8009438539890727611
 PolygonCollider2D:
   m_ObjectHideFlags: 0
