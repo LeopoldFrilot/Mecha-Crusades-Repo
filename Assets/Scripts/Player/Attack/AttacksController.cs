@@ -28,7 +28,8 @@ namespace FightingGame.Player.Attack
         public void ActivateAttack()
         {
             hitbox = attack.GetComponent<Collider2D>();
-            hitbox.enabled = !hitbox.enabled;
+            if (hitbox.enabled) DeactivateAllAttacks();
+            else hitbox.enabled = true;
             if (attackRef.CA.HasProjectile == true && hitbox.enabled)
             {
                 var projectile = Instantiate(attackRef.CA.Projectile, PC.ProjectileLocation.transform.position, Quaternion.identity);
@@ -39,7 +40,9 @@ namespace FightingGame.Player.Attack
         {
             for (int i = 0; i < transform.childCount; i++)
             {
-                var collider = transform.GetChild(i).GetComponent<Collider2D>();
+                var attack = transform.GetChild(i);
+                attack.GetComponent<Attack>().Hit = 0;
+                Collider2D collider = attack.GetComponent<Collider2D>();
                 if (collider.enabled)
                 {
                     collider.enabled = false;

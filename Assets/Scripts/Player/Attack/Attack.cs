@@ -10,6 +10,7 @@ namespace FightingGame.Player.Attack
         [SerializeField] CharacterAttack cA;
         [SerializeField] bool isAerial;
         [SerializeField] List<AudioClip> hitSounds = new List<AudioClip>();
+        int hit = 0;
 
         public void Start()
         {
@@ -20,10 +21,12 @@ namespace FightingGame.Player.Attack
             if(isAerial && PC.IsGrounded && GetComponent<Collider2D>().enabled)
             {
                 GetComponent<Collider2D>().enabled = false;
+                Hit = 0;
             }
         }
         public void OnTriggerEnter2D(Collider2D collision)
         {
+            if (Hit > 0) return;
             GameObject collidedObject = collision.gameObject;
             if (collidedObject != PC.Player)
             {
@@ -34,6 +37,7 @@ namespace FightingGame.Player.Attack
                 OtherPC.DamagePlayer(CA.Damage);
                 if (hitSounds.Count > 0) PickRandomSound();
                 OtherPC.DeactivateAllAttacks();
+                Hit++;
             }
         }
         private void PickRandomSound()
@@ -42,6 +46,7 @@ namespace FightingGame.Player.Attack
             FindObjectOfType<AudioSource>().PlayOneShot(hitSounds[randInt], .7f);
         }
         public CharacterAttack CA { get => cA; set => cA = value; }
+        public int Hit { get => hit; set => hit = value; }
     }
 }
 

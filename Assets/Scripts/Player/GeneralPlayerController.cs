@@ -17,6 +17,7 @@ namespace FightingGame.Player
         GameObject otherPlayer;
         Animator playerAnimator;
         float playerXScale;
+        bool hit;
         [SerializeField] GameObject projectileLocation;
 
         // variables that will change
@@ -68,8 +69,8 @@ namespace FightingGame.Player
         public void DamagePlayer(int damage)
         {
             Health -= damage;
-            //Debug.Log(Health + " health for " + gameObject.name);
-            if(Health <= 0)
+            Debug.Log(OtherPlayer.name + " dealt " + damage + " damage to " + gameObject.name);
+            if (Health <= 0)
             {
                 FindObjectOfType<WinManager>().ManageRoundOver(OtherPlayer, Player);
             }

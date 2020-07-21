@@ -8,7 +8,6 @@ namespace FightingGame.Player.State
     public class GroundedChecker : MonoBehaviour
     {
         GeneralPlayerController PC;
-        //AttacksController AC;
         Rigidbody2D rb;
         int bounce = 0;
         int maxBounces = 2;
@@ -18,7 +17,6 @@ namespace FightingGame.Player.State
         {
             PC = GetComponent<GeneralPlayerController>();
             rb = GetComponent<Rigidbody2D>();
-            //AC = transform.GetChild(0).GetComponent<AttacksController>();
         }
         public void Update()
         {
@@ -50,7 +48,6 @@ namespace FightingGame.Player.State
         {
             if (collision.gameObject.tag == "Ground" && !PC.IsGrounded)
             {
-                Debug.Log("Fixed the bug");
                 SetGrounded();
             }
         }
@@ -64,8 +61,6 @@ namespace FightingGame.Player.State
         private void Bounce()
         {
             bounce++;
-
-            Debug.Log("Bounced " + bounce);
             float bounceScalar = .5f / bounce;
             rb.velocity = new Vector2(prevVel.x, prevVel.y * -1 * bounceScalar);
         }
