@@ -123,6 +123,120 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &314167425 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 409303400557212149, guid: 5f632d4d148f5074b8ed43f3ad5186fd, type: 3}
+  m_PrefabInstance: {fileID: 867979886}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &314167426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 314167425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 2b9eb7bb64a98f74bbbef4639fceb7dd, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 1f1fbba8-ec71-4365-bf40-732f191c506f
+    m_ActionName: UI/Horizontal[/Keyboard/a,/Keyboard/d,/DualShock4GamepadHID/dpad/left,/DualShock4GamepadHID/dpad/right]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 729ded6c-1fa4-493b-8e5f-24087b8183cf
+    m_ActionName: UI/Vertical[/Keyboard/s,/Keyboard/w,/DualShock4GamepadHID/dpad/down,/DualShock4GamepadHID/dpad/up]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 314167428}
+        m_TargetAssemblyTypeName: FightingGame.Scene.SceneSwitcher, Assembly-CSharp
+        m_MethodName: LoadNextScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 25d79407-67a2-432a-aa06-6808881e1fc8
+    m_ActionName: UI/Select[/Keyboard/space,/DualShock4GamepadHID/start,/DualShock4GamepadHID/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 314167428}
+        m_TargetAssemblyTypeName: FightingGame.Scene.SceneSwitcher, Assembly-CSharp
+        m_MethodName: LoadNextScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 6ec5800a-f188-427c-9be6-b216d23e6765
+    m_ActionName: UI/Back[/Keyboard/escape,/DualShock4GamepadHID/buttonEast,/DualShock4GamepadHID/select]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2cfe7d69-1af8-4322-9a18-76c23bfe8952
+    m_ActionName: Versus/Horizontal[/DualShock4GamepadHID/dpad/left,/DualShock4GamepadHID/dpad/right,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 164c2be4-1cb9-46d4-8d54-728c314be304
+    m_ActionName: Versus/Vertical[/Keyboard/s,/Keyboard/w,/DualShock4GamepadHID/dpad/down,/DualShock4GamepadHID/dpad/up]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 478751d8-4f74-4643-8e83-1fa14318a71b
+    m_ActionName: Versus/Jump[/Keyboard/space,/DualShock4GamepadHID/buttonNorth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: e4430d99-a800-43c7-a607-5afd31b6d694
+    m_ActionName: Versus/Dash[/Keyboard/leftShift,/DualShock4GamepadHID/rightShoulder]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 58e311fe-47c1-489a-a9a9-733b4954d096
+    m_ActionName: Versus/Light Attack[/Keyboard/i,/DualShock4GamepadHID/buttonWest]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: eef39d72-cc62-4bd0-9522-56f71074d2dc
+    m_ActionName: Versus/Medium Attack[/Keyboard/o,/DualShock4GamepadHID/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: bdb024cb-c5b1-45fa-b3ed-e232a773719b
+    m_ActionName: Versus/Heavy Attack[/Keyboard/p,/DualShock4GamepadHID/buttonEast]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: UI
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!114 &314167428 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 409303400557212139, guid: 5f632d4d148f5074b8ed43f3ad5186fd, type: 3}
+  m_PrefabInstance: {fileID: 867979886}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 314167425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bd0ab123335ebb429adec93d9cdb907, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &335242876
 PrefabInstance:
   m_ObjectHideFlags: 0

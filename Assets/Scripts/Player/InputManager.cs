@@ -44,7 +44,7 @@ namespace FightingGame.Player
         {
             if (DefaultCheck()) return;
             if (PC.LagType == "hit" && !PC.IsGrounded) MC.SetMovingVert(-1);
-            if (!PC.IsGrounded && PC.IsFalling && PC.LagType != "hit") GetComponent<FastFall>().SetFastFall();
+            if (!PC.IsGrounded && PC.LagType != "hit") GetComponent<FastFall>().SetFastFall();  // Testing not having to reach max height to fast fall
         }
         public void Neutral(string direction)
         {

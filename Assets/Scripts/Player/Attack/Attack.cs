@@ -33,6 +33,7 @@ namespace FightingGame.Player.Attack
                 OtherPC.Lag(CA.Hitstun, "hit");
                 OtherPC.DamagePlayer(CA.Damage);
                 if (hitSounds.Count > 0) PickRandomSound();
+                OtherPC.DeactivateAllAttacks();
             }
         }
         private void PickRandomSound()

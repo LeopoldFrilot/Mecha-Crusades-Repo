@@ -46,6 +46,7 @@ namespace FightingGame.Player.Attack
                 OtherPC.Lag(PA.ProjHitstun, "hit");
                 OtherPC.DamagePlayer(PA.ProjDamage);
                 if (musicHitSounds.Count > 0) PickRandomSound();
+                OtherPC.DeactivateAllAttacks();
                 Destroy(gameObject);
             }
         }

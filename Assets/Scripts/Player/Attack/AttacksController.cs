@@ -35,6 +35,17 @@ namespace FightingGame.Player.Attack
                 projectile.transform.parent = PC.Player.transform;
             }
         }
+        public void DeactivateAllAttacks()
+        {
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                var collider = transform.GetChild(i).GetComponent<Collider2D>();
+                if (collider.enabled)
+                {
+                    collider.enabled = false;
+                }
+            }
+        }
         public void PlayAudioClip(int index)
         {
             if (index >= 0 && index < audioClips.Count)

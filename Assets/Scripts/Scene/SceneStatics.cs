@@ -15,6 +15,7 @@ namespace FightingGame.Scene
         private static int p1Wins = 0;
         private static int p2Wins = 0;
         private static GameObject setWinner;
+        private static bool showFPS;
         public static int Round { get => round; set => round = value; }
         public static int P1Wins { get => p1Wins; set => p1Wins = value; }
         public static int P2Wins { get => p2Wins; set => p2Wins = value; }
@@ -23,6 +24,7 @@ namespace FightingGame.Scene
         public static GameObject Player2 { get => player2; set => player2 = value; }
         public static bool IsP1CPU { get => isP1CPU; set => isP1CPU = value; }
         public static bool IsP2CPU { get => isP2CPU; set => isP2CPU = value; }
+        public static bool ShowFPS { get => showFPS; set => showFPS = value; }
     }
 }
 

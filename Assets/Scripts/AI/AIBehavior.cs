@@ -46,7 +46,7 @@ namespace FightingGame.AI
         private void NeutralAttack()
         {
             float dist = PA.DistFromOpp;
-            if (dist <= 1f)
+            if (dist <= 1f && !PC.IsInLag)
             {
                 if (OPC.IsGrounded && !OPC.IsInLag && PC.IsGrounded && CheckProbability(80))
                 {
@@ -63,7 +63,7 @@ namespace FightingGame.AI
                     PA.DashAway();
                 }
             }
-            else if (dist <= 3f)
+            else if (dist <= 3f && !PC.IsInLag)
             {
                 if(PC.IsGrounded && !OPC.IsGrounded && CheckProbability(5))
                 {
@@ -83,7 +83,7 @@ namespace FightingGame.AI
                     PA.MediumAttack();
                 }
             }
-            else if (dist <= 8.5f)
+            else if (dist <= 8.5f && !PC.IsInLag)
             {
                 if (PC.DirFacing != OPC.DirFacing && CheckProbability(3))
                 {

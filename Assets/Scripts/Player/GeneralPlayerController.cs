@@ -74,6 +74,10 @@ namespace FightingGame.Player
                 FindObjectOfType<WinManager>().ManageRoundOver(OtherPlayer, Player);
             }
         }
+        public void DeactivateAllAttacks()
+        {
+            transform.GetChild(0).GetComponent<AttacksController>().DeactivateAllAttacks();
+        }
         public CharacterData CD { get => cD; set => cD = value; }
         public GameObject OtherPlayer { get => otherPlayer; set => otherPlayer = value; }
         public Animator PlayerAnimator { get => playerAnimator; set => playerAnimator = value; }

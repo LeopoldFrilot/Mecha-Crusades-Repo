@@ -6,7 +6,7 @@ namespace FightingGame.Player
 {
     public class DeveloperMode : MonoBehaviour
     {
-        bool devMode = true;
+        bool devMode = false;
         GeneralPlayerController PC;
         Color defaultColor;
         [SerializeField] Color normalLagColor;

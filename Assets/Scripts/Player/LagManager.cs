@@ -35,6 +35,14 @@ namespace FightingGame.Player
          * runs out */
         private void ManageLag()
         {
+            if(PC.LagType == "hit")
+            {
+                PC.PlayerAnimator.SetBool("isHit", true);
+            }
+            else
+            {
+                PC.PlayerAnimator.SetBool("isHit", false);
+            }
             if (lagTrack < lag-1 && lag > 0)
             {
                 lagTrack++;
@@ -51,6 +59,7 @@ namespace FightingGame.Player
             lagTrack = 0;
             lag = 0;
             PC.LagType = "none";
+            PC.PlayerAnimator.SetBool("isHit", false);
         }
     }
 }

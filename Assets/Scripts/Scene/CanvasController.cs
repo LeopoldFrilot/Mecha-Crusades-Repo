@@ -26,9 +26,12 @@ namespace FightingGame.Scene
         
         public void Start()
         {
-            PCP1 = GetComponent<PlayerSelect>().Player1.GetComponent<GeneralPlayerController>();
-            PCP2 = GetComponent<PlayerSelect>().Player2.GetComponent<GeneralPlayerController>();
-            StartCoroutine(ShowFPS());
+            if (GetComponent<PlayerSelect>())
+            {
+                PCP1 = GetComponent<PlayerSelect>().Player1.GetComponent<GeneralPlayerController>();
+                PCP2 = GetComponent<PlayerSelect>().Player2.GetComponent<GeneralPlayerController>();
+            }
+            if(FPSTracker)StartCoroutine(ShowFPS());
         }
         public void Update()
         {
@@ -38,18 +41,20 @@ namespace FightingGame.Scene
 
         private void UpdateMomentum()
         {
+            if (!momentumSliderP1 || !momentumSliderP2) return;
             momentumSliderP1.GetComponent<Slider>().value = PCP1.Momentum / PCP1.CD.MaxMomentum;
             momentumSliderP2.GetComponent<Slider>().value = PCP2.Momentum / PCP2.CD.MaxMomentum;
         }
         private void UpdateHealth()
         {
+            if (!healthSliderP1 || !healthSliderP2) return;
             healthSliderP1.GetComponent<Slider>().value = (float)PCP1.Health / (float)PCP1.CD.MaxHealth;
             healthSliderP2.GetComponent<Slider>().value = (float)PCP2.Health / (float)PCP2.CD.MaxHealth;
         }
 
         IEnumerator ShowFPS()
         {
-            while (true)
+            while (SceneStatics.ShowFPS)
             {
                 FPSTracker.GetComponent<Text>().text = "FPS: " + (Mathf.RoundToInt(1f / Time.deltaTime)).ToString();
                 yield return new WaitForSeconds(.2f);
@@ -57,30 +62,39 @@ namespace FightingGame.Scene
         }
         public void UpdateRound(int num)
         {
+            if (!roundDisplay) return;
             roundDisplay.GetComponent<TextMeshProUGUI>().text = "ROUND " + num;
         }
         public void UpdateWins(int p1Wins, int p2Wins)
         {
+            if (!p1WinCounter || !p2WinCounter) return;
             p1WinCounter.GetComponent<Slider>().value = p1Wins;
             p2WinCounter.GetComponent<Slider>().value = p2Wins;
         }
         public void TogglePause()
         {
-            pauseMenu.SetActive(!pauseMenu.activeSelf);
-            gameScreen.SetActive(!gameScreen.activeSelf);
-            ToggleInputsAndCPU(PCP1.gameObject);
-            ToggleInputsAndCPU(PCP2.gameObject);
+
+            if (pauseMenu) pauseMenu.SetActive(!pauseMenu.activeSelf);
+            if (gameScreen) gameScreen.SetActive(!gameScreen.activeSelf);
+            if (PCP1) ToggleInputsAndCPU(PCP1.gameObject);
+            if (PCP2) ToggleInputsAndCPU(PCP2.gameObject);
         }
         public void ToggleDevMode()
         {
-            FindObjectOfType<DeveloperMode>().ToggleDevMode();
+            if (!FindObjectOfType<DeveloperMode>()) return;
+            foreach(DeveloperMode devMode in FindObjectsOfType<DeveloperMode>())
+            {
+                devMode.ToggleDevMode();
+            }
         }
         public void ToggleAI()
         {
+            if (!FindObjectOfType<PrimitiveAI>()) return;
             FindObjectOfType<PrimitiveAI>().ToggleAI();
         }
         public void ToggleInputsAndCPU(GameObject player)
         {
+            if (!FindObjectOfType<InputReader>()) return;
             if (player.GetComponent<PrimitiveAI>())
             {
                 player.GetComponent<PrimitiveAI>().ToggleAI();
