@@ -14,12 +14,12 @@ namespace FightingGame.Scene
         private static int round = 1;
         private static int p1Wins = 0;
         private static int p2Wins = 0;
-        private static GameObject setWinner;
+        private static string setWinner;
         private static bool showFPS;
         public static int Round { get => round; set => round = value; }
         public static int P1Wins { get => p1Wins; set => p1Wins = value; }
         public static int P2Wins { get => p2Wins; set => p2Wins = value; }
-        public static GameObject SetWinner { get => setWinner; set => setWinner = value; }
+        public static string SetWinner { get => setWinner; set => setWinner = value; }
         public static GameObject Player1 { get => player1; set => player1 = value; }
         public static GameObject Player2 { get => player2; set => player2 = value; }
         public static bool IsP1CPU { get => isP1CPU; set => isP1CPU = value; }

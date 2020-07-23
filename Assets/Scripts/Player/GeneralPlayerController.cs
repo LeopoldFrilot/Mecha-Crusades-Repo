@@ -35,6 +35,7 @@ namespace FightingGame.Player
         [SerializeField] int _health;
         [SerializeField] int _curHorizInput;
         [SerializeField] bool _isFastFalling;
+        [SerializeField] bool _readyToMomentumKill;
 
         // Start is called before the first frame update
         public void Start()
@@ -69,7 +70,6 @@ namespace FightingGame.Player
         public void DamagePlayer(int damage)
         {
             Health -= damage;
-            Debug.Log(OtherPlayer.name + " dealt " + damage + " damage to " + gameObject.name);
             if (Health <= 0)
             {
                 FindObjectOfType<WinManager>().ManageRoundOver(OtherPlayer, Player);
@@ -100,6 +100,7 @@ namespace FightingGame.Player
         public GameObject ProjectileLocation { get => projectileLocation; set => projectileLocation = value; }
         public int CurHorizInput { get => _curHorizInput; set => _curHorizInput = value; }
         public bool IsFastFalling { get => _isFastFalling; set => _isFastFalling = value; }
+        public bool ReadyToMomentumKill { get => _readyToMomentumKill; set => _readyToMomentumKill = value; }
     }
 }
 

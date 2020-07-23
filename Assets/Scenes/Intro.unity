@@ -415,7 +415,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 9104ba36644d9fa479be01b2203a158d, type: 3}
     - target: {fileID: 1107283271090549239, guid: ba02cee58508539479faeb1b89e3b71b, type: 3}
       propertyPath: m_Volume
-      value: 0.15
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 1107283271090549239, guid: ba02cee58508539479faeb1b89e3b71b, type: 3}
       propertyPath: Priority

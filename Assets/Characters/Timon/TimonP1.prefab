@@ -246,11 +246,12 @@ PolygonCollider2D:
   m_Points:
     m_Paths:
     - - {x: -0.54002106, y: 67.15021}
-      - {x: -1.0642136, y: 66.928085}
-      - {x: -1.1367533, y: 51.13}
+      - {x: -0.9422024, y: 68.75364}
+      - {x: -1.0616688, y: 57.620853}
+      - {x: -0.8825951, y: 49.434227}
       - {x: -0.16951811, y: 39.757423}
-      - {x: 0.78669465, y: 36.279186}
-      - {x: 0.80488247, y: 48.15096}
+      - {x: 0.24702853, y: 37.293385}
+      - {x: 0.2886807, y: 49.16517}
 --- !u!1 &6825223223889870277
 GameObject:
   m_ObjectHideFlags: 0
@@ -873,6 +874,7 @@ MonoBehaviour:
   _health: 0
   _curHorizInput: 0
   _isFastFalling: 0
+  _readyToMomentumKill: 0
 --- !u!114 &1032250730518409449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -936,11 +938,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   momentum: 0
-  momentumGrowthSpeed: 0.01
-  maxStrikes: 5
+  momentumGrowthSpeed: 0.004
+  maxStrikes: 10
   strikes: 0
   count: 0
-  baseMomentumCount: -1.5
+  baseMomentumCount: 0
+  maxTimeUntilKill: 0
 --- !u!114 &1173500428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1040,6 +1043,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d3c800f505788343bcd0cbee253bd57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dieThreshold: 40
 --- !u!1 &8628001628978956208
 GameObject:
   m_ObjectHideFlags: 0

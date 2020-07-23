@@ -13,6 +13,9 @@ namespace FightingGame.Player.Movement
         [SerializeField] int strikes;
         [SerializeField] float count;   // Serialized for viewing
         [SerializeField] float baseMomentumCount = -1.5f;
+        bool maxMode = false;
+        float timeInMax = 0;
+        [SerializeField] float maxTimeUntilKill = 1f;
         enum State {positive, neutral, negative} // Holds the direction the player is travelling generally
         State direction;
         State state;
@@ -28,6 +31,8 @@ namespace FightingGame.Player.Movement
             // Detect Direction
             DetectDirectionOfMovement();
             ManageMomentum();
+            if (maxMode) ManageKillState();
+            else timeInMax = 0;
             SubmitMomentum();
         }
         private void DetectDirectionOfMovement()
@@ -57,12 +62,13 @@ namespace FightingGame.Player.Movement
                 else
                 {
                     PC.PlayerAnimator.SetBool("isMaxMomentum", true);
+                    maxMode = true;
                 }
             }
             // else put a strike on momentum
             else
             {
-                if (direction != State.neutral || PC.CurHorizDir == 0 || PC.LagType == "hit")
+                if ((PC.IsGrounded && (direction != State.neutral || PC.CurHorizDir == 0)) || PC.LagType == "hit")
                 {
                     strikes++;
                 }
@@ -86,11 +92,21 @@ namespace FightingGame.Player.Movement
             momentum = 0f;
             strikes = 0;
             count = baseMomentumCount;
+            maxMode = false;
+            PC.ReadyToMomentumKill = false;
         }
         private void SubmitMomentum()
         {
             if (momentum < 1f) PC.Momentum = 1f;
             else PC.Momentum = momentum;
+        }
+        private void ManageKillState()
+        {
+            timeInMax += Time.deltaTime;
+            if(timeInMax >= maxTimeUntilKill)
+            {
+                PC.ReadyToMomentumKill = true;
+            }
         }
     }
 }

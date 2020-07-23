@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Light Grounded
   m_EditorClassIdentifier: 
   triggerWord: LIGHTATTACK
-  damage: 20
-  knockback: {x: 0.1, y: 8}
+  damage: 30
+  knockback: {x: 1, y: 8}
   startupFrames: 9
   activeFrames: 2
   recoveryFrames: 7

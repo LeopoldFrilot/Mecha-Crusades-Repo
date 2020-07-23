@@ -89,8 +89,10 @@ MonoBehaviour:
   FPSTracker: {fileID: 0}
   momentumSliderP1: {fileID: 0}
   healthSliderP1: {fileID: 0}
+  p1WinCounter: {fileID: 0}
   momentumSliderP2: {fileID: 0}
   healthSliderP2: {fileID: 0}
+  p2WinCounter: {fileID: 0}
   roundDisplay: {fileID: 0}
   pauseMenu: {fileID: 0}
   gameScreen: {fileID: 0}
@@ -118,6 +120,7 @@ MonoBehaviour:
   backgroundMidScalar: 0.02
   backgroundFront: {fileID: 0}
   backgroundFrontScalar: 0.04
+  stillBackground: {fileID: 0}
 --- !u!114 &1196955486
 MonoBehaviour:
   m_ObjectHideFlags: 0

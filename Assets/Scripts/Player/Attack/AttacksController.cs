@@ -53,7 +53,7 @@ namespace FightingGame.Player.Attack
         {
             if (index >= 0 && index < audioClips.Count)
             {
-                FindObjectOfType<AudioSource>().PlayOneShot(audioClips[index], .2f);
+                FindObjectOfType<AudioSource>().PlayOneShot(audioClips[index], .5f);
             }
         }
     }

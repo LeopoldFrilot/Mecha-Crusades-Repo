@@ -40,56 +40,33 @@ namespace FightingGame.AI
         private void NeutralHandbook()
         {
             HorizontalMove(65);
-            NeutralAttack();
+            if (CheckProbability(50)) NeutralAttack();
         }
 
         private void NeutralAttack()
         {
             float dist = PA.DistFromOpp;
-            if (dist <= 1f && !PC.IsInLag)
+            if (dist <= 1.5f && !PC.IsInLag)
             {
-                if (OPC.IsGrounded && !OPC.IsInLag && PC.IsGrounded && CheckProbability(80))
+                if (OPC.IsFalling && PC.IsGrounded && CheckProbability(50)) PA.HeavyAttack();
+                if (OPC.IsGrounded)
                 {
-                    PA.LightAttack();
-                }
-                else if (OPC.IsFalling && OPC.IsInLag && CheckProbability(90))
-                {
-                    PA.LightAerial();
-                }
-                else if (CheckProbability(10))
-                {
-                    if (PC.IsGrounded) PA.Jump();
-                    PA.DashAway();
-                    PA.DashAway();
+                    if (PC.IsGrounded) PA.LightAttack();
+                    else PA.LightAerial();
                 }
             }
-            else if (dist <= 3f && !PC.IsInLag)
+            else if (dist <= 2.5f && !PC.IsInLag)
             {
-                if(PC.IsGrounded && !OPC.IsGrounded && CheckProbability(5))
-                {
-                    PA.HeavyAttack();
-                }
-                else if(PC.IsFalling && OPC.IsGrounded && CheckProbability(30))
-                {
-                    PA.LightAerial();
-                }
-                else if (!OPC.IsFalling && OPC.IsInLag && PC.IsGrounded && CheckProbability(50))
-                {
-                    PA.Jump();
-                    PA.HeavyAerial();
-                }
-                else if (CheckProbability(20))
-                {
-                    PA.MediumAttack();
-                }
+                if (!OPC.IsGrounded && OPC.IsInLag) PA.HeavyAerial();
+                if (OPC.IsGrounded || OPC.IsFalling) PA.MediumAttack();
             }
-            else if (dist <= 8.5f && !PC.IsInLag)
+            else if (dist <= 5f && !PC.IsInLag)
             {
-                if (PC.DirFacing != OPC.DirFacing && CheckProbability(3))
-                {
-                    PA.Jump();
-                    PA.MediumAerial();
-                }
+                if (CheckProbability(50)) PA.DashForward();
+            }
+            else if (dist <= 8f && !PC.IsInLag)
+            {
+                if (CheckProbability(30)) PA.MediumAerial();
             }
         }
 

@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   charName: Timon
   charDescription: Actually Default
-  maxHealth: 500
-  maxMomentum: 10
+  maxHealth: 800
+  maxMomentum: 2
   speed: 6
   shortHopHeight: 4.5
   fullHopMultiplier: 2.5
-  aerialSpeed: 5
+  aerialSpeed: 6
   maxMidairOptions: 2
   maxDoubleJumps: 1
   midAirJumpHeight: 9

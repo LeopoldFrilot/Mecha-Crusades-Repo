@@ -31,9 +31,11 @@ namespace FightingGame.Player.Attack
             if (collidedObject != PC.Player)
             {
                 var OtherPC = collidedObject.GetComponent<GeneralPlayerController>();
-                //Debug.Log(gameObject.name + " hit: " + collision.gameObject.name);
-                collidedObject.GetComponent<Rigidbody2D>().velocity = new Vector2(CA.Knockback.x * PC.DirFacing, CA.Knockback.y);
-                OtherPC.Lag(CA.Hitstun, "hit");
+                var momentumKBScalar = PC.Momentum;
+                var momentumHSScalar = PC.Momentum;
+                if (PC.ReadyToMomentumKill) momentumKBScalar *= 8f;
+                collidedObject.GetComponent<Rigidbody2D>().velocity = new Vector2(CA.Knockback.x * PC.DirFacing * momentumKBScalar, CA.Knockback.y);
+                OtherPC.Lag((int)(CA.Hitstun * momentumHSScalar), "hit");
                 OtherPC.DamagePlayer(CA.Damage);
                 if (hitSounds.Count > 0) PickRandomSound();
                 OtherPC.DeactivateAllAttacks();
@@ -43,7 +45,7 @@ namespace FightingGame.Player.Attack
         private void PickRandomSound()
         {
             var randInt = (int)Random.Range(0, hitSounds.Count - Mathf.Epsilon);
-            FindObjectOfType<AudioSource>().PlayOneShot(hitSounds[randInt], .7f);
+            FindObjectOfType<AudioSource>().PlayOneShot(hitSounds[randInt], 1f);
         }
         public CharacterAttack CA { get => cA; set => cA = value; }
         public int Hit { get => hit; set => hit = value; }

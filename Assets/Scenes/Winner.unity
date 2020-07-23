@@ -426,7 +426,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: End
+  m_Text: 
 --- !u!222 &1235899675
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -791,17 +791,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1136162783, guid: 3c36ee79bda273143978944daf18d0a9, type: 3}
+      propertyPath: WinnerDisplay
+      value: 
+      objectReference: {fileID: 1235899672}
     - target: {fileID: 1959288159167705104, guid: 3c36ee79bda273143978944daf18d0a9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 280.54202
       objectReference: {fileID: 0}
     - target: {fileID: 1959288159167705104, guid: 3c36ee79bda273143978944daf18d0a9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 196.85678
       objectReference: {fileID: 0}
     - target: {fileID: 1959288159167705104, guid: 3c36ee79bda273143978944daf18d0a9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -28.618792
       objectReference: {fileID: 0}
     - target: {fileID: 1959288159167705104, guid: 3c36ee79bda273143978944daf18d0a9, type: 3}
       propertyPath: m_LocalRotation.x
@@ -841,9 +845,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1136162780, guid: 3c36ee79bda273143978944daf18d0a9, type: 3}
-    - {fileID: 1136162781, guid: 3c36ee79bda273143978944daf18d0a9, type: 3}
+    - {fileID: 0}
     - {fileID: 1136162782, guid: 3c36ee79bda273143978944daf18d0a9, type: 3}
-    - {fileID: 1136162783, guid: 3c36ee79bda273143978944daf18d0a9, type: 3}
     - {fileID: 1136162784, guid: 3c36ee79bda273143978944daf18d0a9, type: 3}
     - {fileID: 1196955486, guid: 3c36ee79bda273143978944daf18d0a9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3c36ee79bda273143978944daf18d0a9, type: 3}

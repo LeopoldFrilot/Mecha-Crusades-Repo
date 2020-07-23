@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Orb
   m_EditorClassIdentifier: 
   maxLifespan: 0.5
-  projDamage: 30
+  projDamage: 40
   projKnockback: {x: 3, y: 5}
   projHitstun: 15
   projBlockstun: 1

@@ -45,7 +45,7 @@ namespace FightingGame
             if (SceneStatics.P1Wins >= maxWins || SceneStatics.P2Wins >= maxWins)
             {
                 win = true;
-                SceneStatics.SetWinner = winner;
+                SceneStatics.SetWinner = winner.name;
             }
         }
         private static void ManageLoser(GameObject loser)

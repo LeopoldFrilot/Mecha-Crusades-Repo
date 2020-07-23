@@ -21,6 +21,7 @@ namespace FightingGame.Scene
         [SerializeField] GameObject roundDisplay;
         [SerializeField] GameObject pauseMenu;
         [SerializeField] GameObject gameScreen;
+        [SerializeField] GameObject WinnerDisplay;
         GeneralPlayerController PCP1;
         GeneralPlayerController PCP2;
         
@@ -32,18 +33,25 @@ namespace FightingGame.Scene
                 PCP2 = GetComponent<PlayerSelect>().Player2.GetComponent<GeneralPlayerController>();
             }
             if(FPSTracker)StartCoroutine(ShowFPS());
+            ShowWin();
         }
         public void Update()
         {
             UpdateMomentum();
             UpdateHealth();
+            
+        }
+        private void ShowWin()
+        {
+            if (!WinnerDisplay) return;
+            WinnerDisplay.GetComponent<Text>().text = SceneStatics.SetWinner + " Wins!";
         }
 
         private void UpdateMomentum()
         {
             if (!momentumSliderP1 || !momentumSliderP2) return;
-            momentumSliderP1.GetComponent<Slider>().value = PCP1.Momentum / PCP1.CD.MaxMomentum;
-            momentumSliderP2.GetComponent<Slider>().value = PCP2.Momentum / PCP2.CD.MaxMomentum;
+            momentumSliderP1.GetComponent<Slider>().value = (PCP1.Momentum - 1f) / (PCP1.CD.MaxMomentum - 1f);
+            momentumSliderP2.GetComponent<Slider>().value = (PCP2.Momentum - 1f) / (PCP2.CD.MaxMomentum - 1f);
         }
         private void UpdateHealth()
         {

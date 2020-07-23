@@ -8,13 +8,20 @@ namespace FightingGame.Player.Movement
     public class HorizontalClamp : MonoBehaviour
     {
         PlayerFollow PF;
+        GeneralPlayerController PC;
+        [SerializeField] float dieThreshold = 40f;
+        bool die = false;
         public void Start()
         {
             PF = FindObjectOfType<PlayerFollow>();
         }
         public void Update()
         {
-            ClampHorizontalMovement();
+            if (!die) ClampHorizontalMovement();
+            if (Mathf.Abs(GetComponent<Rigidbody2D>().velocity.x) >= dieThreshold)
+            {
+                die = true;
+            }
         }
         private void ClampHorizontalMovement()
         {

@@ -24,6 +24,7 @@ namespace FightingGame.Level
         [SerializeField] GameObject backgroundFront;
         [SerializeField] float backgroundFrontScalar;
         [SerializeField] GameObject stillBackground;
+        [SerializeField] GameObject blastZone;
         float middle; 
         float step;
 
@@ -51,6 +52,7 @@ namespace FightingGame.Level
         private void MoveCamera()
         {
             Move(Camera.main.transform);
+            Move(blastZone.transform);
         }
         private void MoveBackground()
         {
@@ -58,7 +60,7 @@ namespace FightingGame.Level
             MoveWithOffset(backgroundBack.transform, backgroundBackScalar);
             MoveWithOffset(backgroundMid.transform, backgroundMidScalar);
             MoveWithOffset(backgroundFront.transform, backgroundFrontScalar);
-            MoveWithOffset(stillBackground.transform, 0);
+            Move(stillBackground.transform);
         }
         private void MoveGround()
         {

@@ -56,24 +56,24 @@ namespace FightingGame.AI
         }
         public void Forward()
         {
-            if (Opponent.transform.position.x < transform.position.x)
+            if ((Opponent.transform.position.x - transform.position.x) >= Mathf.Epsilon)
             {
-                IM.Left();
+                IM.Right();
             }
             else
             {
-                IM.Right();
+                IM.Left();
             }
         }
         public void Backward()
         {
-            if (Opponent.transform.position.x < transform.position.x)
+            if ((Opponent.transform.position.x - transform.position.x) >= Mathf.Epsilon)
             {
-                IM.Right();
+                IM.Left();
             }
             else
             {
-                IM.Left();
+                IM.Right();
             }
         }
         public void Jump()
@@ -98,7 +98,7 @@ namespace FightingGame.AI
         }
         public void LightAerial()
         {
-            Forward();
+            Jump();
             IM.LightAttack();
         }
         public void MediumAttack()
@@ -108,7 +108,7 @@ namespace FightingGame.AI
         }
         public void MediumAerial()
         {
-            Forward();
+            Jump();
             IM.MediumAttack();
         }
         public void HeavyAttack()
@@ -118,7 +118,7 @@ namespace FightingGame.AI
         }
         public void HeavyAerial()
         {
-            Forward();
+            Jump();
             IM.HeavyAttack();
         }
         public void ToggleAI()
