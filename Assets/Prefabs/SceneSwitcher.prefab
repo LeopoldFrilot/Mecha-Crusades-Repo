@@ -30,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5465405783244208775}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 280.54202, y: 196.85678, z: -28.618792}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bd0ab123335ebb429adec93d9cdb907, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gS: {fileID: 11400000, guid: 2f4678b46e7fe714fa4d786cdb7a517b, type: 2}
 --- !u!114 &1136162780
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,6 +97,7 @@ MonoBehaviour:
   roundDisplay: {fileID: 0}
   pauseMenu: {fileID: 0}
   gameScreen: {fileID: 0}
+  WinnerDisplay: {fileID: 0}
 --- !u!114 &1136162784
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,6 +123,7 @@ MonoBehaviour:
   backgroundFront: {fileID: 0}
   backgroundFrontScalar: 0.04
   stillBackground: {fileID: 0}
+  blastZone: {fileID: 0}
 --- !u!114 &1196955486
 MonoBehaviour:
   m_ObjectHideFlags: 0

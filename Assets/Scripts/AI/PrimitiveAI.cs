@@ -121,9 +121,13 @@ namespace FightingGame.AI
             Jump();
             IM.HeavyAttack();
         }
-        public void ToggleAI()
+        public void TurnOffAI()
         {
-            IsActive = !IsActive;
+            IsActive = false;
+        }
+        public void TurnOnAI()
+        {
+            IsActive = true;
         }
         private void UpdateDistance()
         {

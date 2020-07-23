@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64357206880a7524aa05fa93152d8787, type: 3}
+  m_Name: GameSounds
+  m_EditorClassIdentifier: 
+  nextSceneTransitionSound: {fileID: 8300000, guid: 4672c48201fa5854b9e2b774e1fb3c99, type: 3}
+  resetSceneTransitionSound: {fileID: 8300000, guid: 20fe53612236263488264c6224ffa8d2, type: 3}
+  winScreenTransitionSound: {fileID: 8300000, guid: c70b7002aaa45554295ae80faad04434, type: 3}
+  pauseSound: {fileID: 8300000, guid: f43d39ff41b581d48ac8d87901272c0e, type: 3}
+  resumeSound: {fileID: 8300000, guid: e28abea7c28009c42b428190c712a514, type: 3}

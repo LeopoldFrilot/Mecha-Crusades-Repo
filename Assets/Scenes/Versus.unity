@@ -630,11 +630,15 @@ PrefabInstance:
       objectReference: {fileID: 1196955487}
     - target: {fileID: 3179342059704842612, guid: e160b0f4044663342978e05ff1c8aeac, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: TogglePause
+      value: ResumeScreen
       objectReference: {fileID: 0}
     - target: {fileID: 3179342059704842612, guid: e160b0f4044663342978e05ff1c8aeac, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: FightingGame.Scene.CanvasController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3179342059704842612, guid: e160b0f4044663342978e05ff1c8aeac, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3179342059704842613, guid: e160b0f4044663342978e05ff1c8aeac, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -1190,7 +1194,7 @@ PrefabInstance:
       objectReference: {fileID: 1196955487}
     - target: {fileID: 3179342059704842612, guid: e160b0f4044663342978e05ff1c8aeac, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: TogglePause
+      value: ResumeScreen
       objectReference: {fileID: 0}
     - target: {fileID: 3179342059704842612, guid: e160b0f4044663342978e05ff1c8aeac, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -1552,11 +1556,15 @@ PrefabInstance:
       objectReference: {fileID: 1196955487}
     - target: {fileID: 3179342059704842612, guid: e160b0f4044663342978e05ff1c8aeac, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: TogglePause
+      value: PauseScreen
       objectReference: {fileID: 0}
     - target: {fileID: 3179342059704842612, guid: e160b0f4044663342978e05ff1c8aeac, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: FightingGame.Scene.CanvasController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3179342059704842612, guid: e160b0f4044663342978e05ff1c8aeac, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3179342060717711651, guid: e160b0f4044663342978e05ff1c8aeac, type: 3}
       propertyPath: m_text
@@ -2276,7 +2284,7 @@ PrefabInstance:
       objectReference: {fileID: 1196955487}
     - target: {fileID: 3179342059704842612, guid: e160b0f4044663342978e05ff1c8aeac, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ToggleAI
+      value: ToggleCPUs
       objectReference: {fileID: 0}
     - target: {fileID: 3179342059704842612, guid: e160b0f4044663342978e05ff1c8aeac, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -2300,10 +2308,14 @@ PrefabInstance:
       objectReference: {fileID: 1196955487}
     - target: {fileID: 3179342059704842612, guid: e160b0f4044663342978e05ff1c8aeac, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: TogglePause
+      value: ResumeScreen
       objectReference: {fileID: 0}
     - target: {fileID: 3179342059704842612, guid: e160b0f4044663342978e05ff1c8aeac, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3179342059704842612, guid: e160b0f4044663342978e05ff1c8aeac, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3179342060717711649, guid: e160b0f4044663342978e05ff1c8aeac, type: 3}

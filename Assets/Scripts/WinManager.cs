@@ -25,8 +25,8 @@ namespace FightingGame
             ManageWinner(winner);
             ManageLoser(loser);
             SceneStatics.Round++;
-            CC.ToggleInputsAndCPU(winner);
-            CC.ToggleInputsAndCPU(loser);
+            CC.TurnOffPlayer(winner);
+            CC.TurnOffPlayer(loser);
             StartCoroutine(Transition());
 
         }

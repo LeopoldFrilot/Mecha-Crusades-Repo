@@ -189,7 +189,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: d6ed2ed6a96f7474d98c6cafdf33d0eb, type: 3}
     - target: {fileID: 1107283271090549239, guid: ba02cee58508539479faeb1b89e3b71b, type: 3}
       propertyPath: m_Volume
-      value: 0.5
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 1107283271090549239, guid: ba02cee58508539479faeb1b89e3b71b, type: 3}
       propertyPath: Priority
@@ -452,10 +452,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1231508209, guid: 5f632d4d148f5074b8ed43f3ad5186fd, type: 3}
+      propertyPath: m_Color.r
+      value: 0.08627451
+      objectReference: {fileID: 0}
+    - target: {fileID: 1231508209, guid: 5f632d4d148f5074b8ed43f3ad5186fd, type: 3}
+      propertyPath: m_Color.g
+      value: 0.2509804
+      objectReference: {fileID: 0}
+    - target: {fileID: 1231508209, guid: 5f632d4d148f5074b8ed43f3ad5186fd, type: 3}
+      propertyPath: m_Color.b
+      value: 0.34509805
+      objectReference: {fileID: 0}
     - target: {fileID: 409303400116757455, guid: 5f632d4d148f5074b8ed43f3ad5186fd, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1699141206}
+    - target: {fileID: 409303400116757455, guid: 5f632d4d148f5074b8ed43f3ad5186fd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadNextScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 409303400116757455, guid: 5f632d4d148f5074b8ed43f3ad5186fd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 409303401338594418, guid: 5f632d4d148f5074b8ed43f3ad5186fd, type: 3}
       propertyPath: m_Name
       value: Intro Canvas
@@ -552,6 +572,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1359846721}
+    - target: {fileID: 2460248532678936338, guid: 5f632d4d148f5074b8ed43f3ad5186fd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PauseScreen
+      objectReference: {fileID: 0}
     - target: {fileID: 2931668558369384505, guid: 5f632d4d148f5074b8ed43f3ad5186fd, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -560,7 +584,16 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1359846721}
-    m_RemovedComponents: []
+    - target: {fileID: 3004298442194689869, guid: 5f632d4d148f5074b8ed43f3ad5186fd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ResumeScreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 3004298442194689869, guid: 5f632d4d148f5074b8ed43f3ad5186fd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 409303400557212139, guid: 5f632d4d148f5074b8ed43f3ad5186fd, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5f632d4d148f5074b8ed43f3ad5186fd, type: 3}
 --- !u!1001 &8573404392992068148
 PrefabInstance:
@@ -575,15 +608,15 @@ PrefabInstance:
       objectReference: {fileID: 365763336}
     - target: {fileID: 1959288159167705104, guid: 3c36ee79bda273143978944daf18d0a9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 280.54202
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1959288159167705104, guid: 3c36ee79bda273143978944daf18d0a9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 196.85678
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1959288159167705104, guid: 3c36ee79bda273143978944daf18d0a9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -28.618792
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1959288159167705104, guid: 3c36ee79bda273143978944daf18d0a9, type: 3}
       propertyPath: m_LocalRotation.x
@@ -617,6 +650,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3469977494194578532, guid: 3c36ee79bda273143978944daf18d0a9, type: 3}
+      propertyPath: gS
+      value: 
+      objectReference: {fileID: 11400000, guid: 2f4678b46e7fe714fa4d786cdb7a517b, type: 2}
     - target: {fileID: 5465405783244208775, guid: 3c36ee79bda273143978944daf18d0a9, type: 3}
       propertyPath: m_Name
       value: SceneSwitcher

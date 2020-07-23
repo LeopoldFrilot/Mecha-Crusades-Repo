@@ -24,6 +24,7 @@ namespace FightingGame.Scene
         [SerializeField] GameObject WinnerDisplay;
         GeneralPlayerController PCP1;
         GeneralPlayerController PCP2;
+        SceneSwitcher SS;
         
         public void Start()
         {
@@ -34,6 +35,7 @@ namespace FightingGame.Scene
             }
             if(FPSTracker)StartCoroutine(ShowFPS());
             ShowWin();
+            SS = FindObjectOfType<SceneSwitcher>(); // Used to manage Audioclips
         }
         public void Update()
         {
@@ -79,37 +81,53 @@ namespace FightingGame.Scene
             p1WinCounter.GetComponent<Slider>().value = p1Wins;
             p2WinCounter.GetComponent<Slider>().value = p2Wins;
         }
-        public void TogglePause()
+        public void PauseScreen()
         {
-
-            if (pauseMenu) pauseMenu.SetActive(!pauseMenu.activeSelf);
-            if (gameScreen) gameScreen.SetActive(!gameScreen.activeSelf);
-            if (PCP1) ToggleInputsAndCPU(PCP1.gameObject);
-            if (PCP2) ToggleInputsAndCPU(PCP2.gameObject);
+            SS.PlayClip(SS.GS.PauseSound, 1f);
+            if (gameScreen) gameScreen.SetActive(false);
+            if (pauseMenu) pauseMenu.SetActive(true);
+            if (PCP1) TurnOffPlayer(PCP1.gameObject);
+            if (PCP2) TurnOffPlayer(PCP2.gameObject);
+        }
+        public void ResumeScreen()
+        {
+            SS.PlayClip(SS.GS.ResumeSound, 1f);
+            if (gameScreen) gameScreen.SetActive(true);
+            if (pauseMenu) pauseMenu.SetActive(false);
+            if (PCP1) TurnOnPlayer(PCP1.gameObject);
+            if (PCP2) TurnOnPlayer(PCP2.gameObject);
+        }
+        
+        public void TurnOffPlayer(GameObject player)
+        {
+            player.GetComponent<InputReader>().enabled = false;
+            if (player.GetComponent<PrimitiveAI>())
+            {
+                player.GetComponent<PrimitiveAI>().TurnOffAI();
+            }
+        }
+        public void TurnOnPlayer(GameObject player)
+        {
+            player.GetComponent<InputReader>().enabled = true;
+            if (player.GetComponent<PrimitiveAI>() && SceneStatics.IsCPUActive)
+            {
+                player.GetComponent<PrimitiveAI>().TurnOnAI();
+            }
+        }
+        public void ToggleCPUs()
+        {
+            var AIs = FindObjectsOfType<PrimitiveAI>();
+            if (AIs.Length > 0)
+            {
+                SceneStatics.IsCPUActive = !SceneStatics.IsCPUActive;
+            }
         }
         public void ToggleDevMode()
         {
             if (!FindObjectOfType<DeveloperMode>()) return;
-            foreach(DeveloperMode devMode in FindObjectsOfType<DeveloperMode>())
+            foreach (DeveloperMode devMode in FindObjectsOfType<DeveloperMode>())
             {
                 devMode.ToggleDevMode();
-            }
-        }
-        public void ToggleAI()
-        {
-            if (!FindObjectOfType<PrimitiveAI>()) return;
-            FindObjectOfType<PrimitiveAI>().ToggleAI();
-        }
-        public void ToggleInputsAndCPU(GameObject player)
-        {
-            if (!FindObjectOfType<InputReader>()) return;
-            if (player.GetComponent<PrimitiveAI>())
-            {
-                player.GetComponent<PrimitiveAI>().ToggleAI();
-            }
-            else
-            {
-                player.GetComponent<InputReader>().enabled = !player.GetComponent<InputReader>().enabled;
             }
         }
     }

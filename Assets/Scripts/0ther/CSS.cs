@@ -41,6 +41,6 @@ public class CSS : MonoBehaviour
                 else SceneStatics.IsP2CPU = false;
             }
         }
-        GetComponent<SceneSwitcher>().LoadNextScene();
+        FindObjectOfType<SceneSwitcher>().LoadNextScene();
     }
 }
