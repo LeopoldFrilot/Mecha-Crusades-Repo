@@ -13,8 +13,10 @@ namespace FightingGame.Scene
 
         public void LoadFirstScene()
         {
+            CheckForAndDestroyMusic();
             SceneManager.LoadScene(0);
         }
+
         public void LoadNextScene()
         {
             if (SceneManager.GetActiveScene().buildIndex != 0) StartCoroutine(LoadNextSceneWithAudio(GS.NextSceneTransitionSound));
@@ -42,7 +44,7 @@ namespace FightingGame.Scene
         {
             PlayClip(clip, 1f);
             yield return new WaitForSeconds(.9f);
-            Destroy(GameObject.Find("MusicPlayer"));
+            CheckForAndDestroyMusic();
             SceneManager.LoadScene("Winner");
         }
         IEnumerator ReloadSceneWithAudio(AudioClip clip)
@@ -54,6 +56,11 @@ namespace FightingGame.Scene
         public void PlayClip(AudioClip clip, float volume)
         {
             FindObjectOfType<AudioSource>().PlayOneShot(clip, volume);
+        }
+        private static void CheckForAndDestroyMusic()
+        {
+            var musicPlayer = GameObject.Find("MusicPlayer");
+            if (musicPlayer) Destroy(GameObject.Find("MusicPlayer"));
         }
     }
 }

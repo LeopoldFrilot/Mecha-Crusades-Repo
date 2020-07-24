@@ -74,8 +74,8 @@ namespace FightingGame
                 Player2.AddComponent<AIBehavior>();
                 Player2.name += " CPU";
             }
-            Player1.name += " (P1)";
-            Player2.name += " (P2)";
+            Player1.name += "(P1)";
+            Player2.name += "(P2)";
         }
         private void StartSequence()
         {

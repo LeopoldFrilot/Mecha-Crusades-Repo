@@ -182,6 +182,10 @@ PrefabInstance:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 2cfcb9803201911498fa11319b95ea4f, type: 3}
+    - target: {fileID: 1107283271090549239, guid: ba02cee58508539479faeb1b89e3b71b, type: 3}
+      propertyPath: m_Volume
+      value: 0.3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba02cee58508539479faeb1b89e3b71b, type: 3}
 --- !u!1001 &55416209
@@ -275,7 +279,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3120337698560643532, guid: b6b2860e4cacb6e4485a96beaabd9c98, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 3120337698560643532, guid: b6b2860e4cacb6e4485a96beaabd9c98, type: 3}
       propertyPath: m_LocalRotation.x
@@ -622,7 +626,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.199, g: 0.0040612225, b: 0.062272117, a: 1}
+  m_BackGroundColor: {r: 0.17, g: 0.0034693861, b: 0.053197287, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1311,8 +1315,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 238.8}
-  m_SizeDelta: {x: 709.3383, y: 120.164856}
+  m_AnchoredPosition: {x: 0, y: 209}
+  m_SizeDelta: {x: 774.42267, y: 257.3694}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1950924829
 MonoBehaviour:
@@ -1327,7 +1331,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.05490196, g: 0.9098039, b: 0.88235295, a: 1}
+  m_Color: {r: 0.05490196, g: 0.9098039, b: 0.88235295, a: 0.8235294}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1335,8 +1339,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 28
+    m_Font: {fileID: 12800000, guid: c9f6d0e7bc8541498c9a4799ba184ede, type: 3}
+    m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -1348,7 +1352,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: The red puck is player1. It is controlled via WASD and Space to select
-    the character. The blue puck is player2. Currently it is AI controlled
+    the character. The blue puck is player2. Currently it is AI controlled.
 --- !u!222 &1950924830
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1431,7 +1435,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3120337698560643532, guid: b6b2860e4cacb6e4485a96beaabd9c98, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 3120337698560643532, guid: b6b2860e4cacb6e4485a96beaabd9c98, type: 3}
       propertyPath: m_LocalRotation.x
@@ -1463,10 +1467,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3120337698560643532, guid: b6b2860e4cacb6e4485a96beaabd9c98, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3881661428215045972, guid: b6b2860e4cacb6e4485a96beaabd9c98, type: 3}
-      propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4644476060437510966, guid: b6b2860e4cacb6e4485a96beaabd9c98, type: 3}

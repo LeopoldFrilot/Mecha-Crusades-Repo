@@ -282,7 +282,7 @@ MonoBehaviour:
       - m_Target: {fileID: 1055623344940228975}
         m_TargetAssemblyTypeName: Puck, Assembly-CSharp
         m_MethodName: SelectCharacter
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -353,6 +353,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 729ded6c-1fa4-493b-8e5f-24087b8183cf
     m_ActionName: UI/Vertical[/Keyboard/s,/Keyboard/w,/DualShock4GamepadHID/dpad/down,/DualShock4GamepadHID/dpad/up]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6ec5800a-f188-427c-9be6-b216d23e6765
+    m_ActionName: UI/Back[/Keyboard/escape,/DualShock4GamepadHID/buttonEast,/DualShock4GamepadHID/select]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: UI

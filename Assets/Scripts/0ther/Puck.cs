@@ -52,7 +52,7 @@ public class Puck : MonoBehaviour
         if(curChar == null)
         {
             var characters = FindObjectsOfType<CharButton>();
-            curChar = characters[(int)Random.Range(0, characters.Length - Mathf.Epsilon)];
+            curChar = characters[Mathf.FloorToInt(Random.Range(0, characters.Length - Mathf.Epsilon))];
         }
         transform.position = Vector2.MoveTowards(transform.position, curChar.transform.position, speed * Time.deltaTime);
         if(transform.position == curChar.transform.position)
