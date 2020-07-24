@@ -8,10 +8,12 @@ public class GameSounds : ScriptableObject
     [SerializeField] AudioClip winScreenTransitionSound;
     [SerializeField] AudioClip pauseSound;
     [SerializeField] AudioClip resumeSound;
+    [SerializeField] AudioClip[] startSequence;
 
     public AudioClip NextSceneTransitionSound { get => nextSceneTransitionSound; set => nextSceneTransitionSound = value; }
     public AudioClip ResetSceneTransitionSound { get => resetSceneTransitionSound; set => resetSceneTransitionSound = value; }
     public AudioClip WinScreenTransitionSound { get => winScreenTransitionSound; set => winScreenTransitionSound = value; }
     public AudioClip PauseSound { get => pauseSound; set => pauseSound = value; }
     public AudioClip ResumeSound { get => resumeSound; set => resumeSound = value; }
+    public AudioClip[] StartSequence { get => startSequence; set => startSequence = value; }
 }

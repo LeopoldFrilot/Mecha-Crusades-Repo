@@ -16,11 +16,15 @@ namespace FightingGame.Scene
 
         public void PlayClip(float volume)
         {
-            audioSource.PlayOneShot(audioClip, volume);
+            FindObjectOfType<SceneSwitcher>().PlayClip(audioClip, volume);
         }
         public void StopAudio()
         {
             audioSource.Stop();
+        }
+        public void LoadIntro()
+        {
+            FindObjectOfType<SceneSwitcher>().LoadNextScene();
         }
     }
 }

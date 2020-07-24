@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 //using UnityEngine.UIElements;
 
@@ -25,7 +26,6 @@ namespace FightingGame.Scene
         GeneralPlayerController PCP1;
         GeneralPlayerController PCP2;
         SceneSwitcher SS;
-        
         public void Start()
         {
             if (GetComponent<PlayerSelect>())
@@ -34,7 +34,7 @@ namespace FightingGame.Scene
                 PCP2 = GetComponent<PlayerSelect>().Player2.GetComponent<GeneralPlayerController>();
             }
             if(FPSTracker)StartCoroutine(ShowFPS());
-            ShowWin();
+            if (WinnerDisplay) ShowWin();
             SS = FindObjectOfType<SceneSwitcher>(); // Used to manage Audioclips
         }
         public void Update()
@@ -89,18 +89,29 @@ namespace FightingGame.Scene
             if (PCP1) TurnOffPlayer(PCP1.gameObject);
             if (PCP2) TurnOffPlayer(PCP2.gameObject);
         }
+        public void PauseMovement()
+        {
+            Debug.Log(PCP1);
+            if (PCP1) TurnOffPlayer(PCP1.gameObject);
+            if (PCP2) TurnOffPlayer(PCP2.gameObject);
+        }
         public void ResumeScreen()
         {
+
             SS.PlayClip(SS.GS.ResumeSound, 1f);
             if (gameScreen) gameScreen.SetActive(true);
             if (pauseMenu) pauseMenu.SetActive(false);
             if (PCP1) TurnOnPlayer(PCP1.gameObject);
             if (PCP2) TurnOnPlayer(PCP2.gameObject);
         }
-        
+        public void ResumeMovement()
+        {
+            if (PCP1) TurnOnPlayer(PCP1.gameObject);
+            if (PCP2) TurnOnPlayer(PCP2.gameObject);
+        }
         public void TurnOffPlayer(GameObject player)
         {
-            player.GetComponent<InputReader>().enabled = false;
+            player.GetComponent<PlayerInput>().DeactivateInput();
             if (player.GetComponent<PrimitiveAI>())
             {
                 player.GetComponent<PrimitiveAI>().TurnOffAI();
@@ -108,7 +119,7 @@ namespace FightingGame.Scene
         }
         public void TurnOnPlayer(GameObject player)
         {
-            player.GetComponent<InputReader>().enabled = true;
+            player.GetComponent<PlayerInput>().ActivateInput();
             if (player.GetComponent<PrimitiveAI>() && SceneStatics.IsCPUActive)
             {
                 player.GetComponent<PrimitiveAI>().TurnOnAI();

@@ -15,7 +15,7 @@ namespace FightingGame.Scene
         private static int p1Wins = 0;
         private static int p2Wins = 0;
         private static string setWinner;
-        private static bool showFPS;
+        private static bool showFPS = true;
         private static bool isCPUActive = true;
         public static int Round { get => round; set => round = value; }
         public static int P1Wins { get => p1Wins; set => p1Wins = value; }

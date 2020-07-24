@@ -41,7 +41,8 @@ namespace FightingGame.Scene
         IEnumerator LoadWinSceneWithAudio(AudioClip clip)
         {
             PlayClip(clip, 1f);
-            yield return new WaitForSeconds(.7f);
+            yield return new WaitForSeconds(.9f);
+            Destroy(GameObject.Find("MusicPlayer"));
             SceneManager.LoadScene("Winner");
         }
         IEnumerator ReloadSceneWithAudio(AudioClip clip)

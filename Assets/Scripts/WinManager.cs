@@ -75,7 +75,6 @@ namespace FightingGame
         private void GameOver()
         {
             ResetGame();
-            Destroy(GameObject.Find("MusicPlayer"));
             FindObjectOfType<SceneSwitcher>().LoadWinScene();
         }
     }

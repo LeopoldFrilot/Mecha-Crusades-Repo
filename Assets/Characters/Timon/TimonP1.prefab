@@ -139,8 +139,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 9647fb4c7999db646a796aef1871b020, type: 3}
   - {fileID: 8300000, guid: 2e58d30fc8c1592449133df7439fd781, type: 3}
   - {fileID: 8300000, guid: 4665f547d6fae454280c26517fbe992d, type: 3}
-  - {fileID: 8300000, guid: 3c6d6663dc23f58409cb47c9ba0bf774, type: 3}
   - {fileID: 8300000, guid: 6b92afe067c3ccd4698345d1d2993377, type: 3}
+  - {fileID: 8300000, guid: 3c6d6663dc23f58409cb47c9ba0bf774, type: 3}
 --- !u!1 &4714255113167657116
 GameObject:
   m_ObjectHideFlags: 0
@@ -938,8 +938,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   momentum: 0
-  momentumGrowthSpeed: 0.004
-  maxStrikes: 10
+  momentumGrowthSpeed: 0.005
+  maxStrikes: 5
   strikes: 0
   count: 0
   baseMomentumCount: 0

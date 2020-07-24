@@ -61,8 +61,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b0e613acb5f58749b22f214d61fd1ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player1: {fileID: 0}
-  player2: {fileID: 0}
 --- !u!114 &1136162782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75,6 +73,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8502d40b7174ed940b556da677e34db6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player1: {fileID: 0}
+  player2: {fileID: 0}
+  index: 0
 --- !u!114 &1136162783
 MonoBehaviour:
   m_ObjectHideFlags: 0

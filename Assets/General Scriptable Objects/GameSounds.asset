@@ -17,3 +17,10 @@ MonoBehaviour:
   winScreenTransitionSound: {fileID: 8300000, guid: c70b7002aaa45554295ae80faad04434, type: 3}
   pauseSound: {fileID: 8300000, guid: f43d39ff41b581d48ac8d87901272c0e, type: 3}
   resumeSound: {fileID: 8300000, guid: e28abea7c28009c42b428190c712a514, type: 3}
+  startSequence:
+  - {fileID: 8300000, guid: f75e98209ff81384b82c85380bf4e4dd, type: 3}
+  - {fileID: 8300000, guid: 2ec3dda8bbbe8104bbfc7709fc05b3ce, type: 3}
+  - {fileID: 8300000, guid: 67a8ea76f0283974d87b6f0c930f8108, type: 3}
+  - {fileID: 8300000, guid: 77d30140b6963ca499220ca332bfd359, type: 3}
+  - {fileID: 8300000, guid: 68bc93b1e30232a4cad9da0324c98529, type: 3}
+  - {fileID: 8300000, guid: e28abea7c28009c42b428190c712a514, type: 3}

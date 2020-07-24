@@ -8,20 +8,23 @@ namespace FightingGame.Scene
 {
     public class ButtonToggle : MonoBehaviour
     {
-        bool isOn = false;
+        bool isOn = true;
         [SerializeField] Color onColor;
-        [SerializeField] bool FPSToggleButton;
+        [SerializeField] bool fpsToggleButton;
+        [SerializeField] bool enableCPUButton;
         public void ToggleButton()
         {
             isOn = !isOn;
             if (isOn)
             {
-                if (FPSToggleButton) SceneStatics.ShowFPS = true;
+                if (fpsToggleButton) SceneStatics.ShowFPS = true;
+                if (enableCPUButton) SceneStatics.IsCPUActive = true;
                 GetComponent<Image>().color = onColor;
             }
             else
             {
-                if (FPSToggleButton) SceneStatics.ShowFPS = false;
+                if (fpsToggleButton) SceneStatics.ShowFPS = false;
+                if (enableCPUButton) SceneStatics.IsCPUActive = false;
                 GetComponent<Image>().color = Color.white;
             }
         }
